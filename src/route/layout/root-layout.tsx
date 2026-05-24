@@ -1,18 +1,16 @@
-import { GLOBAL } from 'config/global.config'
 import { Link as RouterLink, Outlet, useNavigate } from 'react-router-dom'
 import { logout } from 'app/store/slice/auth/auth-slice'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { PATH } from 'route/path'
-import { Button, IconButton, Stack, Toolbar, Tooltip } from '@mui/material'
+import { Button, IconButton, Stack, Toolbar, Tooltip, Typography } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import ShieldIcon from '@mui/icons-material/Shield'
-import { AppContent, AppRootBox, BrandLink, StandardAppBar } from 'design/styled'
-import { LogoImg } from 'design/styled'
-import { transl } from 'lib/tool'
-import { ASSET_DIR } from 'config/dir'
+import { AppContent, AppRootBox, StandardAppBar } from 'design/styled'
+import { formatText, transl } from 'lib/tool'
+import { AppLogo } from 'component/app'
 
-const AppShell = () => {
+const RootLayout = () => {
   const dispatch  = useAppDispatch()
   const navigate  = useNavigate()
   const { user }  = useAppSelector((state) => state.auth)
@@ -27,9 +25,7 @@ const AppShell = () => {
     <AppRootBox>
       <StandardAppBar position={'sticky'} elevation={0}>
         <Toolbar>
-          <BrandLink to={PATH.ROOT}>
-            <LogoImg src={ASSET_DIR.LOGO_PNG} alt={GLOBAL.APP_NAME} />
-          </BrandLink>
+          <AppLogo />
 
           <Stack direction='row' spacing={1} alignItems='center'>
             <Button component={RouterLink} to={PATH.BOOTCAMP.ROOT} startIcon={<MenuBookIcon />} color='inherit'>
@@ -47,8 +43,8 @@ const AppShell = () => {
                 </IconButton>
               </Tooltip>
             ) : (
-              <Button component={RouterLink} to={PATH.AUTH.LOG_IN} variant='contained'>
-                {transl('log_in')}
+              <Button component={RouterLink} to={PATH.AUTH.LOG_IN} variant={'contained'} color={'warning'}>
+                <Typography variant={'body1'}>{formatText(transl('log_in'), 'uppercase')}</Typography>
               </Button>
             )}
           </Stack>
@@ -62,4 +58,4 @@ const AppShell = () => {
   )
 }
 
-export default AppShell
+export default RootLayout
