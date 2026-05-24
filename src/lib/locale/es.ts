@@ -103,5 +103,15 @@ export const es = {
   "view": "Vista",
   "no_records_yet": "Aún no hay registros.",
   "website": "Sitio web",
-  "manage": "Administrar"
+  "manage": "Administrar",
+  "create_account": "Crear una cuenta",
+  "create_an_account": "Crear una cuenta",
+  "roles": {
+    "student": "Alumna",
+    "trainer": "Entrenadora",
+    "admin": "Administradora",
+    "guest": "Invitada"
+  },
+  "go_back": "Volver",
+  "log_in_instead": "Inicie sesión en su lugar"
 } as const

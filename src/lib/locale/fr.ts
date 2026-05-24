@@ -103,5 +103,15 @@ export const fr = {
   "view": "Voir",
   "no_records_yet": "Aucun enregistrement pour l'instant.",
   "website": "Site web",
-  "manage": "Gérer"
+  "manage": "Gérer",
+  "create_account": "Créer un compte",
+  "create_an_account": "Créer un compte",
+  "roles": {
+    "student": "Étudiante",
+    "trainer": "Entraîneuse",
+    "admin": "Administratrice",
+    "guest": "Invitée"
+  },
+  "go_back": "Retourner",
+  "log_in_instead": "Connectez-vous à la place"
 } as const
