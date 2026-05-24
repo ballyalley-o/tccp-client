@@ -1,23 +1,23 @@
 export const color = {
   brand: {
-    primary    : '#1A73E8',
+    primary    : '#5F6368',
     primaryDark: '#174EA6',
     secondary  : '#0B806A',
-    accent     : '#F9AB00',
+    accent     : '#F9E400',
   },
   status: {
-    error  : '#B3261E',
-    success: '#146C43',
+    error  : '#ee1f14',
+    success: '#b3ff00',
   },
   neutral: {
-    ink         : '#1F2937',
+    ink         : '#12161C',
     muted       : '#5F6368',
-    surface     : '#F2EED8',
+    surface     : '#eef2f9',
     surfaceAlt  : '#F7F9FC',
     border      : '#DADCE0'
   },
   contrast: {
     white: '#FFFFFF',
-    black: '#000000'
+    black: '#030303'
   }
 }
