@@ -1,0 +1,1 @@
+export { default as FallbackErrorPage } from './fallback-error-page'

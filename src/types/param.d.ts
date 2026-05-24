@@ -1,0 +1,1 @@
+declare type MODULE = 'auth' | 'bootcamp' | 'course' | 'user' | 'feedback'
