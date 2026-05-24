@@ -9,24 +9,26 @@ import LanguageIcon from '@mui/icons-material/Language'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import PaidIcon from '@mui/icons-material/Paid'
 import StarIcon from '@mui/icons-material/Star'
+import { ArrowBack } from '@mui/icons-material'
 import { StatusView } from 'component/shared/loader'
 import { CompactListIcon, IntroText, MetaStack, OffsetCard, SmallOffsetText, SpacedDivider, TagStack } from 'design/styled'
 import { transl } from 'lib/tool'
+import { PATH } from 'route/path'
 
 const BootcampDetailPage = () => {
-  const { slug }                          = useParams()
+  const { bootcampSlug }                  = useParams()
   const dispatch                          = useAppDispatch()
   const { selected, detailStatus, error } = useAppSelector((state) => state.bootcamps)
 
   useEffect(() => {
-    if (slug) {
-      dispatch(fetchBootcampBySlug(slug))
+    if (bootcampSlug) {
+      dispatch(fetchBootcampBySlug(bootcampSlug))
     }
 
     return () => {
       dispatch(clearSelectedBootcamp())
     }
-  }, [dispatch, slug])
+  }, [dispatch, bootcampSlug])
 
   if (detailStatus === 'loading' || detailStatus === 'failed' || !selected) {
     return <StatusView status={detailStatus} error={error} />
@@ -41,6 +43,9 @@ const BootcampDetailPage = () => {
 
   return (
     <Stack spacing={3}>
+      <Button component={Link} href={PATH.BOOTCAMP.ROOT} rel='noreferrer' startIcon={<ArrowBack />} variant={'text'} sx={{ display: 'flex', width: '100px'}}>
+           {transl('go_back')}
+      </Button>
       <Stack direction={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} spacing={2}>
         <Box>
           <Typography variant='h1'>{selected.name}</Typography>
@@ -60,7 +65,7 @@ const BootcampDetailPage = () => {
           </MetaStack>
         </Box>
         {selected.website ? (
-          <Button component={Link} href={selected.website} target='_blank' rel='noreferrer' startIcon={<LanguageIcon />} variant='contained'>
+          <Button component={Link} href={selected.website} target='_blank' rel='noreferrer' startIcon={<LanguageIcon />} variant={'contained'} color={'warning'}>
            {transl('website')}
           </Button>
         ) : null}
