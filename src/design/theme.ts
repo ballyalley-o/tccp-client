@@ -33,7 +33,7 @@ export const theme = createTheme({
     divider: designTokens.color.neutral.border
   },
   shape: {
-    borderRadius: designTokens.radius.md
+    borderRadius: designTokens.radius.xs
   },
   typography: {
     fontFamily: designTokens.typography.fontFamily,
@@ -61,7 +61,7 @@ export const theme = createTheme({
     MuiAlert: {
       styleOverrides: {
         root: {
-          borderRadius: designTokens.radius.md,
+          borderRadius: designTokens.radius.xs,
         }
       }
     },
@@ -78,7 +78,7 @@ export const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          borderRadius: designTokens.radius.md,
+          borderRadius: designTokens.radius.xs,
           minHeight   : 40
         }
       }
@@ -86,7 +86,7 @@ export const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: designTokens.radius.md,
+          borderRadius: designTokens.radius.xs,
           border      : `1px solid ${designTokens.color.neutral.border}`,
           boxShadow   : '0 1px 2px rgba(60, 64, 67, 0.08)'
         }
@@ -116,7 +116,7 @@ export const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          borderRadius: designTokens.radius.sm
+          borderRadius: designTokens.radius.xs
         }
       }
     }
