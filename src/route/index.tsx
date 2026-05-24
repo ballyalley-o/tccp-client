@@ -3,7 +3,7 @@ import App from 'app'
 import { FallbackErrorPage } from "page/fallback"
 
 import { PATH } from "./path"
-import { dashboardRoute, bootcampRoute } from "./module"
+import { dashboardRoute, bootcampRoute, authRoute } from './module'
 
 const router = createBrowserRouter([
     {
@@ -12,7 +12,8 @@ const router = createBrowserRouter([
         errorElement: <FallbackErrorPage />,
         children    : [
            ...dashboardRoute,
-           ...bootcampRoute
+           ...bootcampRoute,
+           ...authRoute
         ]
     }
 ])
