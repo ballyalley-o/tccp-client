@@ -56,7 +56,9 @@ export const fr = {
     "owner_no_myleague": "Aucune MyLeague créée",
     "membership_expired": "Adhésion expirée",
     "membership_processed": "Adhésion déjà traitée",
-    "draft_started": "La date de draft a déjà commencé"
+    "draft_started": "La date de draft a déjà commencé",
+    "find_bootcamp": "Trouvez le bon bootcamp",
+    "footer": "Apprenez plus rapidement grâce à des bootcamps techniques organisés et à une formation moderne des développeurs."
   },
   "nav": {
     "dashboard": "Tableau de bord",
@@ -97,7 +99,8 @@ export const fr = {
   "bootcamp": "Camp d'entraînement",
   "bootcamps": "Camps d'entraînement",
   "bootcamp_para": {
-    "1": "Comparez les programmes, les coûts, les résultats et l'orientation des cours du catalogue du projet CodeCoach."
+    "1": "Comparez les programmes, les coûts, les résultats et l'orientation des cours du catalogue du projet CodeCoach.",
+    "footer": "Apprenez plus rapidement grâce à des bootcamps techniques organisés et à une formation moderne des développeurs."
   },
   "remote_or_pending": "À distance ou en attente",
   "view": "Voir",
@@ -113,5 +116,15 @@ export const fr = {
     "guest": "Invitée"
   },
   "go_back": "Retourner",
-  "log_in_instead": "Connectez-vous à la place"
+  "log_in_instead": "Connectez-vous à la place",
+  "search_bootcamps": "Rechercher des bootcamps",
+  "sort": "Trier",
+  "filters": {
+    "bootcamp": {
+      "rating": "Notation",
+      "averageCost": "Coût faible à élevé",
+      "-averageCost": "Coût élevé à faible",
+      "name": "Nom"
+    }
+  }
 } as const

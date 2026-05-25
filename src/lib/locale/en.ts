@@ -17,10 +17,20 @@ export const en = {
   no_records_yet   : 'No records yet.',
   register         : 'Register',
   remote_or_pending: 'Remote or location pending',
+  search_bootcamps : "Search bootcamps",
+  sort             : 'Sort',
   view             : 'View',
   website          : 'Website',
   bootcamp_para    : {
-    1: ' Compare programs, costs, outcomes, and course focus from The CodeCoach Project catalogue.',
+    1     : 'Compare programs, costs, outcomes, and course focus from The CodeCoach Project catalogue.'
+  },
+  filters: {
+    bootcamp: {
+      rating        : 'Rating',
+      averageCost   : 'Cost low to high',
+      '-averageCost': 'Cost high to low',
+      name          : 'Name'
+    }
   },
   roles: {
     student: 'Student',
@@ -63,9 +73,11 @@ export const en = {
   },
   message: {
     draft_started       : 'Draft date has already started',
+    footer              : 'Learn faster with curated technical bootcamps and modern developer education.',
     membership_expired  : 'Membership expired',
     membership_processed: 'Membership already processed',
     owner_no_myleague   : 'No MyLeague created',
+    find_bootcamp       : 'Find the right bootcamp'
   },
   nav: {
     dashboard   : 'Dashboard',

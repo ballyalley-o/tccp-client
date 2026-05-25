@@ -56,7 +56,9 @@ export const es = {
     "owner_no_myleague": "No se ha creado ninguna MyLeague",
     "membership_expired": "Membresía caducada",
     "membership_processed": "Membresía ya procesada",
-    "draft_started": "La fecha del draft ya comenzó"
+    "draft_started": "La fecha del draft ya comenzó",
+    "find_bootcamp": "Encuentra el bootcamp adecuado",
+    "footer": "Aprenda más rápido con bootcamps técnicos seleccionados y educación moderna para desarrolladores."
   },
   "nav": {
     "dashboard": "Panel",
@@ -97,7 +99,8 @@ export const es = {
   "bootcamp": "Campamento de entrenamiento",
   "bootcamps": "Campamentos de entrenamiento",
   "bootcamp_para": {
-    "1": "Compare programas, costos, resultados y enfoque de cursos del catálogo del Proyecto CodeCoach."
+    "1": "Compare programas, costos, resultados y enfoque de cursos del catálogo del Proyecto CodeCoach.",
+    "footer": "Aprenda más rápido con bootcamps técnicos seleccionados y educación moderna para desarrolladores."
   },
   "remote_or_pending": "Remota o ubicación pendiente",
   "view": "Vista",
@@ -113,5 +116,15 @@ export const es = {
     "guest": "Invitada"
   },
   "go_back": "Volver",
-  "log_in_instead": "Inicie sesión en su lugar"
+  "log_in_instead": "Inicie sesión en su lugar",
+  "search_bootcamps": "Buscar campamentos de entrenamiento",
+  "sort": "Clasificar",
+  "filters": {
+    "bootcamp": {
+      "rating": "Clasificación",
+      "averageCost": "Costo de menor a mayor",
+      "-averageCost": "Costo de alto a bajo",
+      "name": "Nombre"
+    }
+  }
 } as const
