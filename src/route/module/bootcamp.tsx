@@ -12,7 +12,7 @@ const bootcampRoute: RouteObject[] = [
             },
             {
                 path: PATH.BOOTCAMP.DETAIL,
-                element: <BootcampDetailPage/>
+                element: <BootcampDetailPage />
             }
 
         ]
