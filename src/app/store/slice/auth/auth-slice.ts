@@ -97,6 +97,18 @@ const authSlice = createSlice({
         state.user  = null
         state.token = null
       })
+      .addCase(updateAccount.pending, (state) => {
+        state.status = 'loading'
+        state.error  = null
+      })
+      .addCase(updateAccount.fulfilled, (state, action: PayloadAction<ApiSingle<User>>) => {
+        state.status = 'succeeded'
+        state.user   = action.payload.data ?? action.payload.user ?? state.user
+      })
+      .addCase(updateAccount.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error  = action.error.message ?? transl('error.failed_update')
+      })
       .addCase(logout.fulfilled, (state) => {
         state.user = null
         state.token = null
