@@ -45,7 +45,7 @@ const initialCourse: CourseDraft = {
   scholarshipAvailable: false
 }
 
-export function ManagePage() {
+ const ManagePage = () => {
   const dispatch                = useAppDispatch()
   const token                   = useAppSelector((state) => state.auth.token)
   const selected                = useAppSelector((state) => state.bootcamps.selected)
@@ -267,3 +267,5 @@ export function ManagePage() {
     </Stack>
   )
 }
+
+export default ManagePage
