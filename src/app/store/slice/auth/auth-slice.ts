@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { apiRequest } from 'lib/api'
 import type { ApiSingle, User } from 'types/model'
-import type { AuthState, LoginCredential, RegisterCredential } from 'types/auth'
+import type { AccountUpdateCredential, AuthState, LoginCredential, RegisterCredential } from 'types/auth'
 import { transl } from 'lib/tool'
 
 const initialState: AuthState = {
@@ -39,6 +39,24 @@ export const fetchAccount = createAsyncThunk('auth/fetchAccount', async (_, { ge
   const state = getState() as { auth: AuthState }
   return apiRequest<ApiSingle<User>>('/auth/account', {
     token: state.auth.token
+  })
+})
+
+export const updateAccount = createAsyncThunk('auth/updateAccount', async (account: AccountUpdateCredential, { getState }) => {
+  const state = getState() as { auth: AuthState }
+  const payload: AccountUpdateCredential = {
+    ...(account.firstname?.trim() ? { firstname: account.firstname.trim() } : {}),
+    ...(account.lastname?.trim() ? { lastname: account.lastname.trim() } : {}),
+    ...(account.username?.trim() ? { username: account.username.trim() } : {}),
+    ...(account.email?.trim() ? { email: account.email.trim() } : {}),
+    ...(account.location?.trim() ? { location: account.location.trim() } : {}),
+    ...(account.avatar?.trim() ? { avatar: account.avatar.trim() } : {}),
+  }
+
+  return apiRequest<ApiSingle<User>>('/auth/update', {
+    method: 'PUT',
+    token : state.auth.token,
+    body  : JSON.stringify(payload)
   })
 })
 
