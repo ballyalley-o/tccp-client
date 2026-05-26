@@ -1,15 +1,16 @@
 export type UserRole = 'admin' | 'trainer' | 'student'
 
 export interface User {
-  id       ?: string
-  _id      ?: string
-  firstname?: string
-  lastname ?: string
-  username  : string
-  email     : string
-  role      : UserRole
-  avatar   ?: string
-  location ?: string
+  id          ?: string
+  _id         ?: string
+  firstname   ?: string
+  lastname    ?: string
+  username     : string
+  email        : string
+  role         : UserRole
+  avatar      ?: string
+  location    ?: string
+  organization?: string
 }
 
 export interface Course {

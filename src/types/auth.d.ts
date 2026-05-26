@@ -13,8 +13,9 @@ declare interface LoginCredential {
 }
 
 declare interface RegisterCredential extends LoginCredential {
-  firstname: string
-  lastname : string
-  username : string
-  role     : User['role']
+  firstname    : string
+  lastname    ?: string
+  username     : string
+  role         : User['role']
+  organization?: string
 }
