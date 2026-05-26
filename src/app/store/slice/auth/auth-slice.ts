@@ -19,9 +19,19 @@ export const login = createAsyncThunk('auth/login', async (credentials: LoginCre
 })
 
 export const register = createAsyncThunk('auth/register', async (credentials: RegisterCredential) => {
+  const payload: RegisterCredential = {
+    firstname: credentials.firstname.trim(),
+    username : credentials.username.trim(),
+    email    : credentials.email.trim(),
+    password : credentials.password,
+    role     : credentials.role,
+    ...(credentials.lastname?.trim() ? { lastname: credentials.lastname.trim() } : {}),
+    ...(credentials.role === 'admin' && credentials.organization?.trim() ? { organization: credentials.organization.trim() } : {}),
+  }
+
   return apiRequest<ApiSingle<User>>('/auth/register', {
     method: 'POST',
-    body: JSON.stringify(credentials)
+    body: JSON.stringify(payload)
   })
 })
 
