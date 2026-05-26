@@ -5,6 +5,7 @@ export const en = {
   calendar         : 'Calendar',
   create_account   : 'Create account',
   create_an_account: 'Create an account',
+  get_started      : 'Get Started',
   go_back          : 'Go Back',
   invite_user      : 'Invite User',
   league_leaders   : 'League Leaders',
@@ -15,12 +16,14 @@ export const en = {
   logging_out      : 'Logging Out',
   manage           : 'Manage',
   no_records_yet   : 'No records yet.',
+  refresh          : 'Refresh',
   register         : 'Register',
   remote_or_pending: 'Remote or location pending',
   search_bootcamps : "Search bootcamps",
   sort             : 'Sort',
   view             : 'View',
   website          : 'Website',
+  worldwide        : 'worldwide.',
   bootcamp_para    : {
     1     : 'Compare programs, costs, outcomes, and course focus from The CodeCoach Project catalogue.'
   },
@@ -46,8 +49,6 @@ export const en = {
     user_logged_in : 'User logged in',
   },
   error: {
-    cpu_cannot_be_selected        : 'CPU team cannot be selected',
-    draft_already_started         : 'Draft has already started',
     failed_find                   : 'Failed to find the requested document',
     failed_link_route             : '[mainRoute]: Failed to link Route: {linker}',
     failed_update                 : 'Failed to update this document',
@@ -73,15 +74,25 @@ export const en = {
   },
   message: {
     draft_started       : 'Draft date has already started',
-    footer              : 'Learn faster with curated technical bootcamps and modern developer education.',
+    footer              : 'Learn faster with curated technical bootcamps and modern developer education, ',
     membership_expired  : 'Membership expired',
     membership_processed: 'Membership already processed',
     owner_no_myleague   : 'No MyLeague created',
     find_bootcamp       : 'Find the right bootcamp'
   },
   nav: {
-    dashboard   : 'Dashboard',
-    footer: {
+    dashboard: 'Dashboard',
+    user     : {
+      account: 'Account',
+      manage : 'Manage',
+      setting: 'Setting',
+      log_out: 'Log Out'
+    },
+    footer   : {
+      docs                  : 'Docs',
+      api                   : 'API',
+      careers               : 'Careers',
+      privacy               : 'Privacy',
       all_system_operational: 'All systems operational'
     },
     sidebar     : {

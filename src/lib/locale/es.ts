@@ -83,7 +83,21 @@ export const es = {
       "league_lounge": "Salón de la liga"
     },
     "footer": {
-      "all_system_operational": "● Todos los sistemas operativos"
+      "all_system_operational": "● Todos los sistemas operativos",
+      "docs": "Documentos",
+      "api": "API",
+      "careers": "Carreras",
+      "privacy": "Privacidad"
+    },
+    "user": {
+      "docs": "Documentos",
+      "api": "API",
+      "careers": "Carreras",
+      "privacy": "Privacidad",
+      "account": "Cuenta",
+      "manage": "Administrar",
+      "setting": "Configuración",
+      "log_out": "Finalizar la sesión"
     }
   },
   "back": "Atrás",
@@ -129,5 +143,8 @@ export const es = {
       "-averageCost": "Costo de alto a bajo",
       "name": "Nombre"
     }
-  }
+  },
+  "worldwide": "Mundial.",
+  "get_started": "Empezar",
+  "refresh": "Refrescar"
 } as const
