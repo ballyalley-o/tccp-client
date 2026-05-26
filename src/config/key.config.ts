@@ -1,3 +1,3 @@
 export const KEY = {
-    ROLE: ['trainer', 'admin', 'student', 'guest']
+    ROLE: ['student', 'trainer', 'admin'] as const
 }
