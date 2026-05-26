@@ -1,5 +1,7 @@
-import AddIcon from '@mui/icons-material/Add'
-import SaveIcon from '@mui/icons-material/Save'
+import { useState } from 'react'
+import { KEY } from 'config'
+import { useAppDispatch, useAppSelector } from 'app/hook'
+import { createBootcamp, createCourse } from 'app/store/slice'
 import {
   Alert,
   Button,
@@ -13,62 +15,44 @@ import {
   MenuItem,
   Stack,
   TextField,
-  Typography
+  Typography,
 } from '@mui/material'
-import { FormEvent, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../app/hook'
-import { createBootcamp } from '../features/bootcamps/bootcampsSlice'
-import { createCourse } from '../features/courses/coursesSlice'
-import type { BootcampDraft, CourseDraft } from '../types/model'
-
-const careerOptions = [
-  'Web Development',
-  'Mobile Development',
-  'UI/UX',
-  'Data Science',
-  'Data Security',
-  'Software Engineering',
-  'Full Stack Web Development',
-  'Dev Ops',
-  'AI',
-  'Machine Learning',
-  'Cloud Computing',
-  'Cyber Security',
-  'Other'
-]
+import AddIcon from '@mui/icons-material/Add'
+import SaveIcon from '@mui/icons-material/Save'
+import type { BootcampDraft, CourseDraft } from 'types/model'
 
 const initialBootcamp: BootcampDraft = {
-  name: '',
-  description: '',
-  website: '',
-  phone: '',
-  email: '',
-  address: '',
-  duration: '',
-  careers: ['Web Development'],
-  housing: false,
+  name         : '',
+  description  : '',
+  website      : '',
+  phone        : '',
+  email        : '',
+  address      : '',
+  duration     : '',
+  careers      : ['Web Development'],
+  housing      : false,
   jobAssistance: false,
-  jobGuarantee: false,
-  acceptGi: false
+  jobGuarantee : false,
+  acceptGi     : false
 }
 
 const initialCourse: CourseDraft = {
-  title: '',
-  description: '',
-  duration: '',
-  tuition: 0,
-  minimumSkill: 'beginner',
+  title               : '',
+  description         : '',
+  duration            : '',
+  tuition             : 0,
+  minimumSkill        : 'beginner',
   scholarshipAvailable: false
 }
 
 export function ManagePage() {
-  const dispatch = useAppDispatch()
-  const token = useAppSelector((state) => state.auth.token)
-  const selected = useAppSelector((state) => state.bootcamps.selected)
+  const dispatch                = useAppDispatch()
+  const token                   = useAppSelector((state) => state.auth.token)
+  const selected                = useAppSelector((state) => state.bootcamps.selected)
   const [bootcamp, setBootcamp] = useState<BootcampDraft>(initialBootcamp)
-  const [course, setCourse] = useState<CourseDraft>(initialCourse)
-  const [notice, setNotice] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [course, setCourse]     = useState<CourseDraft>(initialCourse)
+  const [notice, setNotice]     = useState<string | null>(null)
+  const [error, setError]       = useState<string | null>(null)
 
   const toggleCareer = (career: string) => {
     const careers = bootcamp.careers.includes(career)
@@ -77,7 +61,7 @@ export function ManagePage() {
     setBootcamp({ ...bootcamp, careers })
   }
 
-  const handleBootcampSubmit = async (event: FormEvent) => {
+  const handleBootcampSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setNotice(null)
     setError(null)
@@ -90,7 +74,7 @@ export function ManagePage() {
     }
   }
 
-  const handleCourseSubmit = async (event: FormEvent) => {
+  const handleCourseSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setNotice(null)
     setError(null)
@@ -185,7 +169,7 @@ export function ManagePage() {
                   required
                 />
                 <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                  {careerOptions.map((career) => (
+                  {KEY.CAREER_OPTION.map((career) => (
                     <Chip
                       key={career}
                       label={career}
@@ -200,16 +184,13 @@ export function ManagePage() {
                     <FormControlLabel
                       key={field}
                       control={
-                        <Checkbox
-                          checked={bootcamp[field]}
-                          onChange={(event) => setBootcamp({ ...bootcamp, [field]: event.target.checked })}
-                        />
+                        <Checkbox checked={bootcamp[field]} onChange={(event) => setBootcamp({ ...bootcamp, [field]: event.target.checked })} />
                       }
                       label={field.replace(/([A-Z])/g, ' $1')}
                     />
                   ))}
                 </Stack>
-                <Button type="submit" variant="contained" startIcon={<SaveIcon />}>
+                <Button type={"submit"} variant={"contained"} startIcon={<SaveIcon />}>
                   Save bootcamp
                 </Button>
               </Stack>
