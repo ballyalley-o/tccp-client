@@ -38,7 +38,7 @@ const RootLayout = () => {
             ) : null}
             {user ? (
               <Tooltip title={transl('log_out')}>
-                <IconButton aria-label={'log-out'} onClick={handleLogout}>
+                <IconButton aria-label={'log-out'} onClick={handleLogout} color={'primary'}>
                   <LogoutIcon />
                 </IconButton>
               </Tooltip>
