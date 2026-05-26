@@ -14,7 +14,10 @@ const AppFooter = () => {
                         {GLOBAL.APP_NAME}
                     </Typography>
                 </Stack>
-                <Typography variant={'body2'} color={'text.secondary'}>{transl('message.footer')}</Typography>
+                <Stack component={'div'} direction={'row'} gap={0.2}>
+                    <Typography variant={'body2'} color={'text.secondary'}>{transl('message.footer')}</Typography>
+                    <Typography variant={'body2'} color={'text.secondary'} fontStyle={'italic'}>{transl('worldwide')}</Typography>
+                </Stack>
             </Stack>
 
             <Stack direction={'row'} spacing={4} flexWrap={'wrap'} useFlexGap>
