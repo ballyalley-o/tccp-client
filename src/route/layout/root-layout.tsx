@@ -6,9 +6,9 @@ import { Button, IconButton, Stack, Toolbar, Tooltip, Typography } from '@mui/ma
 import LogoutIcon from '@mui/icons-material/Logout'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import ShieldIcon from '@mui/icons-material/Shield'
+import { AppLogo, AppFooter } from 'component/app'
 import { AppContent, AppRootBox, StandardAppBar } from 'design/styled'
 import { formatText, transl } from 'lib/tool'
-import { AppLogo } from 'component/app'
 
 const RootLayout = () => {
   const dispatch  = useAppDispatch()
@@ -54,6 +54,7 @@ const RootLayout = () => {
       <AppContent maxWidth={false}>
         <Outlet />
       </AppContent>
+      <AppFooter />
     </AppRootBox>
   )
 }
