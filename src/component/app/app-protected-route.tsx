@@ -1,6 +1,7 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { useAppSelector } from 'app/hook'
-import type { UserRole } from '../../types/model'
+import { PATH } from 'route/path'
+import type { UserRole } from 'types/model'
 
 interface ProtectedRouteProps {
   roles?: UserRole[]
@@ -11,11 +12,11 @@ export function AppProtectedRoute({ roles }: ProtectedRouteProps) {
   const user     = useAppSelector((state) => state.auth.user)
 
   if (!user) {
-    return <Navigate to="/log-in" replace state={{ from: location }} />
+    return <Navigate to={PATH.AUTH.LOG_IN} replace state={{ from: location }} />
   }
 
   if (roles && !roles.includes(user.role)) {
-    return <Navigate to="/" replace />
+    return <Navigate to={PATH.ROOT} replace />
   }
 
   return <Outlet />
