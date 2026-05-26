@@ -81,25 +81,11 @@ export const en = {
   },
   nav: {
     dashboard   : 'Dashboard',
-    draft_room  : 'Draft Room',
-    player_stats: 'Player Stats',
+    footer: {
+      all_system_operational: 'All systems operational'
+    },
     sidebar     : {
-      dashboard    : 'Dashboard',
-      league       : 'League',
-      league_lounge: 'League Lounge',
-      team         : 'Team',
-      player       : 'Player',
-      items        : {
-        standings     : 'Standings',
-        playoffs      : 'Playoffs',
-        calendar      : 'Calendar',
-        transactions  : 'Transactions',
-        power_rankings: 'Power Rankings',
-        news_feed     : 'News Feed',
-        roster        : 'Roster',
-        schedule      : 'Schedule',
-        stats         : 'Stats',
-      },
+      dashboard    : 'Dashboard'
     },
   },
   validation: {

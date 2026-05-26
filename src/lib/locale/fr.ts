@@ -81,6 +81,9 @@ export const fr = {
       },
       "dashboard": "Tableau de bord",
       "league_lounge": "Salon de la Ligue"
+    },
+    "footer": {
+      "all_system_operational": "● Tous les systèmes opérationnels"
     }
   },
   "back": "Dos",

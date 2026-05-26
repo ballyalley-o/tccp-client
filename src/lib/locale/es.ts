@@ -81,6 +81,9 @@ export const es = {
       },
       "dashboard": "Panel",
       "league_lounge": "Salón de la liga"
+    },
+    "footer": {
+      "all_system_operational": "● Todos los sistemas operativos"
     }
   },
   "back": "Atrás",
