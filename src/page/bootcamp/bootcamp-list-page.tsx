@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { FILTER } from 'config'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { fetchBootcamps } from 'app/store/slice'
 import { Box, Grid2, InputAdornment, MenuItem, Stack, TextField, Typography } from '@mui/material'
@@ -6,6 +7,7 @@ import FilterListIcon from '@mui/icons-material/FilterList'
 import SearchIcon from '@mui/icons-material/Search'
 import { BootcampCard } from 'component/shared/card'
 import { StatusView } from 'component/shared/loader'
+import { StickyStack } from 'design/styled'
 import { transl } from 'lib/tool'
 
 const BootcampListPage = () => {
@@ -31,51 +33,50 @@ const BootcampListPage = () => {
 
   return (
     <Stack spacing={3}>
-      <Box>
-        <Typography variant="h1">Find the right bootcamp</Typography>
-        <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 760 }}>
-          {transl('bootcamp')}
-        </Typography>
-      </Box>
+      <StickyStack spacing={3}>
+        <Box>
+          <Typography variant={'h1'}>{transl('message.find_bootcamp')}</Typography>
+          <Typography color={'text.secondary'} sx={{ mt: 1, maxWidth: 760 }}>{transl('bootcamp')}</Typography>
+        </Box>
 
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
-        <TextField
-          fullWidth
-          label="Search bootcamps"
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          slotProps={{
-            input: {
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              )
-            }
-          }}
-        />
-        <TextField
-          select
-          label="Sort"
-          value={sort}
-          onChange={(event) => setSort(event.target.value)}
-          sx={{ minWidth: { md: 220 } }}
-          slotProps={{
-            input: {
-              startAdornment: (
-                <InputAdornment position="start">
-                  <FilterListIcon />
-                </InputAdornment>
-              )
-            }
-          }}
-        >
-          <MenuItem value="-rating">Rating</MenuItem>
-          <MenuItem value="averageCost">Cost low to high</MenuItem>
-          <MenuItem value="-averageCost">Cost high to low</MenuItem>
-          <MenuItem value="name">Name</MenuItem>
-        </TextField>
-      </Stack>
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
+          <TextField
+            fullWidth
+            label={transl('search_bootcamps')}
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position='start'>
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              },
+            }}
+          />
+          <TextField
+            select
+            label={transl('sort')}
+            value={sort}
+            onChange={(event) => setSort(event.target.value)}
+            sx={{ minWidth: { md: 220 } }}
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position={'start'}>
+                    <FilterListIcon />
+                  </InputAdornment>
+                ),
+              },
+            }}
+          >
+            {FILTER.BOOTCAMP_1.map((_f) => (
+              <MenuItem value={_f.value}>{_f.label}</MenuItem>
+            ))}
+          </TextField>
+        </Stack>
+      </StickyStack>
 
       {status === 'loading' || status === 'failed' ? (
         <StatusView status={status} error={error} />
