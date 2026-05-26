@@ -6,18 +6,21 @@ export const color = {
     accent     : '#F9E400',
   },
   status: {
-    error  : '#ee1f14',
-    success: '#b3ff00',
+    error  : '#EE1F14',
+    success: '#B3FF00',
   },
   neutral: {
-    ink         : '#12161C',
-    muted       : '#5F6368',
-    surface     : '#eef2f9',
-    surfaceAlt  : '#F7F9FC',
-    border      : '#DADCE0'
+    ink       : '#12161C',
+    muted     : '#5F6368',
+    surface   : '#EEf2f9',
+    surfaceAlt: '#F7F9FC',
+    border    : '#FFFFFF',
   },
   contrast: {
     white: '#FFFFFF',
-    black: '#030303'
-  }
+    black: '#030303',
+  },
+  darkMode: {
+    white: '#F2EED8'
+  },
 }
