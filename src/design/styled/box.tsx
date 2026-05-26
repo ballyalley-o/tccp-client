@@ -5,6 +5,8 @@ import { designTokens } from 'design/token'
 export const AppRootBox = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
     minHeight      : designTokens.layout.appMinHeight,
+    display        : 'flex',
+    flexDirection  : 'column'
 }))
 
 export const AuthPanel = styled(Box, { shouldForwardProp: (prop) => prop !== 'wide' })<{ wide?: boolean }>(({ wide }) => ({
@@ -41,4 +43,11 @@ export const AlertBlock = styled(Box)(() => ({
 
 export const SectionOffset = styled(Box)(({ theme }) => ({
     marginTop: theme.spacing(designTokens.spacing.xl),
+}))
+
+export const FooterBox = styled(Box)(({ theme }) => ({
+    width          : 10,
+    height         : 10,
+    backgroundColor: theme.palette.success.main,
+    boxShadow      : `0 0 12px ${theme.palette.success.main}`
 }))
