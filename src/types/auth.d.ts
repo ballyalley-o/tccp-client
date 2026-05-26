@@ -19,3 +19,12 @@ declare interface RegisterCredential extends LoginCredential {
   role         : User['role']
   organization?: string
 }
+
+declare interface AccountUpdateCredential {
+  firstname?: string
+  lastname ?: string
+  username ?: string
+  email    ?: string
+  location ?: string
+  avatar   ?: string
+}
