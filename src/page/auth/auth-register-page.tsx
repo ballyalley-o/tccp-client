@@ -13,21 +13,26 @@ import { FormPasswordField, FormTextField } from 'component/form'
 import { AuthPanel, FormTitle } from 'design/styled'
 import { formatText, transl } from 'lib/tool'
 
+
+const _DEFAULT_ROLE = 'student'
+
 const RegisterPage = () => {
   const dispatch          = useAppDispatch()
   const navigate          = useNavigate()
   const { status, error } = useAppSelector((state) => state.auth)
   const form              = useForm<RegisterFormValues>({
     defaultValues: {
-      firstname: '',
-      lastname : '',
-      username : '',
-      email    : '',
-      password : '',
-      role     : 'student',
+      firstname   : '',
+      lastname    : '',
+      username    : '',
+      email       : '',
+      password    : '',
+      role        : _DEFAULT_ROLE,
+      organization: '',
     },
     resolver: zodResolver(registerSchema),
   })
+  const selectedRole = form.watch('role')
 
   const handleSubmit = form.handleSubmit(async (values) => {
     const result = await dispatch(register(values))
@@ -55,6 +60,9 @@ const RegisterPage = () => {
                 <MenuItem key={_r} value={_r}>{formatText(transl((`roles.${_r}`) as unknown as never), 'capitalize')}</MenuItem>
               ))}
             </FormTextField>
+            {selectedRole === 'admin' ? (
+              <FormTextField control={form.control} name='organization' label='Organization' required autoComplete='organization' />
+            ) : null}
             <Button type='submit' variant={'contained'} color={'warning'} startIcon={<PersonAddIcon />} disabled={status === 'loading'}>
               {formatText(transl('create_account'), 'uppercase')}
             </Button>
