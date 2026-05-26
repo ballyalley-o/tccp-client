@@ -1,0 +1,105 @@
+import { useEffect, useState } from 'react'
+import { useAppDispatch, useAppSelector } from 'app/hook'
+import { updateAccount } from 'app/store/slice'
+import { Alert, Button, Card, CardContent, Stack, TextField, Typography } from '@mui/material'
+import SaveIcon from '@mui/icons-material/Save'
+
+const AuthSettingPage = () => {
+  const dispatch = useAppDispatch()
+  const { user, status, error } = useAppSelector((state) => state.auth)
+  const [notice, setNotice] = useState<string | null>(null)
+  const [form, setForm] = useState({
+    firstname: '',
+    lastname : '',
+    username : '',
+    email    : '',
+    location : '',
+    avatar   : '',
+  })
+
+  useEffect(() => {
+    if (user) {
+      setForm({
+        firstname: user.firstname || '',
+        lastname : user.lastname || '',
+        username : user.username || '',
+        email    : user.email || '',
+        location : user.location || '',
+        avatar   : user.avatar || '',
+      })
+    }
+  }, [user])
+
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault()
+    setNotice(null)
+    const result = await dispatch(updateAccount(form))
+    if (updateAccount.fulfilled.match(result)) {
+      setNotice('Account updated.')
+    }
+  }
+
+  return (
+    <Stack spacing={3}>
+      <Stack spacing={0.5}>
+        <Typography variant='h1'>Setting</Typography>
+        <Typography color='text.secondary'>Update profile fields through /auth/update.</Typography>
+      </Stack>
+
+      <Card>
+        <CardContent>
+          <Stack component='form' spacing={2} onSubmit={handleSubmit}>
+            {notice ? <Alert severity='success'>{notice}</Alert> : null}
+            {error ? <Alert severity='error'>{error}</Alert> : null}
+
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+              <TextField
+                fullWidth
+                label='First name'
+                value={form.firstname}
+                onChange={(event) => setForm({ ...form, firstname: event.target.value })}
+                required
+              />
+              <TextField
+                fullWidth
+                label='Last name'
+                value={form.lastname}
+                onChange={(event) => setForm({ ...form, lastname: event.target.value })}
+              />
+            </Stack>
+
+            <TextField
+              label='Username'
+              value={form.username}
+              onChange={(event) => setForm({ ...form, username: event.target.value })}
+              required
+            />
+            <TextField
+              label='Email'
+              type='email'
+              value={form.email}
+              onChange={(event) => setForm({ ...form, email: event.target.value })}
+              required
+            />
+            <TextField
+              label='Location'
+              value={form.location}
+              onChange={(event) => setForm({ ...form, location: event.target.value })}
+            />
+            <TextField
+              label='Avatar URL'
+              value={form.avatar}
+              onChange={(event) => setForm({ ...form, avatar: event.target.value })}
+            />
+
+            <Button type='submit' variant='contained' startIcon={<SaveIcon />} disabled={status === 'loading'}>
+              Save setting
+            </Button>
+          </Stack>
+        </CardContent>
+      </Card>
+    </Stack>
+  )
+}
+
+export default AuthSettingPage
