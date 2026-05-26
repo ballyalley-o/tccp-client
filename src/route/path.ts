@@ -14,6 +14,8 @@ export const PATH = {
     ROOT    : pathBuilder(_AUTH),
     LOG_IN  : pathBuilder(_AUTH, 'log-in'),
     REGISTER: pathBuilder(_AUTH, 'register'),
+    ACCOUNT : pathBuilder(_AUTH, 'account'),
+    SETTING : pathBuilder(_AUTH, 'setting'),
     MANAGE  : pathBuilder(_AUTH, 'manage')
   },
   BOOTCAMP: {
