@@ -41,7 +41,7 @@ const LogInPage = () => {
       <Card>
         <CardContent>
           <Stack component={'form'} spacing={2} onSubmit={handleSubmit}>
-            <FormTitle variant={'h1'}>{transl('log_in')}</FormTitle>
+            <FormTitle variant={'h1'}>{transl('get_started')}</FormTitle>
             {error ? <Alert severity='error'>{error}</Alert> : null}
             <FormTextField control={form.control} name='email' label='Email' type='email' required autoComplete='email' />
             <FormPasswordField control={form.control} name='password' label='Password' required autoComplete='current-password' />
