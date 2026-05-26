@@ -1,5 +1,6 @@
+import type { ElementType } from 'react'
 import { Stack } from '@mui/material'
-import { styled } from '@mui/material/styles'
+import { styled, alpha } from '@mui/material/styles'
 import { designTokens } from 'design/token'
 
 export const EmptyState = styled(Stack)(({ theme }) => ({
@@ -13,4 +14,29 @@ export const MetaStack = styled(Stack)(({ theme }) => ({
 
 export const TagStack = styled(Stack)(({ theme }) => ({
     marginTop: theme.spacing(designTokens.spacing.xl),
+}))
+
+export const StickyStack = styled(Stack)(({ theme }) => ({
+    position       : 'sticky',
+    top            : 0,
+    zIndex         : theme.zIndex.appBar - 1,
+    marginTop      : -80,
+    paddingTop     : 80,
+    backdropFilter : 'blur(10px)',
+    backgroundColor: alpha(theme.palette.background.default, 0.75),
+    borderBottom   : `1px solid ${theme.palette.divider}`,
+}))
+
+export const FooterWrapperStack = styled(Stack)<{ component?: ElementType }>(({ theme }) => ({
+    paddingTop                  : 10,
+    paddingRight                : 10,
+    paddingLeft                 : 50,
+    paddingBottom               : 10,
+    borderTop                   : `1px solid ${theme.palette.divider}`,
+    backgroundColor             : 'background.paper',
+    backdropFilter              : 'blur(12px)',
+    [theme.breakpoints.up('md')]: {
+        paddingRight: 50,
+        paddingLeft : 50,
+    }
 }))
