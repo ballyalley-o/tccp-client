@@ -30,7 +30,7 @@ const AuthSettingPage = () => {
     }
   }, [user])
 
-  const handleSubmit = async (event: FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setNotice(null)
     const result = await dispatch(updateAccount(form))
