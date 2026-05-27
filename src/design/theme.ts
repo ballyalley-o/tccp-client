@@ -7,7 +7,7 @@ export const theme = createTheme({
     mode   : 'light',
     primary: {
       main        : designTokens.color.brand.primary,
-      dark        : designTokens.color.brand.primaryDark,
+      dark        : designTokens.color.brand.primary_dark,
       contrastText: designTokens.color.contrast.white
     },
     secondary: {
@@ -23,7 +23,7 @@ export const theme = createTheme({
       main: designTokens.color.brand.accent
     },
     background: {
-      default: designTokens.color.neutral.surfaceAlt,
+      default: designTokens.color.neutral.surface_alt,
       paper  : designTokens.color.neutral.surface
     },
     text: {
