@@ -35,7 +35,7 @@ export const FooterText = styled(Typography)({
     }
 })
 
-export const FooterMonoText = styled(Typography)({
+export const MonoText = styled(Typography)({
     fontFamily   : 'monospace',
     letterSpacing: '0.5'
 })
