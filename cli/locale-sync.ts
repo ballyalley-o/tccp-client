@@ -12,7 +12,7 @@ const { en }     = await import(path.resolve(__dirname, '../src/lib/locale/en.ts
 const localesDir = path.resolve(__dirname, '../src/lib/locale')
 const base       = en
 
-const targets = ['fr', 'es'] as const
+const targets = ['fr', 'es', 'ja'] as const
 
 async function translateText(input: string, lang: string): Promise<string> {
   const params = Array.from(new Set(input.match(/\{[A-Za-z0-9_]+\}/g) || []))
