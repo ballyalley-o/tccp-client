@@ -1,22 +1,39 @@
-export const FILTER = {
+import { type LocaleKey } from "lib/tool";
+
+type FilterItemType = {
+    id   : string
+    label: LocaleKey
+    value: string
+}
+
+type FilterType = {
+  BOOTCAMP_1: FilterItemType[]
+}
+
+
+export const FILTER: FilterType = {
     BOOTCAMP_1: [
         {
-            label: 'Rating',
+            id   : 'rating-1',
+            label: 'filters.bootcamp.rating',
             value: 'rating'
 
         },
         {
-            label: 'Cost low to high',
+            id   : 'averageCost-2',
+            label: 'filters.bootcamp.averageCost',
             value: 'averageCost'
 
         },
-         {
-            label: 'Cost high to low',
+        {
+            id   : '-averageCost-3',
+            label: 'filters.bootcamp.-averageCost',
             value: '-averageCost'
 
         },
-         {
-            label: 'Name',
+        {
+            id   : 'name-4',
+            label: 'filters.bootcamp.name',
             value: 'name'
 
         }
