@@ -8,7 +8,7 @@ import { loginSchema, type LoginFormValues } from 'lib/form'
 import { Alert, Button, Card, CardContent, Divider, Stack } from '@mui/material'
 import LoginIcon from '@mui/icons-material/Login'
 import { FormPasswordField, FormTextField } from 'component/form'
-import { AuthPanel, FormTitle } from 'design/styled'
+import { AuthPanel, FormTitle, SecondaryButton } from 'design/styled'
 import { formatText, transl } from 'lib/tool'
 
 interface LocationState {
@@ -32,26 +32,28 @@ const LogInPage = () => {
     const result = await dispatch(login(values))
     if (login.fulfilled.match(result)) {
       const state = location.state as LocationState | null
-      navigate(state?.from?.pathname || '/', { replace: true })
+      navigate(state?.from?.pathname || PATH.ROOT, { replace: true })
     }
   })
 
   return (
-    <AuthPanel>
+    <AuthPanel wide={true}>
       <Card>
         <CardContent>
-          <Stack component={'form'} spacing={2} onSubmit={handleSubmit}>
+          <Stack component={'form'} spacing={4} onSubmit={handleSubmit}>
             <FormTitle variant={'h1'}>{transl('get_started')}</FormTitle>
             {error ? <Alert severity='error'>{error}</Alert> : null}
-            <FormTextField control={form.control} name='email' label='Email' type='email' required autoComplete='email' />
-            <FormPasswordField control={form.control} name='password' label='Password' required autoComplete='current-password' />
-            <Button type={'submit'} variant={'contained'} color={'warning'} startIcon={<LoginIcon />} disabled={status === 'loading'}>
-              {transl('log_in')}
-            </Button>
+            <Stack spacing={2}>
+              <FormTextField control={form.control} name={'email'} label={transl('email')} type={'email'} required autoComplete={'email'} />
+              <FormPasswordField control={form.control} name={'password'} label={transl('password')} required autoComplete={'current-password'} />
+              <Button type={'submit'} variant={'contained'} color={'warning'} startIcon={<LoginIcon />} disabled={status === 'loading'}>
+                {formatText(transl('log_in'), 'uppercase')}
+              </Button>
+            </Stack>
             <Divider />
-            <Button component={RouterLink} to={PATH.AUTH.REGISTER} variant={'text'} color={'inherit'} disabled={status === 'loading'}>
+            <SecondaryButton component={RouterLink} to={PATH.AUTH.REGISTER} variant={'text'} color={'inherit'} disabled={status === 'loading'}>
               {formatText(transl('create_an_account'), 'uppercase')}
-            </Button>
+            </SecondaryButton>
           </Stack>
         </CardContent>
       </Card>
