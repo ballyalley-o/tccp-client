@@ -8,7 +8,7 @@ import { AppContent, AppRootBox, StandardAppBar } from 'design/styled'
 import { formatText, transl } from 'lib/tool'
 
 const RootLayout = () => {
-  const { user }  = useAppSelector((state) => state.auth)
+  const { user } = useAppSelector((state) => state.auth)
 
   return (
     <AppRootBox>
