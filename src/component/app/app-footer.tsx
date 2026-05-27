@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material'
 import { GLOBAL } from 'config/global.config'
 import { NAV } from 'config/nav.config'
-import { FooterWrapperStack, FooterText, FooterMonoText } from 'design/styled'
+import { FooterWrapperStack, FooterText, MonoText } from 'design/styled'
 import { transl } from 'lib/tool'
 
 const AppFooter = () => {
@@ -26,11 +26,11 @@ const AppFooter = () => {
                 ))}
             </Stack>
             <Stack spacing={1} alignItems={{ xs: 'flex-start', md: 'flex-end' }}>
-                <FooterMonoText variant={'caption'}>{transl('nav.footer.all_system_operational')}</FooterMonoText>
-                <FooterMonoText variant={'caption'}>{GLOBAL.APP_VERSION}</FooterMonoText>
+                <MonoText variant={'caption'}>{transl('nav.footer.all_system_operational')}</MonoText>
+                <MonoText variant={'caption'}>{GLOBAL.APP_VERSION}</MonoText>
             </Stack>
             <Stack direction={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} spacing={1}>
-                <FooterMonoText variant={'caption'}>&copy; {currentYear} | {GLOBAL.APP_NAME}</FooterMonoText>
+                <MonoText variant={'caption'}>&copy; {currentYear} | {GLOBAL.APP_NAME}</MonoText>
             </Stack>
         </FooterWrapperStack>
     )
