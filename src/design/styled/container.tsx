@@ -8,9 +8,17 @@ export const AppContent = styled(Container)(({ theme }) => ({
     paddingBlock: theme.spacing(designTokens.spacing.page),
 }))
 
-export const PageCentered = styled(Container)(({ theme }) => ({
-    alignItems: 'center',
-    display   : 'flex',
-    minHeight : designTokens.layout.centeredMinHeight,
-    maxWidth  : theme.breakpoints.values.sm,
+export const PageCentered = styled(Container)({
+    alignItems    : 'center',
+    display       : 'flex',
+    justifyContent: 'center',
+    minHeight     : designTokens.layout.appMinHeight,
+})
+
+export const FallbackBgContainer = styled(Container)(({ theme }) => ({
+    alignItems    : 'center',
+    display       : 'flex',
+    justifyContent: 'center',
+    minHeight     : designTokens.layout.appMinHeight,
+    paddingInline : theme.spacing(2)
 }))

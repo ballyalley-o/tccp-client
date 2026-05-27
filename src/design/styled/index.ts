@@ -1,5 +1,6 @@
 export * from './box'
 export * from './brand'
+export * from './button'
 export * from './card'
 export * from './container'
 export * from './divider'
