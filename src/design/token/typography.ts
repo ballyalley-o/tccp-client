@@ -1,5 +1,11 @@
 export const typography = {
-  fontFamily: '"Finlandica Text", "Roboto", "Arial", sans-serif',
+  fontFamily: [
+      '"Finlandica Text"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+    ].join(','),
   weight    : {
     regular: 400,
     medium : 500,
