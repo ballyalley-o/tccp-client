@@ -1,19 +1,38 @@
 import { createBrowserRouter } from "react-router-dom"
-import App from 'app'
 import { FallbackErrorPage } from "page/fallback"
 
-import { PATH } from "./path"
-import { dashboardRoute, bootcampRoute, authRoute } from './module'
+import { dashboardRoute, bootcampRoute, authRoute } from 'route/module'
+import { AuthLayout, DashboardLayout, RootLayout } from "route/layout"
+import { AuthGuard, GuestGuard } from "route/guard"
 
 const router = createBrowserRouter([
     {
-        path        : PATH.ROOT,
-        element     : <App />,
+        element     : <RootLayout />,
         errorElement: <FallbackErrorPage />,
         children    : [
-           ...dashboardRoute,
            ...bootcampRoute,
-           ...authRoute
+        ]
+    },
+    {
+        element: <GuestGuard />,
+        children: [
+            {
+                element : <AuthLayout />,
+                children: [
+                    ...authRoute
+                ]
+            }
+        ]
+    },
+    {
+        element: <AuthGuard />,
+        children: [
+            {
+                element: <DashboardLayout />,
+                children: [
+                    ...dashboardRoute,
+                ]
+            }
         ]
     }
 ])
