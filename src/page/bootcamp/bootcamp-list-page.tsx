@@ -36,7 +36,6 @@ const BootcampListPage = () => {
       <StickyStack spacing={3}>
         <Box>
           <Typography variant={'h1'}>{transl('message.find_bootcamp')}</Typography>
-          <Typography color={'text.secondary'} sx={{ mt: 1, maxWidth: 760 }}>{transl('bootcamp')}</Typography>
         </Box>
 
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
@@ -48,7 +47,7 @@ const BootcampListPage = () => {
             slotProps={{
               input: {
                 startAdornment: (
-                  <InputAdornment position='start'>
+                  <InputAdornment position={'start'}>
                     <SearchIcon />
                   </InputAdornment>
                 ),
@@ -72,7 +71,7 @@ const BootcampListPage = () => {
             }}
           >
             {FILTER.BOOTCAMP_1.map((_f) => (
-              <MenuItem value={_f.value}>{_f.label}</MenuItem>
+              <MenuItem value={_f.value}>{transl(_f.label)}</MenuItem>
             ))}
           </TextField>
         </Stack>
