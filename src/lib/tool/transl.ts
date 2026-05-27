@@ -1,16 +1,13 @@
-import { locales } from "config/locale.config"
+import { GLOBAL } from 'config/global.config'
+import { locales } from 'config/locale.config'
 
 type NestedKeys<T> = {
-  [K in keyof T & string]: T[K] extends string
-    ? K
-    : T[K] extends Record<string, unknown>
-      ? `${K}.${NestedKeys<T[K]>}`
-      : never
+  [K in keyof T & string]: T[K] extends string ? K : T[K] extends Record<string, unknown> ? `${K}.${NestedKeys<T[K]>}` : never
 }[keyof T & string]
 
-type   LocaleLang     = keyof typeof locales
+type LocaleLang = keyof typeof locales
 export type LocaleKey = NestedKeys<AppLocale>
-
+const _DEFAULT_LOCALE = GLOBAL.LOCALE
 /**
  * Retrieves a localized message based on the provided key and optional parameters.
  *
@@ -27,38 +24,22 @@ export type LocaleKey = NestedKeys<AppLocale>
  * @returns The localized message with placeholders replaced, or the original key if
  *          the message is not found or is not a string.
  */
-export const transl = (
-key    : LocaleKey,
-params?: Record<string,     string | number | boolean>,
-locale : LocaleLang = "en",
-)      : string => {
-  const messages = locales[locale] || locales["en"]
-  const message  = key
-    .split(".")
-    .reduce(
-      (o: unknown, i: string) =>
-        o && typeof o === "object" && i in o
-          ? (o as Record<string, unknown>)[i]
-          : null,
-      messages,
-    )
+export const transl = (key: LocaleKey, params?: Record<string, string | number | boolean>, locale: LocaleLang = _DEFAULT_LOCALE): string => {
+  const getMessage = (obj: unknown, path: string) =>
+    path.split('.').reduce((o: unknown, i: string) => (o && typeof o === 'object' && i in o ? (o as Record<string, unknown>)[i] : null), obj)
 
-  if (!message) {
-    return key
-  }
+  const localeMessage   = getMessage(locales[locale], key)
+  const fallbackMessage = getMessage(locales.en, key)
 
-  if (typeof message !== "string") {
-    return key
-  }
+  const message = localeMessage || fallbackMessage
+
+  if (typeof message !== 'string') return key
 
   let result = message as string
 
   if (params) {
     Object.keys(params).forEach((param) => {
-      result = result.replace(
-        new RegExp(`{${param}}`, "g"),
-        String(params[param]),
-      )
+      result = result.replace(new RegExp(`{${param}}`, 'g'), String(params[param]))
     })
   }
 
