@@ -11,4 +11,12 @@ const AppLogo = () => {
   )
 }
 
+export const AppDesatLogo = () => {
+  return (
+    <BrandLink to={PATH.ROOT}>
+      <LogoImg src={ASSET_DIR.LOGO_DESAT_PNG} alt={GLOBAL.APP_NAME} size={48} />
+    </BrandLink>
+  )
+}
+
 export default AppLogo
