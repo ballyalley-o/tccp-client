@@ -1,9 +1,9 @@
-import { en, fr, es } from 'lib/locale'
+import { en, fr, es, ja } from 'lib/locale'
 import { LocaleKey } from 'utility'
 
 declare global {
   declare module '*.css'
-  declare type AppLocale = typeof en | typeof es | typeof fr
+  declare type AppLocale = typeof en | typeof es | typeof fr | typeof ja
 
   declare type AppValueScaleType = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
