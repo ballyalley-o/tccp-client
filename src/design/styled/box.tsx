@@ -1,6 +1,7 @@
-import { Box } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import { designTokens } from 'design/token'
+import { Box }              from '@mui/material'
+import { alpha, styled }    from '@mui/material/styles'
+import { designTokens }     from 'design/token'
+import type { ElementType } from 'react'
 
 export const AppRootBox = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
