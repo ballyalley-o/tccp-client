@@ -146,5 +146,13 @@ export const es = {
   },
   "worldwide": "Mundial.",
   "get_started": "Empezar",
-  "refresh": "Refrescar"
+  "refresh": "Refrescar",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "retry": "Rever",
+  "loading": "Cargando",
+  "firstname": "Nombre de pila",
+  "lastname": "Apellido",
+  "organization": "Organización",
+  "username": "Nombre de usuario"
 } as const
