@@ -1,8 +1,9 @@
 import { CircularProgress, Stack } from '@mui/material'
 import { PageCentered, MonoText } from 'design/styled'
+import { transl } from 'lib/tool'
 
 const Loader = () => {
-  const _TEXT = '[ loading ]'
+  const _TEXT = `[ ${transl('loading')} ]`
   return (
     <PageCentered maxWidth={'lg'}>
       <Stack alignItems={'center'} spacing={2}>
