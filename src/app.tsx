@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from 'app/hook'
 import { fetchAccount } from 'app/store/slice'
+import { RouterProvider } from 'react-router-dom'
+import router from 'route'
 import { CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
-import { RootLayout } from 'route/layout'
 import { theme } from 'design/theme'
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <RootLayout />
+      <RouterProvider router={router} />
     </ThemeProvider>
   )
 }
