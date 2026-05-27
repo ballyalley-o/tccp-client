@@ -1,8 +1,8 @@
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom'
 import { Typography, Alert, Button, Stack } from '@mui/material'
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
-import { AppLogo } from 'component/app'
-import { AlertBlock, FallbackBgContainer, MonoText, LogoBox } from 'design/styled'
+import { AppDesatLogo } from 'component/app'
+import { AlertBlock, FallbackBgContainer, MonoText } from 'design/styled'
 import { transl } from 'lib/tool'
 import { GLOBAL } from 'config/global.config'
 
@@ -18,9 +18,7 @@ const FallbackErrorPage = () => {
   return (
     <FallbackBgContainer maxWidth={'xl'}>
       <Stack spacing={4} width={'100%'} alignItems={'center'}>
-        <LogoBox flexDirection={'column'}>
-          <AppLogo/>
-        </LogoBox>
+        <AppDesatLogo />
         <AlertBlock sx={{ width: '100%', maxWidth: 520 }}>
           <Alert
             action={<Button color='inherit' onClick={() => window.location.reload()} size={'small'}>{transl('retry')}</Button>}
