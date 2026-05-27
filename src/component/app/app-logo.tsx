@@ -6,7 +6,7 @@ import { LogoImg, BrandLink } from "design/styled"
 const AppLogo = () => {
   return (
     <BrandLink to={PATH.ROOT}>
-        <LogoImg src={ASSET_DIR.LOGO_PNG} alt={GLOBAL.APP_NAME} />
+        <LogoImg src={ASSET_DIR.LOGO_PNG} alt={GLOBAL.APP_NAME} size={48} />
     </BrandLink>
   )
 }
