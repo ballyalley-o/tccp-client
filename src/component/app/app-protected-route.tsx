@@ -7,7 +7,7 @@ interface ProtectedRouteProps {
   roles?: UserRole[]
 }
 
-export function AppProtectedRoute({ roles }: ProtectedRouteProps) {
+const AppProtectedRoute = ({ roles }: ProtectedRouteProps) => {
   const location = useLocation()
   const user     = useAppSelector((state) => state.auth.user)
 
@@ -21,3 +21,6 @@ export function AppProtectedRoute({ roles }: ProtectedRouteProps) {
 
   return <Outlet />
 }
+
+
+export default AppProtectedRoute

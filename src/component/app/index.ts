@@ -1,4 +1,6 @@
+export { default as AppAccountMenu } from './app-account-menu'
 export { default as AppLogo } from './app-logo'
 export * from './app-logo'
 export { default as AppFooter } from './app-footer'
-export { default as AppAccountMenu } from './app-account-menu'
+export { default as AppProtectedRoute } from './app-protected-route'
+export { default as AppRootAppbar } from './app-root-appbar'
