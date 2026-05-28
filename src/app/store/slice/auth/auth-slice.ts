@@ -5,10 +5,11 @@ import type { AccountUpdateCredential, AuthState, LoginCredential, RegisterCrede
 import { transl } from 'lib/tool'
 
 const initialState: AuthState = {
-  user  : null,
-  token : null,
-  status: 'idle',
-  error : null
+  user           : null,
+  isAuthenticated: false,
+  token          : null,
+  status         : 'loading',
+  error          : null
 }
 
 export const login = createAsyncThunk('auth/login', async (credentials: LoginCredential) => {
@@ -31,7 +32,7 @@ export const register = createAsyncThunk('auth/register', async (credentials: Re
 
   return apiRequest<ApiSingle<User>>('/auth/register', {
     method: 'POST',
-    body: JSON.stringify(payload)
+    body  : JSON.stringify(payload)
   })
 })
 
@@ -74,10 +75,11 @@ const authSlice = createSlice({
       state.error = null
     },
     clearSession(state) {
-      state.user = null
-      state.token = null
-      state.status = 'idle'
-      state.error = null
+      state.user            = null
+      state.token           = null
+      state.isAuthenticated = false
+      state.status          = 'idle'
+      state.error           = null
     }
   },
   extraReducers: (builder) => {
@@ -87,9 +89,10 @@ const authSlice = createSlice({
         state.error  = null
       })
       .addCase(login.fulfilled, (state, action: PayloadAction<ApiSingle<User>>) => {
-        state.status = 'succeeded'
-        state.token  = action.payload.token ?? null
-        state.user   = action.payload.user ?? null
+        state.status          = 'succeeded'
+        state.token           = action.payload.token ?? null
+        state.isAuthenticated = action.payload.success
+        state.user            = action.payload.user ?? null
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed'
@@ -100,20 +103,31 @@ const authSlice = createSlice({
         state.error  = null
       })
       .addCase(register.fulfilled, (state, action: PayloadAction<ApiSingle<User>>) => {
-        state.status = 'succeeded'
-        state.token  = action.payload.token ?? null
-        state.user   = action.payload.user ?? null
+        state.status          = 'succeeded'
+        state.token           = action.payload.token ?? null
+        state.user            = action.payload.user ?? null
+        state.isAuthenticated = action.payload.success
       })
       .addCase(register.rejected, (state, action) => {
         state.status = 'failed'
         state.error  = action.error.message ?? transl('error.unable_create_account')
       })
+      .addCase(fetchAccount.pending, (state) => {
+        state.status = 'loading'
+        state.error  = null
+      })
       .addCase(fetchAccount.fulfilled, (state, action: PayloadAction<ApiSingle<User>>) => {
-        state.user = action.payload.data ?? action.payload.user ?? null
+        const user             = action.payload.data ?? action.payload.user ?? null
+        state.status           = 'succeeded'
+        state.user             = user
+        state.isAuthenticated  = Boolean(user)
+        state.token            = action.payload.token ?? state.token
       })
       .addCase(fetchAccount.rejected, (state) => {
-        state.user  = null
-        state.token = null
+        state.status          = 'idle'
+        state.user            = null
+        state.isAuthenticated = false
+        state.token           = null
       })
       .addCase(updateAccount.pending, (state) => {
         state.status = 'loading'
@@ -128,9 +142,10 @@ const authSlice = createSlice({
         state.error  = action.error.message ?? transl('error.failed_update')
       })
       .addCase(logout.fulfilled, (state) => {
-        state.user = null
-        state.token = null
-        state.status = 'idle'
+        state.user            = null
+        state.isAuthenticated = false
+        state.token           = null
+        state.status          = 'idle'
       })
   }
 })

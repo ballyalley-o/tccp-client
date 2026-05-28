@@ -1,10 +1,11 @@
 import type { User } from 'types/model'
 
 declare interface AuthState {
-  user  : User | null
-  token : string | null
-  status: AppStateStatusType
-  error : string | null
+  user           : User | null
+  token          : string | null
+  isAuthenticated: boolean
+  status         : AppStateStatusType
+  error          : string | null
 }
 
 declare interface LoginCredential {
