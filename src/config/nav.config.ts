@@ -1,18 +1,73 @@
-import { urlBuilder, type LocaleKey } from "lib/tool"
+import { PATH }                       from "route/path"
+import type { SvgIconComponent }      from '@mui/icons-material'
+import type { UserRole }              from 'types'
+import BootcampIcon                   from '@mui/icons-material/SchoolSharp'
+import DashboardIcon                  from '@mui/icons-material/Dashboard'
+import AdminPanelIcon                 from '@mui/icons-material/AdminPanelSettingsSharp'
+import UsersIcon                      from '@mui/icons-material/PeopleSharp'
+import { urlBuilder, type LocaleKey } from 'lib/tool'
 
 type NavItemType = {
-    id   : string
-    label: LocaleKey
-    value: string
-    href : string
+    id       : string
+    label    : LocaleKey
+    href     : string
+    value   ?: string
+    icon    ?: SvgIconComponent
+    role    ?: UserRole[]
+    children?: NavItemType[]
 }
 
 type NavType = {
-    USER  : NavItemType[],
-    FOOTER: NavItemType[]
+    USER   : NavItemType[],
+    FOOTER : NavItemType[],
+    SIDEBAR: NavItemType[]
 }
 
+
 export const NAV: NavType = {
+    SIDEBAR: [
+        {
+            id   : 'dashboard',
+            label: 'nav.dashboard',
+            value: 'dashboard',
+            href : PATH.DASHBOARD,
+            icon : DashboardIcon,
+            role: ['student', 'trainer', 'admin']
+        },
+        {
+            id   : 'bootcamp',
+            label: 'bootcamps',
+            value: 'bootcamp',
+            href : PATH.BOOTCAMP.ROOT,
+            icon : BootcampIcon,
+            role: ['student', 'trainer', 'admin']
+        },
+        {
+            id   : 'admin',
+            label: 'admin',
+            value: 'admin',
+            href : PATH.ADMIN.ROOT,
+            icon : AdminPanelIcon,
+            role: ['admin'],
+            children: [
+                {
+                    id   : 'user',
+                    label: 'users',
+                    value: 'user',
+                    href : PATH.ADMIN.USER,
+                    icon : UsersIcon,
+                    role : ['admin']
+                },
+                {
+                    id   : 'bootcamp',
+                    label: 'nav.bootcamps',
+                    href : PATH.ADMIN.BOOTCAMP,
+                    icon : BootcampIcon,
+                    role : ['admin']
+                }
+            ]
+        }
+    ],
     USER  : [
         {
             id   : 'account',
