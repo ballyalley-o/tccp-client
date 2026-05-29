@@ -17,6 +17,4 @@ declare global {
   }
 
   declare type AppStateStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
-  declare type TeamConferenceType  = 'all' | 'west' | 'east'
-  declare type TeamDivisionType    = 'pacific' | 'southwest' | 'northwest' | 'central' | 'southeast' | 'atlantic'
 }
