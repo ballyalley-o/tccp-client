@@ -97,8 +97,12 @@ export const fr = {
       "account": "Compte",
       "manage": "Gérer",
       "setting": "Paramètre",
-      "log_out": "Se déconnecter"
-    }
+      "log_out": "Se déconnecter",
+      "user": "utilisatrice"
+    },
+    "bootcamp": "Camp d'entraînement",
+    "bootcamps": "Camps d'entraînement",
+    "users": "Utilisatrices"
   },
   "back": "Dos",
   "team_stats": "Statistiques de l'équipe",
@@ -162,5 +166,8 @@ export const fr = {
   "location": "Emplacement",
   "save_setting": "Enregistrer le paramètre",
   "setting": "Paramètre",
-  "update_account": "Mettre à jour le compte"
+  "update_account": "Mettre à jour le compte",
+  "admin": "Administratrice",
+  "user": "Utilisatrice",
+  "users": "Utilisatrices"
 } as const

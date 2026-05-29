@@ -1,6 +1,7 @@
 export const en = {
   account          : 'Account',
   account_updated  : 'Account Updated',
+  admin            : 'Admin',
   avatar           : 'Avatar',
   avatar_url       : 'Avatar URL',
   back             : 'Back',
@@ -37,6 +38,8 @@ export const en = {
   sort             : 'Sort',
   view             : 'View',
   update_account   : 'Update Account',
+  user             : 'User',
+  users            : 'Users',
   username         : 'Username',
   website          : 'Website',
   worldwide        : 'worldwide.',
@@ -98,7 +101,11 @@ export const en = {
   },
   nav: {
     dashboard: 'Dashboard',
+    bootcamp : 'Bootcamp',
+    bootcamps: 'Bootcamps',
+    users    : 'Users',
     user     : {
+      user   : 'user',
       account: 'Account',
       manage : 'Manage',
       setting: 'Setting',

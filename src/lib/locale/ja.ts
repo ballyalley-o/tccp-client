@@ -89,7 +89,8 @@ export const ja = {
       "account": "アカウント",
       "manage": "管理",
       "setting": "設定",
-      "log_out": "ログアウト"
+      "log_out": "ログアウト",
+      "user": "ユーザー"
     },
     "footer": {
       "docs": "ドキュメント",
@@ -100,7 +101,10 @@ export const ja = {
     },
     "sidebar": {
       "dashboard": "ダッシュボード"
-    }
+    },
+    "bootcamp": "ブートキャンプ",
+    "bootcamps": "ブートキャンプ",
+    "users": "ユーザー"
   },
   "validation": {
     "default": {
@@ -126,5 +130,8 @@ export const ja = {
   "location": "位置",
   "save_setting": "設定の保存",
   "setting": "設定",
-  "update_account": "アカウントを更新する"
+  "update_account": "アカウントを更新する",
+  "admin": "管理者",
+  "user": "ユーザー",
+  "users": "ユーザー"
 } as const
