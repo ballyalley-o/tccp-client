@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from 'app/hook'
 import { PATH } from 'route/path'
 import { loginSchema, type LoginFormValues } from 'lib/form'
 import { Alert, Button, Card, CardContent, Divider, Stack } from '@mui/material'
-import LoginIcon from '@mui/icons-material/Login'
+import LoginSharpIcon from '@mui/icons-material/LoginSharp'
 import { FormPasswordField, FormTextField } from 'component/form'
 import { AuthPanel, FormTitle, SecondaryButton } from 'design/styled'
 import { formatText, transl } from 'lib/tool'
@@ -46,7 +46,7 @@ const LogInPage = () => {
             <Stack spacing={2}>
               <FormTextField control={form.control} name={'email'} label={transl('email')} type={'email'} required autoComplete={'email'} />
               <FormPasswordField control={form.control} name={'password'} label={transl('password')} required autoComplete={'current-password'} />
-              <Button type={'submit'} variant={'contained'} color={'warning'} startIcon={<LoginIcon />} disabled={status === 'loading'}>
+              <Button type={'submit'} variant={'contained'} color={'warning'} startIcon={<LoginSharpIcon />} disabled={status === 'loading'}>
                 {formatText(transl('log_in'), 'uppercase')}
               </Button>
             </Stack>
