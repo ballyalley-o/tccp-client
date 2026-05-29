@@ -14,7 +14,7 @@ export const color = {
     muted      : '#5F6368',
     surface    : '#EEf2f9',
     surface_alt: '#F7F9FC',
-    border     : '#FFFFFF',
+    border     : '#CFD7E7',
   },
   contrast: {
     white: '#FFFFFF',
