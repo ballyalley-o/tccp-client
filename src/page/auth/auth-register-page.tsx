@@ -57,24 +57,26 @@ const RegisterPage = () => {
     <AuthPanel wide>
       <Card>
         <CardContent>
-          <Stack component={'form'} spacing={2} onSubmit={handleSubmit}>
+          <Stack component={'form'} spacing={4} onSubmit={handleSubmit}>
             <FormTitle variant={'h1'}>{transl('create_account')}</FormTitle>
             {error ? <Alert severity='error'>{error}</Alert> : null}
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-              <FormTextField control={form.control} name={_FORM_KEY.FIRSTNAME} fullWidth label={transl(_FORM_KEY.FIRSTNAME as LocaleKey)} required />
-              <FormTextField control={form.control} name={_FORM_KEY.LASTNAME} fullWidth label={transl(_FORM_KEY.LASTNAME as LocaleKey)} />
+            <Stack spacing={2}>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+                <FormTextField control={form.control} name={_FORM_KEY.FIRSTNAME} fullWidth label={transl(_FORM_KEY.FIRSTNAME as LocaleKey)} required />
+                <FormTextField control={form.control} name={_FORM_KEY.LASTNAME} fullWidth label={transl(_FORM_KEY.LASTNAME as LocaleKey)} />
+              </Stack>
+              <FormTextField control={form.control} name={_FORM_KEY.USERNAME} label={transl(_FORM_KEY.USERNAME as LocaleKey)} required autoComplete={_FORM_KEY.USERNAME} />
+              <FormTextField control={form.control} name={_FORM_KEY.EMAIL} label={transl(_FORM_KEY.EMAIL as LocaleKey)} type={_FORM_KEY.EMAIL} required autoComplete={_FORM_KEY.EMAIL} />
+              <FormPasswordField control={form.control} name={_FORM_KEY.PASSWORD} label={transl(_FORM_KEY.PASSWORD as LocaleKey)} required autoComplete={_FORM_KEY.NEW_PASSWORD} />
+              <FormTextField control={form.control} name={_FORM_KEY.ROLE} select label={transl(_FORM_KEY.ROLE as LocaleKey)}>
+                {KEY.ROLE.map((_r) => (
+                  <MenuItem key={_r} value={_r}>{formatText(transl((`roles.${_r}`) as unknown as never), 'capitalize')}</MenuItem>
+                ))}
+              </FormTextField>
+              {isAdmin ? (
+                <FormTextField control={form.control} name={_FORM_KEY.ORGANIZATION} label={transl(_FORM_KEY.ORGANIZATION as LocaleKey)} required autoComplete={_FORM_KEY.ORGANIZATION} />
+              ) : null}
             </Stack>
-            <FormTextField control={form.control} name={_FORM_KEY.USERNAME} label={transl(_FORM_KEY.USERNAME as LocaleKey)} required autoComplete={_FORM_KEY.USERNAME} />
-            <FormTextField control={form.control} name={_FORM_KEY.EMAIL} label={transl(_FORM_KEY.EMAIL as LocaleKey)} type={_FORM_KEY.EMAIL} required autoComplete={_FORM_KEY.EMAIL} />
-            <FormPasswordField control={form.control} name={_FORM_KEY.PASSWORD} label={transl(_FORM_KEY.PASSWORD as LocaleKey)} required autoComplete={_FORM_KEY.NEW_PASSWORD} />
-            <FormTextField control={form.control} name={_FORM_KEY.ROLE} select label={transl(_FORM_KEY.ROLE as LocaleKey)}>
-              {KEY.ROLE.map((_r) => (
-                <MenuItem key={_r} value={_r}>{formatText(transl((`roles.${_r}`) as unknown as never), 'capitalize')}</MenuItem>
-              ))}
-            </FormTextField>
-            {isAdmin ? (
-              <FormTextField control={form.control} name={_FORM_KEY.ORGANIZATION} label={transl(_FORM_KEY.ORGANIZATION as LocaleKey)} required autoComplete={_FORM_KEY.ORGANIZATION} />
-            ) : null}
             <Button type={'submit'} variant={'contained'} color={'warning'} startIcon={<PersonAddIcon />} disabled={status === 'loading'}>
               {formatText(transl('create_account'), 'uppercase')}
             </Button>
