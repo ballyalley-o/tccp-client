@@ -154,5 +154,13 @@ export const es = {
   "firstname": "Nombre de pila",
   "lastname": "Apellido",
   "organization": "Organización",
-  "username": "Nombre de usuario"
+  "username": "Nombre de usuario",
+  "account": "Cuenta",
+  "account_updated": "Cuenta actualizada",
+  "avatar": "Avatar",
+  "avatar_url": "Avatar URL",
+  "location": "Ubicación",
+  "save_setting": "Guardar configuración",
+  "setting": "Configuración",
+  "update_account": "Actualizar cuenta"
 } as const

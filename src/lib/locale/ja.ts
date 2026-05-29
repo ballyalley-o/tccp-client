@@ -118,5 +118,13 @@ export const ja = {
   "firstname": "ファーストネーム",
   "lastname": "苗字",
   "organization": "組織",
-  "username": "ユーザー名"
+  "username": "ユーザー名",
+  "account": "アカウント",
+  "account_updated": "アカウントが更新されました",
+  "avatar": "アバター",
+  "avatar_url": "アバターURL",
+  "location": "位置",
+  "save_setting": "設定の保存",
+  "setting": "設定",
+  "update_account": "アカウントを更新する"
 } as const

@@ -154,5 +154,13 @@ export const fr = {
   "firstname": "Prénom",
   "lastname": "Nom de famille",
   "organization": "Organisation",
-  "username": "Nom d'utilisateur"
+  "username": "Nom d'utilisateur",
+  "account": "Compte",
+  "account_updated": "Compte mis à jour",
+  "avatar": "Avatar",
+  "avatar_url": "URL de l'avatar",
+  "location": "Emplacement",
+  "save_setting": "Enregistrer le paramètre",
+  "setting": "Paramètre",
+  "update_account": "Mettre à jour le compte"
 } as const
