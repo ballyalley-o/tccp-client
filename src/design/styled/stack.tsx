@@ -23,8 +23,7 @@ export const StickyStack = styled(Stack)(({ theme }) => ({
     marginTop      : -80,
     paddingTop     : 80,
     backdropFilter : 'blur(10px)',
-    backgroundColor: alpha(theme.palette.background.default, 0.75),
-    borderBottom   : `1px solid ${theme.palette.divider}`,
+    backgroundColor: alpha(theme.palette.background.default, 0.75)
 }))
 
 export const FooterWrapperStack = styled(Stack)<{ component?: ElementType }>(({ theme }) => ({
