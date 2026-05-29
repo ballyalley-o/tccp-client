@@ -1,7 +1,7 @@
 import { Fragment, useState, type MouseEvent } from 'react'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import LogoutIcon from '@mui/icons-material/Logout'
+import LogoutSharpIcon from '@mui/icons-material/LogoutSharp'
 import SettingsIcon from '@mui/icons-material/Settings'
 import ShieldIcon from '@mui/icons-material/Shield'
 import { Avatar, Divider, IconButton, ListItemIcon, Menu, MenuItem, Stack, Tooltip, Typography } from '@mui/material'
@@ -9,6 +9,7 @@ import { useAppDispatch } from 'app/hook'
 import { logout } from 'app/store/slice/auth/auth-slice'
 import { PATH } from 'route/path'
 import type { User } from 'types/model'
+import { transl } from 'lib/tool'
 
 type AppAccountMenuProps = {
   user: User
@@ -38,16 +39,16 @@ const AppAccountMenu = ({ user }: AppAccountMenuProps) => {
 
   return (
     <Fragment>
-      <Tooltip title='Account'>
+      <Tooltip title={transl('account')}>
         <IconButton
           aria-controls={open ? 'account-menu' : undefined}
           aria-expanded={open ? 'true' : undefined}
           aria-haspopup='true'
-          aria-label='open account menu'
-          color='inherit'
+          aria-label={'open account menu'}
+          color={'inherit'}
           onClick={handleOpen}
         >
-          <Avatar src={user.avatar} alt={displayName}>
+          <Avatar src={user.avatar} alt={displayName} sx={{ borderRadius: 0 }}>
             {displayName.charAt(0).toUpperCase()}
           </Avatar>
         </IconButton>
@@ -71,28 +72,28 @@ const AppAccountMenu = ({ user }: AppAccountMenuProps) => {
           <ListItemIcon>
             <AccountCircleIcon fontSize='small' />
           </ListItemIcon>
-          Account
+          {transl('account')}
         </MenuItem>
         {canManage ? (
           <MenuItem component={RouterLink} to={PATH.AUTH.MANAGE}>
             <ListItemIcon>
-              <ShieldIcon fontSize='small' />
+              <ShieldIcon fontSize={'small'} />
             </ListItemIcon>
-            Manage
+           {transl('manage')}
           </MenuItem>
         ) : null}
         <MenuItem component={RouterLink} to={PATH.AUTH.SETTING}>
           <ListItemIcon>
-            <SettingsIcon fontSize='small' />
+            <SettingsIcon fontSize={'small'} />
           </ListItemIcon>
-          Setting
+          {transl('setting')}
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
-            <LogoutIcon fontSize='small' />
+            <LogoutSharpIcon fontSize={'small'} />
           </ListItemIcon>
-          Log out
+          {transl('log_out')}
         </MenuItem>
       </Menu>
     </Fragment>
