@@ -20,7 +20,6 @@ const AuthAccountPage = () => {
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent='space-between' spacing={2}>
         <Stack spacing={0.5}>
           <Typography variant={'h1'}>{transl('nav.user.account')}</Typography>
-          <Typography color={'text.secondary'}>Profile details loaded from /auth/account.</Typography>
         </Stack>
         <Button onClick={() => dispatch(fetchAccount())} startIcon={<RefreshIcon />} variant='outlined' disabled={status === 'loading'}>
           {transl('refresh')}
