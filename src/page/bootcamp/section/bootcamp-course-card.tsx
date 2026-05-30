@@ -1,0 +1,34 @@
+import { KEY } from 'config'
+import type { Bootcamp } from 'types'
+import { Grid2, Card, CardContent, List, ListItem, ListItemText, Typography } from '@mui/material'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import { CompactListIcon } from 'design/styled'
+import { transl, type LocaleKey } from 'lib/tool'
+
+const CourseListItem = ({ label, enabled }: { label: LocaleKey, enabled: boolean }) => (
+    <ListItem key={String(label)} disableGutters>
+        <CompactListIcon>
+            <CheckCircleIcon color={enabled ? 'success' : 'disabled'} />
+        </CompactListIcon>
+        <ListItemText primary={transl(label)} />
+    </ListItem>
+)
+
+const BootcampCourseCard = ({ selected }: { selected: Bootcamp }) => {
+  return (
+    <Grid2 size={{ xs: 12, md: 4 }}>
+      <Card>
+        <CardContent>
+          <Typography variant={'h2'}>{transl('program_fit')}</Typography>
+          <List dense>
+            {KEY.TRAIT_OPTION(selected).map(([label, enabled]) => (
+              <CourseListItem label={label as LocaleKey} enabled={enabled as boolean} />
+            ))}
+          </List>
+        </CardContent>
+      </Card>
+    </Grid2>
+  )
+}
+
+export default BootcampCourseCard
