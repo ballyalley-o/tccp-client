@@ -1,11 +1,13 @@
-import { PATH }                       from "route/path"
-import type { SvgIconComponent }      from '@mui/icons-material'
-import type { UserRole }              from 'types'
-import BootcampIcon                   from '@mui/icons-material/SchoolSharp'
-import DashboardIcon                  from '@mui/icons-material/Dashboard'
-import AdminPanelIcon                 from '@mui/icons-material/AdminPanelSettingsSharp'
-import UsersIcon                      from '@mui/icons-material/PeopleSharp'
-import { urlBuilder, type LocaleKey } from 'lib/tool'
+import { PATH }                                                  from "route/path"
+import type { UserRole }                                         from 'types'
+import { urlBuilder, type LocaleKey }                            from 'lib/tool'
+
+import { ShieldMoonSharp, SettingsAccessibilitySharp, LogoutSharp, type SvgIconComponent } from '@mui/icons-material'
+import AccountIcon                                                                         from '@mui/icons-material/AccountCircleSharp'
+import BootcampIcon                                                                        from '@mui/icons-material/SchoolSharp'
+import DashboardIcon                                                                       from '@mui/icons-material/Dashboard'
+import AdminPanelIcon                                                                      from '@mui/icons-material/AdminPanelSettingsSharp'
+import UsersIcon                                                                           from '@mui/icons-material/PeopleSharp'
 
 type NavItemType = {
     id       : string
@@ -15,6 +17,7 @@ type NavItemType = {
     icon    ?: SvgIconComponent
     role    ?: UserRole[]
     children?: NavItemType[]
+    onClick ?: () => void
 }
 
 type NavType = {
@@ -73,25 +76,33 @@ export const NAV: NavType = {
             id   : 'account',
             label: 'nav.user.account',
             value: 'account',
-            href: urlBuilder('account')
+            href : urlBuilder('account'),
+            icon : AccountIcon,
+            role : ['student', 'trainer', 'admin']
         },
         {
             id   : 'manage',
             label: 'nav.user.manage',
             value: 'manage',
-            href: urlBuilder('manage')
+            href : urlBuilder('manage'),
+            icon : ShieldMoonSharp,
+            role : ['trainer', 'admin']
         },
         {
             id   : 'setting',
             label: 'nav.user.setting',
+            icon : SettingsAccessibilitySharp,
             value: 'setting',
-            href: urlBuilder('setting')
+            href : urlBuilder('setting'),
+            role : ['student', 'trainer', 'admin']
         },
         {
             id   : 'log-out',
             label: 'nav.user.log_out',
             value: 'log-out',
-            href: urlBuilder('log-out')
+            icon : LogoutSharp,
+            href : PATH.AUTH.LOG_OUT,
+            role : ['student', 'trainer', 'admin']
         }
     ],
     FOOTER: [
