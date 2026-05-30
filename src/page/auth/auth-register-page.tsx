@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { register } from 'app/store/slice'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { PATH } from 'route/path'
-import { registerSchema, type RegisterFormValues } from 'lib/form'
+import { registerSchema, registerUserDefaultValue, type RegisterFormValues } from 'lib/form'
 import { Alert, Button, Card, CardContent, MenuItem, Stack } from '@mui/material'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 import { ArrowBack } from '@mui/icons-material'
@@ -32,16 +32,8 @@ const RegisterPage = () => {
   const navigate          = useNavigate()
   const { status, error } = useAppSelector((state) => state.auth)
   const form              = useForm<RegisterFormValues>({
-    defaultValues: {
-      firstname   : '',
-      lastname    : '',
-      username    : '',
-      email       : '',
-      password    : '',
-      role        : _DEFAULT_ROLE,
-      organization: '',
-    },
-    resolver: zodResolver(registerSchema),
+    defaultValues: registerUserDefaultValue(_DEFAULT_ROLE),
+    resolver     : zodResolver(registerSchema),
   })
   const selectedRole = form.watch(_FORM_KEY.ROLE)
   const isAdmin      = selectedRole === 'admin'
