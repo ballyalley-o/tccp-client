@@ -3,7 +3,7 @@ import { FallbackErrorPage } from "page/fallback"
 
 import { dashboardRoute, bootcampRoute, authRoute } from 'route/module'
 import { AuthLayout, DashboardLayout, RootLayout } from "route/layout"
-import { AuthAccountPage, AuthSettingPage, ManagePage } from 'route/element'
+import { AuthAccountPage, AuthAccountUpdatePage, ManagePage } from 'route/element'
 import { AuthGuard, GuestGuard } from "route/guard"
 import { AppProtectedRoute } from 'component/app'
 import { PATH } from 'route/path'
@@ -35,13 +35,16 @@ const router = createBrowserRouter([
                 element: <DashboardLayout />,
                 children: [
                     {
-                        path   : PATH.AUTH.ACCOUNT,
-                        element: <AuthAccountPage />
+                        path   : PATH.AUTH.ACCOUNT.ROOT,
+                        element: <AuthAccountPage />,
+                        children: [
+                            {
+                                path   : PATH.AUTH.ACCOUNT.ROOT,
+                                element: <AuthAccountUpdatePage />
+                            },
+                        ]
                     },
-                    {
-                        path   : PATH.AUTH.SETTING,
-                        element: <AuthSettingPage />
-                    },
+
                     {
                         element: <AppProtectedRoute roles={['trainer', 'admin']} />,
                         children: [
