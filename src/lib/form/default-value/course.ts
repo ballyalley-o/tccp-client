@@ -1,5 +1,5 @@
 import { transl } from 'lib/tool'
-import { type CourseDraft } from 'types/model'
+import type { CourseDraft } from 'types/model'
 
 export const courseDefaultValue: CourseDraft = {
   title               : '',
