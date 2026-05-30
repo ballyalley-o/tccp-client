@@ -169,5 +169,6 @@ export const fr = {
   "update_account": "Mettre à jour le compte",
   "admin": "Administratrice",
   "user": "Utilisatrice",
-  "users": "Utilisatrices"
+  "users": "Utilisatrices",
+  "not_set": "Non défini"
 } as const

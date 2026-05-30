@@ -26,6 +26,7 @@ export const en = {
   logging_out      : 'Logging Out',
   manage           : 'Manage',
   no_records_yet   : 'No records yet.',
+  not_set          : 'Not set',
   organization     : 'Organization',
   password         : 'Password',
   refresh          : 'Refresh',

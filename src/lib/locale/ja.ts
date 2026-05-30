@@ -133,5 +133,6 @@ export const ja = {
   "update_account": "アカウントを更新する",
   "admin": "管理者",
   "user": "ユーザー",
-  "users": "ユーザー"
+  "users": "ユーザー",
+  "not_set": "未設定"
 } as const
