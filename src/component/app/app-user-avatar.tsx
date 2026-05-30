@@ -1,4 +1,5 @@
 import { Avatar, type AvatarProps } from '@mui/material'
+import { designTokens } from 'design/token'
 import type { User } from 'types/model'
 
 type AppUserAvatarProps = Omit<AvatarProps, 'alt' | 'src'> & {
@@ -6,19 +7,8 @@ type AppUserAvatarProps = Omit<AvatarProps, 'alt' | 'src'> & {
   size?: number
 }
 
-const palette = [
-  { bg: '#102A43', mid: '#1D4ED8', accent: '#F9E400', skin: '#D6A579', hair: '#171923' },
-  { bg: '#172554', mid: '#0E7490', accent: '#B3FF00', skin: '#C6865C', hair: '#1F2937' },
-  { bg: '#1F2937', mid: '#475569', accent: '#38BDF8', skin: '#E0AC69', hair: '#111827' },
-  { bg: '#052E2B', mid: '#0F766E', accent: '#F59E0B', skin: '#F1C27D', hair: '#2F1B12' },
-  { bg: '#312E81', mid: '#7C3AED', accent: '#22C55E', skin: '#8D5524', hair: '#111827' },
-]
-
-const roleAccent: Record<User['role'], string> = {
-  admin  : '#030303',
-  trainer: '#38BDF8',
-  student: '#F9E400',
-}
+const palette                         = designTokens.color.avatar
+const roleAccent: Record<User['role'], string> = designTokens.color.role
 
 const hashSeed = (value: string) => {
   return [...value].reduce((total, char) => {
