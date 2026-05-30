@@ -47,6 +47,7 @@ const DashboardLayout = () => {
      </StandardAppbar>
 
      <FlexGrowBox>
+      {/* TODO: make this draggable */}
        <SidebarWrapperBox component={'nav'} drawerWidth={DRAWER_WIDTH}>
          <SidebarMobileDrawer variant={'temporary'} open={mobileOpen} onClose={handleDrawerToggle} drawerWidth={DRAWER_WIDTH} ModalProps={{ keepMounted: true }}>
            {drawer}
