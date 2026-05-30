@@ -19,11 +19,12 @@ export const PATH = {
   },
   AUTH: {
     ROOT    : pathBuilder(_AUTH),
-    LOG_IN  : pathBuilder(_AUTH, 'log-in'),
-    REGISTER: pathBuilder(_AUTH, 'register'),
     ACCOUNT : pathBuilder(_AUTH, 'account'),
+    LOG_IN  : pathBuilder(_AUTH, 'log-in'),
+    LOG_OUT : pathBuilder(_AUTH, 'log-out'),
+    MANAGE  : pathBuilder(_AUTH, 'manage'),
+    REGISTER: pathBuilder(_AUTH, 'register'),
     SETTING : pathBuilder(_AUTH, 'setting'),
-    MANAGE  : pathBuilder(_AUTH, 'manage')
   },
   BOOTCAMP: {
     ROOT  : pathBuilder(_BOOTCAMP),
