@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { login } from 'app/store/slice'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { PATH } from 'route/path'
-import { loginSchema, type LoginFormValues } from 'lib/form'
+import { loginSchema, loginUserDefaultValue, type LoginFormValues } from 'lib/form'
 import { Alert, Button, Card, CardContent, Divider, Stack } from '@mui/material'
 import LoginSharpIcon from '@mui/icons-material/LoginSharp'
 import { FormPasswordField, FormTextField } from 'component/form'
@@ -21,11 +21,8 @@ const LogInPage = () => {
   const location          = useLocation()
   const { status, error } = useAppSelector((state) => state.auth)
   const form              = useForm<LoginFormValues>({
-    defaultValues: {
-      email   : '',
-      password: '',
-    },
-    resolver: zodResolver(loginSchema),
+    defaultValues: loginUserDefaultValue,
+    resolver     : zodResolver(loginSchema),
   })
 
   const handleSubmit = form.handleSubmit(async (values) => {
