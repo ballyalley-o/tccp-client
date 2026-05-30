@@ -4,6 +4,7 @@ import { NAV } from 'config/nav.config'
 import { useAppSelector } from 'app/hook'
 import { List, ListItemButton, ListItemText, Stack, Toolbar, Typography } from '@mui/material'
 import { AppLogo, AppAccountMenu } from 'component/app'
+import { RoleChip } from 'component/shared'
 import { ContentWrapperBox, DashboardWrapperBox, FlexGrowBox, SidebarDesktopDrawer, SidebarMobileDrawer, SidebarWrapperBox, StandardAppbar } from 'design/styled'
 import { transl } from 'lib/tool'
 
@@ -40,6 +41,7 @@ const DashboardLayout = () => {
      <StandardAppbar position={'sticky'} elevation={0}>
        <Toolbar>
          <AppLogo />
+         <RoleChip userRole={user?.role} />
          <Stack direction={'row'} spacing={2} alignItems={'center'}>
            {user && <AppAccountMenu user={user} />}
          </Stack>
