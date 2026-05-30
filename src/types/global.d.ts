@@ -8,6 +8,7 @@ declare global {
   declare type AppValueScaleType = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
   declare type AppSkillType = 'beginner' | 'intermediate' | 'advanced'
+  declare type AppTraitType = 'housing' | 'jobAssistance' | 'jobGuarantee' | 'acceptGi'
 
   declare type NavLabelType = {
     id       : string
