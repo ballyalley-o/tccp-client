@@ -1,7 +1,12 @@
-import { Box }              from '@mui/material'
+import { Box, type BoxProps }              from '@mui/material'
 import { alpha, styled }    from '@mui/material/styles'
 import { designTokens }     from 'design/token'
 import type { ElementType } from 'react'
+
+type BoxDrawerProps = BoxProps & {
+  drawerWidth : number
+  component  ?: ElementType
+}
 
 export const AppRootBox = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
@@ -68,7 +73,7 @@ export const AuthBgLogoBox = styled(Box)(({ theme }) => ({
   left                        : 24,
   zIndex                      : 2,
   [theme.breakpoints.up('md')]: {
-    top: 32,
+    top : 32,
     left: 40
   },
   '& img' : {
@@ -126,4 +131,32 @@ export const LogoBox = styled(Box)({
   '& img' : {
     filter: 'brightness(0) invert(0)',
   }
+})
+
+export const ContentWrapperBox = styled(Box)<{ component?: ElementType }>(({ theme }) => ({
+  flexGrow                    : 1,
+  minWidth                    : 0,
+  padding                     : 2,
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(3),
+  }
+}))
+
+
+export const SidebarWrapperBox = styled(Box, { shouldForwardProp: (prop) => prop !== 'drawerWidth' })<BoxDrawerProps>(({ theme, drawerWidth }) => ({
+  [theme.breakpoints.up('lg')]: {
+    width     : drawerWidth,
+    flexShrink: 0
+  },
+}))
+
+export const DashboardWrapperBox = styled(Box)({
+  minHeight    : '100vh',
+  display      : 'flex',
+  flexDirection: 'column'
+})
+
+export const FlexGrowBox = styled(Box)({
+  display : 'flex',
+  flexGrow: 1
 })
