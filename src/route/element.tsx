@@ -10,4 +10,4 @@ export const AuthLogInPage         = Loadable(lazy(() => import('page/auth/auth-
 export const AuthRegisterPage      = Loadable(lazy(() => import('page/auth/auth-register-page')))
 export const AuthAccountPage       = Loadable(lazy(() => import('page/auth/auth-account-page')))
     export const AuthAccountUpdatePage = Loadable(lazy(() => import('page/auth/auth-account-update-page')))
-export const ManagePage            = Loadable(lazy(() => import('page/manage-page')))
+export const ManagePage            = Loadable(lazy(() => import('page/manage/manage-page')))
