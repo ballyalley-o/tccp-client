@@ -4,7 +4,7 @@ import { updateAccount } from 'app/store/slice'
 import { Alert, Button, Card, CardContent, Stack, TextField, Typography } from '@mui/material'
 import SaveIcon from '@mui/icons-material/Save'
 import { transl, type LocaleKey } from 'lib/tool'
-import { USER } from 'lib/form'
+import { updateUserDefaultValue } from 'lib/form'
 
 const _FORM_KEY = {
   FIRSTNAME: 'firstname',
@@ -19,11 +19,11 @@ const AuthSettingPage = () => {
   const dispatch                = useAppDispatch()
   const { user, status, error } = useAppSelector((state) => state.auth)
   const [notice, setNotice]     = useState<string | null>(null)
-  const [form, setForm]         = useState(USER)
+  const [form, setForm] = useState(updateUserDefaultValue)
 
   useEffect(() => {
     if (user) {
-      setForm(USER(user))
+      setForm(updateUserDefaultValue(user))
     }
   }, [user])
 
