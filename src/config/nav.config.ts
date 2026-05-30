@@ -76,7 +76,7 @@ export const NAV: NavType = {
             id   : 'account',
             label: 'nav.user.account',
             value: 'account',
-            href : urlBuilder('account'),
+            href : PATH.AUTH.ACCOUNT.ROOT,
             icon : AccountIcon,
             role : ['student', 'trainer', 'admin']
         },
@@ -84,7 +84,7 @@ export const NAV: NavType = {
             id   : 'manage',
             label: 'nav.user.manage',
             value: 'manage',
-            href : urlBuilder('manage'),
+            href : PATH.AUTH.MANAGE,
             icon : ShieldMoonSharp,
             role : ['trainer', 'admin']
         },
@@ -93,7 +93,7 @@ export const NAV: NavType = {
             label: 'nav.user.setting',
             icon : SettingsAccessibilitySharp,
             value: 'setting',
-            href : urlBuilder('setting'),
+            href : PATH.AUTH.SETTING,
             role : ['student', 'trainer', 'admin']
         },
         {
