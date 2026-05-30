@@ -23,12 +23,15 @@ export const PATH = {
   DASHBOARD: pathBuilder(_DASHBOARD),
   ADMIN: {
     ROOT    : pathBuilder(_ADMIN),
-    USER    : pathBuilder(_ADMIN, 'user'),
-    BOOTCAMP: pathBuilder(_ADMIN, 'bootcamp')
+    USER    : pathBuilder(_ADMIN, _USER),
+    BOOTCAMP: pathBuilder(_ADMIN, _BOOTCAMP)
   },
   AUTH: {
     ROOT    : pathBuilder(_AUTH),
-    ACCOUNT : pathBuilder(_AUTH, 'account'),
+    ACCOUNT : {
+      ROOT  : pathBuilder(_AUTH, _ACCOUNT),
+      UPDATE: pathBuilder(_AUTH, _ACCOUNT, 'update')
+    },
     LOG_IN  : pathBuilder(_AUTH, 'log-in'),
     LOG_OUT : pathBuilder(_AUTH, 'log-out'),
     MANAGE  : pathBuilder(_AUTH, 'manage'),
