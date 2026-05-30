@@ -6,7 +6,9 @@ export const es = {
     "user_signed_up": "Usuario registrada",
     "user_signed_in": "Usuario registrado",
     "user_registered": "Usuario registrada",
-    "user_logged_in": "Usuario registrado"
+    "user_logged_in": "Usuario registrado",
+    "bootcamp_created": "Campamento de entrenamiento creado",
+    "course_added": "Curso agregado"
   },
   "error": {
     "user_not_authenticated": "Usuario no autenticada",
@@ -38,7 +40,10 @@ export const es = {
     "generic": "Algo salió mal al cargar esta página.",
     "unable_load_page": "No se puede cargar esta página",
     "unable_create_account": "No se puede crear la cuenta",
-    "unable_log_in": "No se puede iniciar sesión"
+    "unable_log_in": "No se puede iniciar sesión",
+    "unable_create_bootcamp": "No se puede crear el bootcamp",
+    "unable_create_course": "No se puede crear el curso",
+    "bootcamp_required": "Cree o abra un bootcamp antes de agregar cursos."
   },
   "validation": {
     "default": {
@@ -58,7 +63,9 @@ export const es = {
     "membership_processed": "Membresía ya procesada",
     "draft_started": "La fecha del draft ya comenzó",
     "find_bootcamp": "Encuentra el bootcamp adecuado",
-    "footer": "Aprenda más rápido con bootcamps técnicos seleccionados y educación moderna para desarrolladores."
+    "footer": "Aprenda más rápido con bootcamps técnicos seleccionados y educación moderna para desarrolladores.",
+    "no_courses_published_yet": "No hay cursos publicados_aún.",
+    "newly_created_bootcamp": "El bootcamp recién creado aparecerá aquí."
   },
   "nav": {
     "dashboard": "Panel",
@@ -121,7 +128,8 @@ export const es = {
   "bootcamps": "Campamentos de entrenamiento",
   "bootcamp_para": {
     "1": "Compare programas, costos, resultados y enfoque de cursos del catálogo del Proyecto CodeCoach.",
-    "footer": "Aprenda más rápido con bootcamps técnicos seleccionados y educación moderna para desarrolladores."
+    "footer": "Aprenda más rápido con bootcamps técnicos seleccionados y educación moderna para desarrolladores.",
+    "trainer_workspace": "Espacio de trabajo del formador"
   },
   "remote_or_pending": "Remota o ubicación pendiente",
   "view": "Vista",
@@ -170,5 +178,49 @@ export const es = {
   "admin": "Administradora",
   "user": "Usuaria",
   "users": "Usuarias",
-  "not_set": "No establecido"
+  "not_set": "No establecido",
+  "program_fit": "Ajuste del programa",
+  "traits": {
+    "housing": "Alojamiento",
+    "job_assistance": "Asistencia laboral",
+    "job_guarantee": "Garantía de empleo",
+    "gi_bill_accepted": "Se acepta el proyecto de ley GI"
+  },
+  "overview": "Descripción general",
+  "career_options": {
+    "web_development": "Desarrollo web",
+    "mobile_development": "Desarrollo Móvil",
+    "ui_ux": "UI/UX",
+    "data_science": "Ciencia de datos",
+    "data_security": "Seguridad de datos",
+    "software_engineering": "Ingeniería de software",
+    "full_stack_web_development": "Desarrollo web de pila completa",
+    "dev_ops": "Operaciones de desarrollo",
+    "ai": "AI",
+    "machine_learning": "Aprendizaje automático",
+    "cloud_computing": "Computación en la nube",
+    "cyber_security": "Seguridad cibernética",
+    "other": "Otra"
+  },
+  "duration": "Duración",
+  "phone": "Teléfono",
+  "minimum_skill": {
+    "beginner": "principiante",
+    "intermediate": "intermedia",
+    "advanced": "avanzada"
+  },
+  "name": "Nombre",
+  "address": "DIRECCIÓN",
+  "add_course": "Agregar curso",
+  "scholarship_available": "Beca disponible",
+  "title": "Título",
+  "tuition": "Matrícula",
+  "description": "Descripción",
+  "minimum_skill_": "Habilidad mínima",
+  "add_bootcamp": "Agregar campo de entrenamiento",
+  "save_bootcamp": "Guardar campo de entrenamiento",
+  "new_bootcamp": "Nuevo campo de entrenamiento",
+  "target_bootcamp": "Campamento de entrenamiento objetivo",
+  "course": "Curso",
+  "courses": "Cursos"
 } as const

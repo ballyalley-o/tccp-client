@@ -28,7 +28,8 @@ export const ja = {
   "website": "Webサイト",
   "worldwide": "世界中で。",
   "bootcamp_para": {
-    "1": "CodeCoach プロジェクトのカタログからプログラム、コスト、成果、コースの焦点を比較します。"
+    "1": "CodeCoach プロジェクトのカタログからプログラム、コスト、成果、コースの焦点を比較します。",
+    "trainer_workspace": "トレーナーワークスペース"
   },
   "filters": {
     "bootcamp": {
@@ -49,7 +50,9 @@ export const ja = {
     "user_deleted": "ユーザーが削除されました",
     "user_updated": "ユーザーが更新されました",
     "user_registered": "ユーザー登録済み",
-    "user_logged_in": "ユーザーがログインしました"
+    "user_logged_in": "ユーザーがログインしました",
+    "bootcamp_created": "ブートキャンプが作成されました",
+    "course_added": "コース追加"
   },
   "error": {
     "failed_find": "要求されたドキュメントが見つかりませんでした",
@@ -73,7 +76,10 @@ export const ja = {
     "user_has_team": "ユーザーはすでにチームを持っています",
     "user_select_team_required": "すべてのメンバーはドラフトする前にチームを選択する必要があります",
     "team_has_already_selected": "{field} はすでに選択されています",
-    "team_already_selected": "チームはすでに選択されています"
+    "team_already_selected": "チームはすでに選択されています",
+    "unable_create_bootcamp": "ブートキャンプを作成できません",
+    "unable_create_course": "コースを作成できません",
+    "bootcamp_required": "コースを追加する前に、ブートキャンプを作成するか開いてください。"
   },
   "message": {
     "draft_started": "ドラフト日はすでに始まっています",
@@ -81,7 +87,9 @@ export const ja = {
     "membership_expired": "メンバーシップの有効期限が切れました",
     "membership_processed": "メンバーシップはすでに処理されています",
     "owner_no_myleague": "MyLeague が作成されていません",
-    "find_bootcamp": "適切なブートキャンプを見つける"
+    "find_bootcamp": "適切なブートキャンプを見つける",
+    "no_courses_published_yet": "まだ公開されているコースはありません。",
+    "newly_created_bootcamp": "新しく作成されたブートキャンプがここに表示されます"
   },
   "nav": {
     "dashboard": "ダッシュボード",
@@ -134,5 +142,49 @@ export const ja = {
   "admin": "管理者",
   "user": "ユーザー",
   "users": "ユーザー",
-  "not_set": "未設定"
+  "not_set": "未設定",
+  "program_fit": "プログラムフィット",
+  "traits": {
+    "housing": "ハウジング",
+    "job_assistance": "就職支援",
+    "job_guarantee": "雇用保証",
+    "gi_bill_accepted": "GI 請求書が受理されました"
+  },
+  "overview": "概要",
+  "career_options": {
+    "web_development": "ウェブ開発",
+    "mobile_development": "モバイル開発",
+    "ui_ux": "UI/UX",
+    "data_science": "データサイエンス",
+    "data_security": "データセキュリティ",
+    "software_engineering": "ソフトウェアエンジニアリング",
+    "full_stack_web_development": "フルスタック Web 開発",
+    "dev_ops": "開発運用",
+    "ai": "AI",
+    "machine_learning": "機械学習",
+    "cloud_computing": "クラウドコンピューティング",
+    "cyber_security": "サイバーセキュリティ",
+    "other": "他の"
+  },
+  "duration": "間隔",
+  "phone": "電話",
+  "minimum_skill": {
+    "beginner": "初心者",
+    "intermediate": "中級",
+    "advanced": "高度な"
+  },
+  "name": "名前",
+  "address": "住所",
+  "add_course": "コースを追加",
+  "scholarship_available": "奨学金あり",
+  "title": "タイトル",
+  "tuition": "学費",
+  "description": "説明",
+  "minimum_skill_": "最低限のスキル",
+  "add_bootcamp": "ブートキャンプを追加",
+  "save_bootcamp": "ブートキャンプを保存する",
+  "new_bootcamp": "新しいブートキャンプ",
+  "target_bootcamp": "ターゲットブートキャンプ",
+  "course": "コース",
+  "courses": "コース"
 } as const

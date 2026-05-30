@@ -6,7 +6,9 @@ export const fr = {
     "user_signed_up": "Utilisateur inscrit",
     "user_signed_in": "Utilisateur connecté",
     "user_registered": "Utilisateur enregistré",
-    "user_logged_in": "Utilisateur connecté"
+    "user_logged_in": "Utilisateur connecté",
+    "bootcamp_created": "Bootcamp créé",
+    "course_added": "Cours ajouté"
   },
   "error": {
     "user_not_authenticated": "Utilisateur non authentifié",
@@ -38,7 +40,10 @@ export const fr = {
     "generic": "Une erreur s'est produite lors du chargement de cette page.",
     "unable_load_page": "Impossible de charger cette page",
     "unable_create_account": "Impossible de créer un compte",
-    "unable_log_in": "Impossible de se connecter"
+    "unable_log_in": "Impossible de se connecter",
+    "unable_create_bootcamp": "Impossible de créer un bootcamp",
+    "unable_create_course": "Impossible de créer un cours",
+    "bootcamp_required": "Créez ou ouvrez un bootcamp avant d'ajouter des cours."
   },
   "validation": {
     "default": {
@@ -58,7 +63,9 @@ export const fr = {
     "membership_processed": "Adhésion déjà traitée",
     "draft_started": "La date de draft a déjà commencé",
     "find_bootcamp": "Trouvez le bon bootcamp",
-    "footer": "Apprenez plus rapidement grâce à des bootcamps techniques organisés et à une formation moderne des développeurs."
+    "footer": "Apprenez plus rapidement grâce à des bootcamps techniques organisés et à une formation moderne des développeurs.",
+    "no_courses_published_yet": "Aucun cours publié pour l'instant.",
+    "newly_created_bootcamp": "Le bootcamp nouvellement créé apparaîtra ici"
   },
   "nav": {
     "dashboard": "Tableau de bord",
@@ -121,7 +128,8 @@ export const fr = {
   "bootcamps": "Camps d'entraînement",
   "bootcamp_para": {
     "1": "Comparez les programmes, les coûts, les résultats et l'orientation des cours du catalogue du projet CodeCoach.",
-    "footer": "Apprenez plus rapidement grâce à des bootcamps techniques organisés et à une formation moderne des développeurs."
+    "footer": "Apprenez plus rapidement grâce à des bootcamps techniques organisés et à une formation moderne des développeurs.",
+    "trainer_workspace": "Espace de travail du formateur"
   },
   "remote_or_pending": "À distance ou en attente",
   "view": "Voir",
@@ -170,5 +178,49 @@ export const fr = {
   "admin": "Administratrice",
   "user": "Utilisatrice",
   "users": "Utilisatrices",
-  "not_set": "Non défini"
+  "not_set": "Non défini",
+  "program_fit": "Ajustement du programme",
+  "traits": {
+    "housing": "Logement",
+    "job_assistance": "Aide à l'emploi",
+    "job_guarantee": "Garantie d'emploi",
+    "gi_bill_accepted": "Facture GI acceptée"
+  },
+  "overview": "Aperçu",
+  "career_options": {
+    "web_development": "Développement Web",
+    "mobile_development": "Développement mobile",
+    "ui_ux": "UI/UX",
+    "data_science": "Science des données",
+    "data_security": "Sécurité des données",
+    "software_engineering": "Génie logiciel",
+    "full_stack_web_development": "Développement Web Full Stack",
+    "dev_ops": "Opérations de développement",
+    "ai": "IA",
+    "machine_learning": "Apprentissage automatique",
+    "cloud_computing": "Informatique en nuage",
+    "cyber_security": "Cybersécurité",
+    "other": "Autre"
+  },
+  "duration": "Durée",
+  "phone": "Téléphone",
+  "minimum_skill": {
+    "beginner": "débutante",
+    "intermediate": "intermédiaire",
+    "advanced": "avancée"
+  },
+  "name": "Nom",
+  "address": "Adresse",
+  "add_course": "Ajouter un cours",
+  "scholarship_available": "Bourse disponible",
+  "title": "Titre",
+  "tuition": "Frais de scolarité",
+  "description": "Description",
+  "minimum_skill_": "Compétence minimale",
+  "add_bootcamp": "Ajouter un camp d'entraînement",
+  "save_bootcamp": "Enregistrer le Bootcamp",
+  "new_bootcamp": "Nouveau camp d'entraînement",
+  "target_bootcamp": "Bootcamp cible",
+  "course": "Cours",
+  "courses": "Cours"
 } as const
