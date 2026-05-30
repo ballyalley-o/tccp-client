@@ -86,7 +86,7 @@ const AppUserAvatar = ({ user, size = 40, sx, ...props }: AppUserAvatarProps) =>
         width       : size,
         height      : size,
         bgcolor     : 'background.paper',
-        borderRadius: 0,
+        borderRadius: 1,
         padding     : 0,
         ...sx,
       }}
