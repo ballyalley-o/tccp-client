@@ -1,9 +1,18 @@
 import { pathBuilder } from 'lib/tool'
 
+/**
+ * @module
+ */
 const _DASHBOARD = 'dashboard'
 const _AUTH      = 'auth'
 const _BOOTCAMP  = 'bootcamp'
 const _COURSE    = 'course'
+const _USER      = 'user'
+
+/**
+ * @submodule
+ */
+const _ACCOUNT = 'account'
 
 const _ADMIN = 'admin'
 
