@@ -1,12 +1,14 @@
+import { Link as RouterLink } from 'react-router-dom'
+import { FIELD } from 'config/field.config'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { fetchAccount } from 'app/store/slice'
-import { Link as RouterLink } from 'react-router-dom'
 import { PATH } from 'route/path'
-import { Button, Card, CardContent, Chip, Divider, Stack, Typography } from '@mui/material'
-import { AppUserAvatar } from 'component/app'
+import { Button, Card, CardContent, Divider, Stack, Typography } from '@mui/material'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import SettingsIcon from '@mui/icons-material/Settings'
 import ShieldIcon from '@mui/icons-material/Shield'
+import { AppUserAvatar } from 'component/app'
+import { RoleChip } from 'component/shared'
 import { transl } from 'lib/tool'
 
 const AuthAccountPage = () => {
@@ -31,25 +33,23 @@ const AuthAccountPage = () => {
           <Stack spacing={2}>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems={{ xs: 'flex-start', sm: 'center' }}>
               {user ? <AppUserAvatar user={user} size={72} /> : null}
-              <Stack spacing={0.5}>
-                <Typography variant='h2'>{displayName}</Typography>
-                <Typography color='text.secondary'>{user?.email}</Typography>
-                <Chip label={user?.role} size='small' />
+              <Stack spacing={2} direction={'row'} alignItems={'flex-start'}>
+                <Stack>
+                  <Typography variant={'h2'}>{displayName}</Typography>
+                  <Typography color={'text.secondary'}>{user?.email}</Typography>
+                </Stack>
+                <RoleChip userRole={user?.role} />
               </Stack>
             </Stack>
 
             <Divider />
 
             <Stack spacing={1}>
-              <Typography>
-                <strong>Username:</strong> {user?.username}
-              </Typography>
-              <Typography>
-                <strong>Location:</strong> {user?.location || 'Not set'}
-              </Typography>
-              <Typography>
-                <strong>Organization:</strong> {user?.organization || 'Not set'}
-              </Typography>
+              {user && FIELD.ACCOUNT(user).map((_u) => (
+                <Typography>
+                  <strong>{transl(_u.label)}:</strong> {_u.value}
+                </Typography>
+              ))}
             </Stack>
 
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
