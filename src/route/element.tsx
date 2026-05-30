@@ -8,6 +8,5 @@ export const BootcampDetailPage = Loadable(lazy(() => import('page/bootcamp/boot
 export const AuthLogInPage    = Loadable(lazy(() => import('page/auth/auth-login-page')))
 export const AuthRegisterPage = Loadable(lazy(() => import('page/auth/auth-register-page')))
 export const AuthAccountPage  = Loadable(lazy(() => import('page/auth/auth-account-page')))
-export const AuthSettingPage  = Loadable(lazy(() => import('page/auth/auth-setting-page')))
+export const AuthSettingPage  = Loadable(lazy(() => import('page/auth/auth-account-update-page')))
 export const ManagePage       = Loadable(lazy(() => import('page/manage-page')))
-
