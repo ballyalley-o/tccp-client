@@ -1,7 +1,7 @@
 import type { ApiError } from 'types/model'
 import { transl } from 'lib/tool'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1.0.3'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1'
 
 const securityHeaders = {
   'Content-Type': 'application/json',
