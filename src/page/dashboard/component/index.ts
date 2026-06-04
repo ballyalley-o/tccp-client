@@ -1,0 +1,8 @@
+export { default as DashboardChartCard } from './dashboard-chart-card'
+export { default as DashboardCourseSection } from './dashboard-course-section'
+export { default as DashboardDistributionCard } from './dashboard-distribution-card'
+export { default as DashboardFeaturedBootcamps } from './dashboard-featured-bootcamps'
+export { default as DashboardQuickActions } from './dashboard-quick-actions'
+export { default as DashboardRecommendations } from './dashboard-recommendations'
+export { default as DashboardStatCard } from './dashboard-stat-card'
+export { default as DashboardWelcome } from './dashboard-welcome'
