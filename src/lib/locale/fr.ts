@@ -65,7 +65,12 @@ export const fr = {
     "find_bootcamp": "Trouvez le bon bootcamp",
     "footer": "Apprenez plus rapidement grâce à des bootcamps techniques organisés et à une formation moderne des développeurs.",
     "no_courses_published_yet": "Aucun cours publié pour l'instant.",
-    "newly_created_bootcamp": "Le bootcamp nouvellement créé apparaîtra ici"
+    "newly_created_bootcamp": "Le bootcamp nouvellement créé apparaîtra ici",
+    "welcome": "Content de te revoir",
+    "welcome_back": "Content de te revoir",
+    "welcome_description_student": "Continuez votre parcours d'apprentissage et explorez de nouveaux bootcamps",
+    "welcome_description_trainer": "Gérez vos bootcamps, vos cours et suivez les progrès des étudiants",
+    "welcome_description_guest": ""
   },
   "nav": {
     "dashboard": "Tableau de bord",
@@ -222,5 +227,6 @@ export const fr = {
   "new_bootcamp": "Nouveau camp d'entraînement",
   "target_bootcamp": "Bootcamp cible",
   "course": "Cours",
-  "courses": "Cours"
+  "courses": "Cours",
+  "view_all": "Tout afficher"
 } as const

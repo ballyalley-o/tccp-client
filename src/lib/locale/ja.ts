@@ -89,7 +89,12 @@ export const ja = {
     "owner_no_myleague": "MyLeague が作成されていません",
     "find_bootcamp": "適切なブートキャンプを見つける",
     "no_courses_published_yet": "まだ公開されているコースはありません。",
-    "newly_created_bootcamp": "新しく作成されたブートキャンプがここに表示されます"
+    "newly_created_bootcamp": "新しく作成されたブートキャンプがここに表示されます",
+    "welcome": "おかえり",
+    "welcome_back": "おかえり",
+    "welcome_description_student": "学習の旅を続けて、新しいブートキャンプを探索してください",
+    "welcome_description_trainer": "ブートキャンプ、コースを管理し、生徒の進捗状況を追跡します",
+    "welcome_description_guest": ""
   },
   "nav": {
     "dashboard": "ダッシュボード",
@@ -186,5 +191,6 @@ export const ja = {
   "new_bootcamp": "新しいブートキャンプ",
   "target_bootcamp": "ターゲットブートキャンプ",
   "course": "コース",
-  "courses": "コース"
+  "courses": "コース",
+  "view_all": "すべて見る"
 } as const

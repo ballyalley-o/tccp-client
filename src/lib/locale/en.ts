@@ -60,6 +60,7 @@ export const en = {
   user                 : 'User',
   users                : 'Users',
   username             : 'Username',
+  view_all             : 'View All',
   website              : 'Website',
   worldwide            : 'worldwide.',
   bootcamp_para        : {
@@ -144,14 +145,19 @@ export const en = {
     team_already_selected         : 'Team already selected',
   },
   message: {
-    draft_started           : 'Draft date has already started',
-    footer                  : 'Learn faster with curated technical bootcamps and modern developer education, ',
-    membership_expired      : 'Membership expired',
-    membership_processed    : 'Membership already processed',
-    newly_created_bootcamp  : 'newly created bootcamp will appear here',
-    no_courses_published_yet: 'No courses published_yet.',
-    owner_no_myleague       : 'No MyLeague created',
-    find_bootcamp           : 'Find the right bootcamp'
+    draft_started              : 'Draft date has already started',
+    footer                     : 'Learn faster with curated technical bootcamps and modern developer education, ',
+    membership_expired         : 'Membership expired',
+    membership_processed       : 'Membership already processed',
+    newly_created_bootcamp     : 'newly created bootcamp will appear here',
+    no_courses_published_yet   : 'No courses published_yet.',
+    owner_no_myleague          : 'No MyLeague created',
+    find_bootcamp              : 'Find the right bootcamp',
+    welcome                    : 'Welcome',
+    welcome_back               : 'Welcome back',
+    welcome_description_student: 'Continue your learning journey and explore new bootcamps',
+    welcome_description_trainer: 'Manage your bootcamps, courses and track student progress',
+    welcome_description_guest  : ''
   },
   nav: {
     dashboard: 'Dashboard',
