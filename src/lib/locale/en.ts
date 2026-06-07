@@ -1,21 +1,25 @@
 export const en = {
   account              : 'Account',
   account_updated      : 'Account Updated',
+  active               : 'Active',
   add_course           : 'Add Course',
   add_bootcamp         : 'Add Bootcamp',
   admin                : 'Admin',
   address              : 'Address',
+  at_risk              : 'At Risk',
   avatar               : 'Avatar',
   avatar_url           : 'Avatar URL',
   back                 : 'Back',
   bootcamp             : 'Bootcamp',
   bootcamps            : 'Bootcamps',
   calendar             : 'Calendar',
+  continue             : 'Continue',
   course               : 'Course',
   courses              : 'Courses',
   create_account       : 'Create account',
   create_an_account    : 'Create an account',
   description          : 'Description',
+  done                 : 'Done',
   duration             : 'Duration',
   email                : 'Email',
   firstname            : 'First Name',
@@ -41,15 +45,17 @@ export const en = {
   overview             : 'Overview',
   password             : 'Password',
   phone                : 'Phone',
+  progress             : 'Progress',
   program_fit          : 'Program Fit',
   refresh              : 'Refresh',
   register             : 'Register',
   remote_or_pending    : 'Remote or location pending',
   retry                : 'Retry',
+  review               : 'Review',
   save_setting         : 'Save Setting',
   save_bootcamp        : 'Save Bootcamp',
   scholarship_available: 'Scholarship available',
-  search_bootcamps     : "Search bootcamps",
+  search_bootcamps     : 'Search bootcamps',
   setting              : 'Setting',
   sort                 : 'Sort',
   target_bootcamp      : 'Target bootcamp',
@@ -65,15 +71,55 @@ export const en = {
   worldwide            : 'worldwide.',
   bootcamp_para        : {
     1                : 'Compare programs, costs, outcomes, and course focus from The CodeCoach Project catalogue.',
-    trainer_workspace: 'Trainer workspace'
+    trainer_workspace: 'Trainer workspace',
   },
   filters: {
     bootcamp: {
       rating        : 'Rating',
       averageCost   : 'Cost low to high',
       '-averageCost': 'Cost high to low',
-      name          : 'Name'
-    }
+      name          : 'Name',
+    },
+  },
+  meta     : {
+    full_stack_development: 'High demand pathway with broad hiring coverage',
+    mobile_app_development: 'Strong fit for product teams and startup work',
+    cloud_devops          : 'Practical infrastructure and deployment skills'
+  },
+  days     : {
+    mon: 'Mon',
+    tue: 'Tue',
+    wed: 'Wed',
+    thu: 'Thu',
+    fri: 'Fri',
+    sat: 'Sat',
+    sun: 'Sun'
+  },
+  dashboard: {
+    average_progress_day  : 'Average class progress by day.',
+    average_speed         : 'Average Speed',
+    browse_bootcamps      : 'Browse Bootcamps',
+    browse_courses        : 'Browse Courses',
+    catalogue_interest    : 'Catalogue Interest',
+    courses_active        : '{course}, active',
+    courses_completed     : 'Courses Completed',
+    days_row              : 'days in a row',
+    engagement_trend_week : 'Engagement trend across the week.',
+    featured_title        : 'Featured Bootcamps',
+    featured_description  : 'Discover top-rated bootcamps aligned with your next move.',
+    keep_it_up            : 'Keep it up',
+    learner_mix           : 'Learner Mix',
+    learning_progress     : 'Learning Progress',
+    no_course_active      : 'No course active',
+    of_target_pace        : 'of target pace',
+    study_streak          : 'Study Streak',
+    recommendation_title  : 'Recommendation For You',
+    recommendation_message: 'Based on your interests and learning goals.',
+    view_profile          : 'View Profile',
+    weekly_activity       : 'Weekly Activity',
+    welcome_message       : 'Continue your learning journey and explore new bootcamps.',
+    your_bootcamp         : 'Your current bootcamp',
+    your_current_courses  : 'Your Current Courses'
   },
   career_options: {
     web_development           : 'Web Development',
@@ -88,19 +134,18 @@ export const en = {
     machine_learning          : 'Machine Learning',
     cloud_computing           : 'Cloud Computing',
     cyber_security            : 'Cyber Security',
-    other                     : 'Other'
+    other                     : 'Other',
   },
   minimum_skill: {
     beginner    : 'beginner',
     intermediate: 'intermediate',
-    advanced    : 'advanced'
-
+    advanced    : 'advanced',
   },
-  traits       : {
+  traits: {
     housing         : 'Housing',
     job_assistance  : 'Job assistance',
     job_guarantee   : 'Job guarantee',
-    gi_bill_accepted: 'GI bill accepted'
+    gi_bill_accepted: 'GI bill accepted',
   },
   roles: {
     student: 'Student',
@@ -157,7 +202,7 @@ export const en = {
     welcome_back               : 'Welcome back',
     welcome_description_student: 'Continue your learning journey and explore new bootcamps',
     welcome_description_trainer: 'Manage your bootcamps, courses and track student progress',
-    welcome_description_guest  : ''
+    welcome_description_guest  : '',
   },
   nav: {
     dashboard: 'Dashboard',
@@ -169,17 +214,17 @@ export const en = {
       account: 'Account',
       manage : 'Manage',
       setting: 'Setting',
-      log_out: 'Log Out'
+      log_out: 'Log Out',
     },
-    footer   : {
+    footer: {
       docs                  : 'Docs',
       api                   : 'API',
       careers               : 'Careers',
       privacy               : 'Privacy',
-      all_system_operational: 'All systems operational'
+      all_system_operational: 'All systems operational',
     },
-    sidebar     : {
-      dashboard    : 'Dashboard'
+    sidebar: {
+      dashboard: 'Dashboard',
     },
   },
   validation: {

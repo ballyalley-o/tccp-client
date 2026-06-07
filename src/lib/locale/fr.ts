@@ -228,5 +228,51 @@ export const fr = {
   "target_bootcamp": "Bootcamp cible",
   "course": "Cours",
   "courses": "Cours",
-  "view_all": "Tout afficher"
+  "view_all": "Tout afficher",
+  "progress": "Progrès",
+  "dashboard": {
+    "average_progress_day": "Progression moyenne des cours par jour.",
+    "catalogue_interest": "Intérêt pour le catalogue",
+    "engagement_trend_week": "Tendance d'engagement tout au long de la semaine.",
+    "learner_mix": "Mélange d'apprenants",
+    "weekly_activity": "Activité hebdomadaire",
+    "average_speed": "Vitesse moyenne",
+    "browse_bootcamps": "Parcourir les bootcamps",
+    "browse_courses": "Parcourir les cours",
+    "courses_active": "{course}, actif",
+    "courses_completed": "Cours terminés",
+    "days_row": "jours d'affilée",
+    "featured_title": "Bootcamps en vedette",
+    "featured_description": "Découvrez les bootcamps les mieux notés et adaptés à votre prochain mouvement.",
+    "keep_it_up": "Continuez comme ça",
+    "learning_progress": "Progrès d'apprentissage",
+    "no_course_active": "Aucun cours actif",
+    "of_target_pace": "du rythme cible",
+    "study_streak": "Série d'études",
+    "recommendation_title": "Recommandation pour vous",
+    "recommendation_message": "En fonction de vos intérêts et de vos objectifs d'apprentissage.",
+    "view_profile": "Voir le profil",
+    "welcome_message": "Continuez votre parcours d'apprentissage et explorez de nouveaux bootcamps.",
+    "your_bootcamp": "Votre bootcamp actuel",
+    "your_current_courses": "Vos cours actuels"
+  },
+  "active": "Active",
+  "at_risk": "À risque",
+  "continue": "Continuer",
+  "done": "Fait",
+  "review": "Revoir",
+  "meta": {
+    "full_stack_development": "Parcours très demandé avec une large couverture d’embauche",
+    "mobile_app_development": "Idéal pour les équipes de produits et le travail de startup",
+    "cloud_devops": "Compétences pratiques en matière d’infrastructure et de déploiement"
+  },
+  "days": {
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Épouser",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Assise",
+    "sun": "Soleil"
+  }
 } as const

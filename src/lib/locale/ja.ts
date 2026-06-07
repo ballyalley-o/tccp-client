@@ -192,5 +192,51 @@ export const ja = {
   "target_bootcamp": "ターゲットブートキャンプ",
   "course": "コース",
   "courses": "コース",
-  "view_all": "すべて見る"
+  "view_all": "すべて見る",
+  "progress": "進捗",
+  "dashboard": {
+    "average_progress_day": "日ごとのクラスの平均進捗状況。",
+    "catalogue_interest": "カタログへの関心",
+    "engagement_trend_week": "週全体のエンゲージメントの傾向。",
+    "learner_mix": "学習者ミックス",
+    "weekly_activity": "毎週のアクティビティ",
+    "average_speed": "平均速度",
+    "browse_bootcamps": "ブートキャンプを参照する",
+    "browse_courses": "コースを参照する",
+    "courses_active": "{course}、アクティブ",
+    "courses_completed": "完了したコース",
+    "days_row": "連日",
+    "featured_title": "注目のブートキャンプ",
+    "featured_description": "あなたの次のステップに合わせて、最高評価のブートキャンプを見つけてください。",
+    "keep_it_up": "それを維持する",
+    "learning_progress": "学習の進捗状況",
+    "no_course_active": "アクティブなコースはありません",
+    "of_target_pace": "目標ペースの",
+    "study_streak": "連続学習",
+    "recommendation_title": "あなたへのおすすめ",
+    "recommendation_message": "あなたの興味と学習目標に基づいて。",
+    "view_profile": "プロフィールを見る",
+    "welcome_message": "学習の旅を続けて、新しいブートキャンプを探索してください。",
+    "your_bootcamp": "現在のブートキャンプ",
+    "your_current_courses": "現在のコース"
+  },
+  "active": "アクティブ",
+  "at_risk": "危険にさらされています",
+  "continue": "続く",
+  "done": "終わり",
+  "review": "レビュー",
+  "meta": {
+    "full_stack_development": "幅広い採用範囲を備えた需要の高い経路",
+    "mobile_app_development": "製品チームやスタートアップの仕事に最適",
+    "cloud_devops": "実践的なインフラストラクチャと導入スキル"
+  },
+  "days": {
+    "mon": "月",
+    "tue": "火",
+    "wed": "水",
+    "thu": "木",
+    "fri": "金",
+    "sat": "土",
+    "sun": "太陽"
+  }
 } as const

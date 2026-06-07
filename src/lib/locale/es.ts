@@ -228,5 +228,51 @@ export const es = {
   "target_bootcamp": "Campamento de entrenamiento objetivo",
   "course": "Curso",
   "courses": "Cursos",
-  "view_all": "Ver todo"
+  "view_all": "Ver todo",
+  "progress": "Progreso",
+  "dashboard": {
+    "average_progress_day": "Progreso promedio de clase por día.",
+    "catalogue_interest": "Interés del catálogo",
+    "engagement_trend_week": "Tendencia de participación a lo largo de la semana.",
+    "learner_mix": "Mezcla de estudiantes",
+    "weekly_activity": "Actividad semanal",
+    "average_speed": "Velocidad promedio",
+    "browse_bootcamps": "Explorar campamentos de entrenamiento",
+    "browse_courses": "Explorar cursos",
+    "courses_active": "{course}, activa",
+    "courses_completed": "Cursos completados",
+    "days_row": "días seguidos",
+    "featured_title": "Campamentos de entrenamiento destacados",
+    "featured_description": "Descubra los bootcamps mejor valorados alineados con su próximo paso.",
+    "keep_it_up": "Avanza",
+    "learning_progress": "Progreso del aprendizaje",
+    "no_course_active": "Ningún curso activo",
+    "of_target_pace": "del ritmo objetivo",
+    "study_streak": "Racha de estudios",
+    "recommendation_title": "Recomendación para usted",
+    "recommendation_message": "Según tus intereses y objetivos de aprendizaje.",
+    "view_profile": "Ver perfil",
+    "welcome_message": "Continúe su viaje de aprendizaje y explore nuevos bootcamps.",
+    "your_bootcamp": "Tu campamento de entrenamiento actual",
+    "your_current_courses": "Tus cursos actuales"
+  },
+  "active": "Activa",
+  "at_risk": "En riesgo",
+  "continue": "Continuar",
+  "done": "Hecho",
+  "review": "Revisar",
+  "meta": {
+    "full_stack_development": "Ruta de alta demanda con amplia cobertura de contratación",
+    "mobile_app_development": "Fuerte ajuste para equipos de productos y trabajos de startups",
+    "cloud_devops": "Habilidades prácticas de infraestructura y implementación."
+  },
+  "days": {
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Casarse",
+    "thu": "Jue",
+    "fri": "Vie",
+    "sat": "Se sentó",
+    "sun": "Sol"
+  }
 } as const
