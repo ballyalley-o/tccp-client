@@ -35,11 +35,14 @@ export interface BootcampLocation {
 }
 
 export interface Feedback {
-  _id   ?: string
-  title  : string
-  body  ?: string
-  rating : number
-  user  ?: string | Pick<User, 'firstname' | 'email' | 'role'>
+  _id      ?: string
+  title     : string
+  body     ?: string
+  rating    : number
+  bootcamp ?: string | Pick<Bootcamp, '_id' | 'name' | 'slug' | 'description'>
+  user     ?: string | Pick<User, 'firstname' | 'email' | 'role' | 'avatar'>
+  createdAt?: string
+  updatedAt?: string
 }
 
 export interface Bootcamp {
@@ -115,4 +118,12 @@ export interface CourseDraft {
   tuition             : number
   minimumSkill        : Course['minimumSkill']
   scholarshipAvailable: boolean
+}
+
+export interface FeedbackDraft {
+  title   : string
+  body    : string
+  rating  : number
+  bootcamp: string
+  user    : string
 }
