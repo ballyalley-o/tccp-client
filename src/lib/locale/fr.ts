@@ -274,5 +274,6 @@ export const fr = {
     "fri": "Ven",
     "sat": "Assise",
     "sun": "Soleil"
-  }
+  },
+  "career": "Carrière"
 } as const

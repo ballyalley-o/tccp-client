@@ -13,6 +13,7 @@ export const en = {
   bootcamp             : 'Bootcamp',
   bootcamps            : 'Bootcamps',
   calendar             : 'Calendar',
+  career               : 'Career',
   continue             : 'Continue',
   course               : 'Course',
   courses              : 'Courses',

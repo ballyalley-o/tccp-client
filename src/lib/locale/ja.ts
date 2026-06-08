@@ -238,5 +238,6 @@ export const ja = {
     "fri": "金",
     "sat": "土",
     "sun": "太陽"
-  }
+  },
+  "career": "キャリア"
 } as const
