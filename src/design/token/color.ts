@@ -26,7 +26,7 @@ export const color = {
   role: {
     admin  : '#030303',
     trainer: '#38BDF8',
-    student: '#F9E400',
+    user   : '#F9E400',
   },
   action: {
     hover_primary_dark: '#1E242F',
