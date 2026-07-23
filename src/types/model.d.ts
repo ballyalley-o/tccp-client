@@ -1,4 +1,4 @@
-export type UserRole = 'admin' | 'trainer' | 'student'
+export type UserRole = 'admin' | 'trainer' | 'user'
 
 export interface User {
   id          ?: string
@@ -67,7 +67,7 @@ export interface Bootcamp {
   acceptGi      : boolean
   rating        : number
   user         ?: string | Pick<User, 'firstname' | 'email' | 'role'>
-  courses      ?: Course[]
+  course       ?: Course[]
   feedback     ?: Feedback[]
   totalFeedback?: number
 }
