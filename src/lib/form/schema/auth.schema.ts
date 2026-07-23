@@ -16,7 +16,7 @@ export const registerSchema = loginSchema.extend({
   lastname    : optionalNameSchema,
   username    : z.string().trim().min(3, transl('validation.default.min_length', { field: 'username', value: '?', min: 3})),
   password    : z.string().min(6, 'Password must be at least 6 characters'),
-  role        : z.enum(['student', 'trainer', 'admin']),
+  role        : z.enum(['user', 'trainer', 'admin']),
   organization: z.string().trim(),
 }).superRefine((value, ctx) => {
   if (value.role === 'admin' && !value.organization.trim()) {
