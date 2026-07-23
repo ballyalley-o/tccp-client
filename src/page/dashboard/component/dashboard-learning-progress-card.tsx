@@ -1,16 +1,16 @@
-import type { ReactNode } from 'react'
 import { Box, Card, CardContent, Stack, Typography, useTheme } from '@mui/material'
+import { AssignmentIndSharp } from '@mui/icons-material'
 import { transl, type LocaleKey } from 'lib/tool'
+import type { Course } from 'types'
 
-interface DashboardStatCardProps {
-  icon    : ReactNode
-  label   : LocaleKey
+interface DashboardLearningProgressCardProps {
+  course  : Course
   value   : string
   tone    : AppThemeType
   subtitle: LocaleKey
 }
 
-const DashboardStatCard = ({ icon, label, value, tone, subtitle }: DashboardStatCardProps) => {
+const DashboardLearningProgressCard = ({ course, value, tone, subtitle }: DashboardLearningProgressCardProps) => {
   const theme = useTheme()
   const color = theme.palette[tone].main
 
@@ -30,11 +30,11 @@ const DashboardStatCard = ({ icon, label, value, tone, subtitle }: DashboardStat
               width          : 44,
             }}
           >
-            {icon}
+            {(<AssignmentIndSharp />)}
           </Box>
           <Stack>
             <Typography variant={'body2'} color={'text.secondary'}>
-              {transl(label)}
+              {course.title}
             </Typography>
             <Typography variant='h4' sx={{ fontWeight: 700 }}>
               {value}
@@ -49,4 +49,4 @@ const DashboardStatCard = ({ icon, label, value, tone, subtitle }: DashboardStat
   )
 }
 
-export default DashboardStatCard
+export default DashboardLearningProgressCard

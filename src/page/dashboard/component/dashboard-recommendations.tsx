@@ -1,6 +1,6 @@
 import { Box, Button, Card, CardContent, Stack, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import type { DashboardRecommendation } from 'page/dashboard/config/dashboard.config'
+import type { DashboardRecommendation } from 'page/dashboard/dashboard'
 
 interface DashboardRecommendationsProps {
   title          : string

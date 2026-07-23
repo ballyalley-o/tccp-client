@@ -1,9 +1,11 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material'
-import type { DashboardChartPoint } from 'page/dashboard/config/dashboard.config'
+import { transl, type LocaleKey } from 'lib/tool'
+
+import type { DashboardChartPoint } from '../dashboard'
 
 interface DashboardChartCardProps {
-  title   : string
-  subtitle: string
+  title   : LocaleKey
+  subtitle: LocaleKey
   points  : DashboardChartPoint[]
 }
 
@@ -15,20 +17,20 @@ const DashboardChartCard = ({ title, subtitle, points }: DashboardChartCardProps
       <CardContent>
         <Stack spacing={2.5}>
           <Stack spacing={0.5}>
-            <Typography variant='h3'>{title}</Typography>
-            <Typography variant='body2' color='text.secondary'>
-              {subtitle}
+            <Typography variant={'h3'}>{transl(title)}</Typography>
+            <Typography variant={'body2'} color={'text.secondary'}>
+              {transl(subtitle)}
             </Typography>
           </Stack>
 
-          <Stack direction='row' spacing={1.25} alignItems='flex-end' sx={{ minHeight: 184 }}>
+          <Stack direction={'row'} spacing={1.25} alignItems={'flex-end'} sx={{ minHeight: 184 }}>
             {points.map((point) => (
-              <Stack key={point.label} spacing={1} alignItems='center' sx={{ flex: 1, minWidth: 0 }}>
+              <Stack key={point.label} spacing={1} alignItems={'center'} sx={{ flex: 1, minWidth: 0 }}>
                 <Typography variant='caption' sx={{ fontWeight: 700 }}>
                   {point.value}%
                 </Typography>
                 <Stack
-                  justifyContent='flex-end'
+                  justifyContent={'flex-end'}
                   sx={{
                     bgcolor     : 'action.hover',
                     borderRadius: 1,
@@ -45,8 +47,8 @@ const DashboardChartCard = ({ title, subtitle, points }: DashboardChartCardProps
                     }}
                   />
                 </Stack>
-                <Typography variant='caption' color='text.secondary' noWrap>
-                  {point.label}
+                <Typography variant={'caption'} color={'text.secondary'} noWrap>
+                  {transl(point.label)}
                 </Typography>
               </Stack>
             ))}
