@@ -1,7 +1,7 @@
 import type { Bootcamp } from 'types'
 
 export const KEY = {
-    ROLE         : ['student', 'trainer', 'admin'] as const,
+    ROLE         : ['user', 'trainer'] as const,
     CAREER_OPTION: [
         'career_options.web_development',
         'career_options.mobile_development',
