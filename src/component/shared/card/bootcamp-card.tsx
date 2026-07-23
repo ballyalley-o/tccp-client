@@ -15,50 +15,44 @@ const BootcampCard = ({ bootcamp }: BootcampCardProps) => {
   const location = bootcamp.location?.city
     ? `${bootcamp.location.city}${bootcamp.location.state ? `, ${bootcamp.location.state}` : ''}`
     : bootcamp.location?.formattedAddress
-
+  const averageCost = bootcamp?.averageCost === 0 ? 'N/A' : `$${bootcamp.averageCost?.toLocaleString()}`
   return (
     <FillCard>
       <FillCardContent>
-        <Stack direction="row" spacing={1.5} alignItems="flex-start">
+        <Stack direction={'row'} spacing={1.5} alignItems={'flex-start'}>
           <IconTile>
             <BusinessIcon />
           </IconTile>
           <TruncateBox>
-            <CardTitle variant={"h3"}>
-              {bootcamp.name}
-            </CardTitle>
-            <Typography variant="body2" color={"text.secondary"} noWrap>
+            <CardTitle variant={'h3'}>{bootcamp.name}</CardTitle>
+            <Typography variant={'body2'} color={'text.secondary'} noWrap>
               {location || transl('remote_or_pending')}
             </Typography>
           </TruncateBox>
         </Stack>
 
-        <GrowText color={"text.secondary"}>
-          {bootcamp.description}
-        </GrowText>
+        <GrowText color={'text.secondary'}>{bootcamp.description}</GrowText>
 
-        <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+        <Stack direction={'row'} spacing={1} flexWrap={'wrap'} useFlexGap>
           {bootcamp.careers.slice(0, 3).map((career) => (
-            <Chip key={career} label={career} size="small" variant="outlined" />
+            <Chip key={career} label={career} size={'small'} variant={'outlined'} />
           ))}
         </Stack>
 
         <Divider />
 
-        <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
-          <Stack direction="row" spacing={0.5} alignItems="center">
-            <StarIcon color="warning" fontSize="small" />
-            <Typography variant="body2" fontWeight={700}>
-              {bootcamp.rating?.toFixed?.(1) ?? '0.0'}
+        <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} gap={1}>
+          <Stack direction={'row'} spacing={0.5} alignItems={'center'}>
+            <StarIcon color={'warning'} fontSize={'small'} />
+            <Typography variant={'body2'} fontWeight={700}>
+              {bootcamp.rating?.toFixed(1) ?? 'Not yet rated'}
             </Typography>
           </Stack>
-          <Stack direction="row" spacing={0.5} alignItems="center">
-            <PaidIcon color="success" fontSize="small" />
-            <Typography variant="body2" fontWeight={700}>
-              ${bootcamp.averageCost?.toLocaleString() ?? '0'}
-            </Typography>
+          <Stack direction={'row'} spacing={0.5} alignItems={'center'}>
+            <PaidIcon color={'success'} fontSize={'small'} />
+            <Typography variant={'body2'} fontWeight={700}>{averageCost}</Typography>
           </Stack>
-          <Button component={RouterLink} to={`/bootcamp/${bootcamp.slug}`} size="small" variant="contained">
+          <Button component={RouterLink} to={`/bootcamp/${bootcamp.slug}`} size='small' variant={'contained'}>
             {transl('view')}
           </Button>
         </Stack>
@@ -66,6 +60,5 @@ const BootcampCard = ({ bootcamp }: BootcampCardProps) => {
     </FillCard>
   )
 }
-
 
 export default BootcampCard
