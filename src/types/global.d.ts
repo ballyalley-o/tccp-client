@@ -20,4 +20,5 @@ declare global {
   declare type AppStateStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
   declare type AppThemeType       = 'primary' | 'success' | 'warning' | 'info'
   declare type AppCtaVariantType  = 'contained' | 'outlined'
+  declare type AppEnrollmentType  = 'enrolled' | 'in_progress'| 'completed' | 'dropped'
 }
