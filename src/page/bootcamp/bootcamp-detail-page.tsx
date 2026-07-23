@@ -6,7 +6,7 @@ import { Grid2, Stack } from '@mui/material'
 import { StatusView } from 'component/shared/loader'
 import { BackButton } from 'component/shared/button'
 
-import { BootcampCourseCard, BootcampSelectedCoursesCard, BootcampMainCard, BootcampProgramFitStack } from './component'
+import { BootcampCourseCard, BootcampFeedbackCard, BootcampSelectedCoursesCard, BootcampMainCard, BootcampProgramFitStack } from './component'
 
 const BootcampDetailPage = () => {
   const { bootcampSlug }                  = useParams()
@@ -38,6 +38,7 @@ const BootcampDetailPage = () => {
         </Grid2>
         <BootcampCourseCard selected={selected} />
       </Grid2>
+      <BootcampFeedbackCard selected={selected} />
     </Stack>
   )
 }
