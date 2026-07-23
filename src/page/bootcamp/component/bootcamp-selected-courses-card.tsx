@@ -1,7 +1,7 @@
 import type { Bootcamp, Course } from 'types'
 import { Box, Stack, CardContent, Typography, Chip } from '@mui/material'
 import { OffsetCard, SpacedDivider, SmallOffsetText } from 'design/styled'
-import { transl } from 'lib/tool'
+import { formatText, transl, type LocaleKey } from 'lib/tool'
 
 const BootcampSelectedCoursesCard = ({ selected }: { selected: Bootcamp }) => {
   return (
@@ -10,12 +10,12 @@ const BootcampSelectedCoursesCard = ({ selected }: { selected: Bootcamp }) => {
             <Typography variant={'h2'}>{transl('courses')}</Typography>
             <SpacedDivider />
             <Stack spacing={2}>
-            {selected.courses?.length ? (
-                selected.courses.map((course: Course) => (
+            {selected.course?.length ? (
+                selected.course.map((course: Course) => (
                 <Box key={course._id}>
                     <Stack direction={'row'} justifyContent={'space-between'} spacing={2}>
                         <Typography variant={'h3'}>{course.title}</Typography>
-                        <Chip label={course.minimumSkill} size={'small'} />
+                        <Chip label={formatText((transl(course.minimumSkill as LocaleKey)), 'capitalize')} size={'small'}  />
                     </Stack>
                     <SmallOffsetText color={'text.secondary'}>{course.description}</SmallOffsetText>
                 </Box>
