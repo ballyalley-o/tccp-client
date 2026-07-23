@@ -43,7 +43,8 @@ export const ja = {
     "student": "学生",
     "trainer": "トレーナー",
     "admin": "管理者",
-    "guest": "ゲスト"
+    "guest": "ゲスト",
+    "user": "学生"
   },
   "success": {
     "user_created": "ユーザーが作成しました",
@@ -218,7 +219,29 @@ export const ja = {
     "view_profile": "プロフィールを見る",
     "welcome_message": "学習の旅を続けて、新しいブートキャンプを探索してください。",
     "your_bootcamp": "現在のブートキャンプ",
-    "your_current_courses": "現在のコース"
+    "your_current_courses": "現在のコース",
+    "accross_all_courses": "すべてのコースにわたって",
+    "active_courses": "アクティブコース",
+    "average_rating": "平均評価",
+    "completion_rate": "完了率",
+    "last_cohort": "最終コホート",
+    "out_of_max_rate": "5.0点中",
+    "published_now": "現在公開中",
+    "total_students": "学生総数",
+    "across_all_courses": "すべてのコースにわたって",
+    "similar_bootcamps_in_market": "{index} 市場の同様のブートキャンプ",
+    "platform_watchlist": "プラットフォームウォッチリスト",
+    "welcome_back": "おかえり",
+    "welcome_message_user": "学習の旅を続けて、新しいブートキャンプを探索してください。",
+    "welcome_message_trainer": "ブートキャンプ、コースを管理し、生徒の進捗状況を追跡します。",
+    "welcome_message_admin": "プラットフォーム、アクティブなプログラム、カタログの健全性を監視します。",
+    "featured_course_title_user": "注目のブートキャンプ",
+    "featured_course_description_user": "あなたの次のステップに合わせて、最高評価のブートキャンプを見つけてください。",
+    "featured_course_title_trainer": "人気のブートキャンプ",
+    "featured_course_description_trainer": "学習者がカタログ全体で何を選択しているかを確認します。",
+    "recommendation_title_user": "あなたへのおすすめ",
+    "recommendation_message_user": "あなたの興味と学習目標に基づいて。",
+    "recommendation_description_trainer": ""
   },
   "active": "アクティブ",
   "at_risk": "危険にさらされています",
@@ -239,5 +262,20 @@ export const ja = {
     "sat": "土",
     "sun": "太陽"
   },
-  "career": "キャリア"
+  "career": "キャリア",
+  "analytics": "分析",
+  "create_course": "コースの作成",
+  "view_students": "学生を見る",
+  "your_courses": "あなたのコース",
+  "browse_bootcamps": "ブートキャンプを参照する",
+  "learners": "学習者",
+  "manage_platform": "プラットフォームの管理",
+  "quick_actions": "クイックアクション",
+  "typically_starts_from": "通常は次から始まります",
+  "location_pending": "場所は保留中",
+  "advanced": "高度な",
+  "beginner": "初心者",
+  "intermediate": "中級",
+  "not_yet_rated": "まだ評価されていません",
+  "enroll": "登録する"
 } as const
