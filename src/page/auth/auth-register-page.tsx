@@ -25,7 +25,7 @@ const _FORM_KEY = {
   ORGANIZATION: 'organization',
 } as const
 
-const _DEFAULT_ROLE = 'student'
+const _DEFAULT_ROLE = 'user'
 
 const RegisterPage = () => {
   const dispatch          = useAppDispatch()
@@ -36,7 +36,7 @@ const RegisterPage = () => {
     resolver     : zodResolver(registerSchema),
   })
   const selectedRole = form.watch(_FORM_KEY.ROLE)
-  const isAdmin      = selectedRole === 'admin'
+  const isTrainer    = selectedRole === 'trainer'
 
   const handleSubmit = form.handleSubmit(async (values) => {
     const result = await dispatch(register(values))
@@ -60,12 +60,12 @@ const RegisterPage = () => {
               <FormTextField control={form.control} name={_FORM_KEY.USERNAME} label={transl(_FORM_KEY.USERNAME as LocaleKey)} required autoComplete={_FORM_KEY.USERNAME} />
               <FormTextField control={form.control} name={_FORM_KEY.EMAIL} label={transl(_FORM_KEY.EMAIL as LocaleKey)} type={_FORM_KEY.EMAIL} required autoComplete={_FORM_KEY.EMAIL} />
               <FormPasswordField control={form.control} name={_FORM_KEY.PASSWORD} label={transl(_FORM_KEY.PASSWORD as LocaleKey)} required autoComplete={_FORM_KEY.NEW_PASSWORD} />
-              <FormTextField control={form.control} name={_FORM_KEY.ROLE} select label={transl(_FORM_KEY.ROLE as LocaleKey)}>
+              <FormTextField control={form.control} name={_FORM_KEY.ROLE} select label={formatText(transl(_FORM_KEY.ROLE as LocaleKey), 'capitalize')}>
                 {KEY.ROLE.map((_r) => (
                   <MenuItem key={_r} value={_r}>{formatText(transl((`roles.${_r}`) as unknown as never), 'capitalize')}</MenuItem>
                 ))}
               </FormTextField>
-              {isAdmin ? (
+              {isTrainer ? (
                 <FormTextField control={form.control} name={_FORM_KEY.ORGANIZATION} label={transl(_FORM_KEY.ORGANIZATION as LocaleKey)} required autoComplete={_FORM_KEY.ORGANIZATION} />
               ) : null}
             </Stack>
