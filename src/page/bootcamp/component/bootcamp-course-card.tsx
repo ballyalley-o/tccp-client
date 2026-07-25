@@ -1,14 +1,14 @@
 import { KEY } from 'config'
 import type { Bootcamp } from 'types'
 import { Grid2, Card, CardContent, List, ListItem, ListItemText, Typography } from '@mui/material'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import CheckIcon from '@mui/icons-material/CheckSharp'
 import { CompactListIcon } from 'design/styled'
 import { transl, type LocaleKey } from 'lib/tool'
 
 const BootcampTraitOptionItem = ({ label, enabled }: { label: LocaleKey, enabled: boolean }) => (
     <ListItem key={String(label)} disableGutters>
         <CompactListIcon>
-            <CheckCircleIcon color={enabled ? 'success' : 'disabled'} />
+            <CheckIcon color={enabled ? 'success' : 'disabled'} />
         </CompactListIcon>
         <ListItemText primary={transl(label)} />
     </ListItem>
