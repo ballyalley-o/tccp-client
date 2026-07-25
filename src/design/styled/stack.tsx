@@ -39,3 +39,12 @@ export const FooterWrapperStack = styled(Stack)<{ component?: ElementType }>(({ 
         paddingLeft : 50,
     }
 }))
+
+export const RatingContainerStack = styled(Stack)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        minWdith: '100%'
+    },
+    [theme.breakpoints.up('md')]: {
+        minWidth: 100
+    }
+}))
