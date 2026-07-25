@@ -4,3 +4,4 @@ export { default as BootcampProgramFitStack } from './bootcamp-program-fit-stack
 export { default as BootcampSelectedCoursesCard } from './bootcamp-selected-courses-card'
 export { default as BootcampCtaGroupBox } from './bootcamp-cta-group-box'
 export { default as BootcampFeedbackCard } from './bootcamp-feedback-card'
+export { default as BootcampFeedbackBox } from './bootcamp-feedback-box'
