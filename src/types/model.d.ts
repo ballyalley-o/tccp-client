@@ -40,7 +40,7 @@ export interface Feedback {
   body     ?: string
   rating    : number
   bootcamp ?: string | Pick<Bootcamp, '_id' | 'name' | 'slug' | 'description'>
-  user     ?: Pick<User, 'firstname' | 'email' | 'role' | 'avatar' | '_id'>
+  user     ?: Pick<User, 'firstname' | 'email' | 'role' | 'avatar' | '_id' | 'username'>
   createdAt?: string
   updatedAt?: string
 }
