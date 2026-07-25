@@ -7,7 +7,7 @@ export const color = {
   },
   status: {
     error  : '#EE1F14',
-    success: '#B3FF00',
+    success: '#88b227',
   },
   neutral: {
     ink        : '#12161C',
