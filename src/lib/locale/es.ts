@@ -313,5 +313,14 @@ export const es = {
   "beginner": "principiante",
   "intermediate": "intermedia",
   "not_yet_rated": "Aún no calificado",
-  "enroll": "Inscribirse"
+  "enroll": "Inscribirse",
+  "add_feedback": "Agregar comentarios",
+  "submitting": "Sumisión",
+  "fetching_feedbacks": "Recuperando comentarios...",
+  "give_rating": "da tu calificación",
+  "log_in_add_feedback": "Inicie sesión para agregar comentarios o calificar.",
+  "no_feedback_bootcamp": "Aún no hay comentarios sobre este bootcamp.",
+  "feedback": "Comentario",
+  "feedbacks": "Comentarios",
+  "rating": "Clasificación"
 } as const
