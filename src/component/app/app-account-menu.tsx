@@ -1,13 +1,13 @@
 import { Fragment, useState, type MouseEvent } from 'react'
-import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import type { User } from 'types/model'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { NAV } from 'config/nav.config'
 import { logout } from 'app/store/slice/auth/auth-slice'
 import { useAppDispatch } from 'app/hook'
 import { PATH } from 'route/path'
 import { Divider, IconButton, ListItemIcon, Menu, MenuItem, Stack, Tooltip, Typography } from '@mui/material'
 import { AppUserAvatar } from 'component/app'
-import { transl } from 'lib/tool'
-import { NAV } from 'config/nav.config'
+import { formatText, transl } from 'lib/tool'
 
 type AppAccountMenuProps = {
   user: User
@@ -65,7 +65,7 @@ const AppAccountMenu = ({ user }: AppAccountMenuProps) => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <Stack spacing={0.25} sx={{ px: 2, py: 1.25, minWidth: 240 }}>
-          <Typography variant={'subtitle2'}>{displayName}</Typography>
+          <Typography variant={'subtitle2'}>{formatText(displayName, 'capitalize')}</Typography>
           <Typography variant={'caption'} color={'text.secondary'}>{user.email}</Typography>
           <Typography variant={'caption'} color={'text.secondary'}>{user.role}</Typography>
         </Stack>
