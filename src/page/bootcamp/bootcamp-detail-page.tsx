@@ -37,7 +37,6 @@ const BootcampDetailPage = () => {
           <BootcampSelectedCoursesCard selected={selected} />
         </Grid2>
         <BootcampCourseCard selected={selected} />
-      <Typography variant={'h3'}>{'Feedbacks'}</Typography>
       </Grid2>
         <BootcampFeedbackCard selected={selected} />
     </Stack>
