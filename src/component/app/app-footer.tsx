@@ -22,7 +22,7 @@ const AppFooter = () => {
 
             <Stack direction={'row'} spacing={4} flexWrap={'wrap'} useFlexGap>
                 {NAV.FOOTER.map((_i) => (
-                    <FooterText key={_i.id} variant={'body2'} color={'text.secondary'}>{_i.label}</FooterText>
+                    <FooterText key={_i.id} variant={'body2'} color={'text.secondary'}>{transl(_i.label)}</FooterText>
                 ))}
             </Stack>
             <Stack spacing={1} alignItems={{ xs: 'flex-start', md: 'flex-end' }}>

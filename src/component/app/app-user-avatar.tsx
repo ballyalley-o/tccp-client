@@ -2,8 +2,10 @@ import { Avatar, type AvatarProps } from '@mui/material'
 import { designTokens } from 'design/token'
 import type { User } from 'types/model'
 
+type AppAvatarUsertype =  Pick<User, '_id' | 'firstname' | 'lastname' | 'email' | 'role' | 'avatar' | 'username'>
+
 type AppUserAvatarProps = Omit<AvatarProps, 'alt' | 'src'> & {
-  user : User
+  user : AppAvatarUsertype
   size?: number
 }
 
@@ -16,7 +18,7 @@ const hashSeed = (value: string) => {
   }, 7)
 }
 
-const getDisplayName = (user: User) => {
+const getDisplayName = (user: AppAvatarUsertype) => {
   return [user.firstname, user.lastname].filter(Boolean).join(' ') || user.username || user.email
 }
 
@@ -32,7 +34,7 @@ const svgDataUri = (svg: string) => {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
 
-const createGeneratedAvatar = (user: User) => {
+const createGeneratedAvatar = (user: AppAvatarUsertype) => {
   const seed     = hashSeed(`${user.email}-${user.username}-${user.role}`)
   const color    = palette[seed % palette.length]
   const accent   = roleAccent[user.role] || color.accent

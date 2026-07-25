@@ -160,3 +160,25 @@ export const FlexGrowBox = styled(Box)({
   display : 'flex',
   flexGrow: 1
 })
+
+export const FeedbackBubbleBox = styled(Box, { shouldForwardProp: (prop) => prop !== 'isAuthor', })<{ isAuthor?: boolean | null }>(({ isAuthor, theme }) => ({
+  position                      : 'relative',
+  borderRadius                  : '18px 18px 18px 0',
+  backgroundColor               : theme.palette.action.hover,
+  [theme.breakpoints.down('sm')]: {
+    padding              : theme.spacing(2)
+  },
+  [theme.breakpoints.up('sm')]: {
+    padding              : theme.spacing(2.5)
+  },
+  '&::after'     : {
+    content         : '""',
+    position        : 'absolute',
+    bottom          : 0,
+    left            : 0,
+    borderStyle     : 'solid',
+    borderWidth     : '0 16px 16px 0',
+    borderColor     : isAuthor ? 'black' : 'transparent',
+    borderRightColor: theme.palette.background.paper,
+  },
+}))

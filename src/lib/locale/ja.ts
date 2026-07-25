@@ -277,5 +277,14 @@ export const ja = {
   "beginner": "初心者",
   "intermediate": "中級",
   "not_yet_rated": "まだ評価されていません",
-  "enroll": "登録する"
+  "enroll": "登録する",
+  "add_feedback": "フィードバックを追加する",
+  "submitting": "提出中",
+  "fetching_feedbacks": "フィードバックを取得中...",
+  "give_rating": "あなたの評価を与えてください",
+  "log_in_add_feedback": "フィードバックを追加したり評価したりするには、ログインしてください。",
+  "no_feedback_bootcamp": "このブートキャンプに対するフィードバックはまだありません。",
+  "feedback": "フィードバック",
+  "feedbacks": "フィードバック",
+  "rating": "評価"
 } as const

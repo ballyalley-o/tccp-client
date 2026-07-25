@@ -6,7 +6,7 @@ import { Grid2, Stack, Typography } from '@mui/material'
 import { StatusView } from 'component/shared/loader'
 import { BackButton } from 'component/shared/button'
 
-import { BootcampCourseCard, BootcampSelectedCoursesCard, BootcampMainCard, BootcampProgramFitStack } from './component'
+import { BootcampCourseCard, BootcampFeedbackCard, BootcampSelectedCoursesCard, BootcampMainCard, BootcampProgramFitStack } from './component'
 
 const BootcampDetailPage = () => {
   const { bootcampSlug }                  = useParams()
@@ -39,6 +39,7 @@ const BootcampDetailPage = () => {
         <BootcampCourseCard selected={selected} />
       <Typography variant={'h3'}>{'Feedbacks'}</Typography>
       </Grid2>
+        <BootcampFeedbackCard selected={selected} />
     </Stack>
   )
 }
