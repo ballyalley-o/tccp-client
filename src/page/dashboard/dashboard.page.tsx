@@ -26,7 +26,7 @@ const DashboardPage = () => {
   const { items: bootcamps, status } = useAppSelector((state) => state.bootcamps)
   const model                        = DASHBOARD_MODELS[getDashboardAudience(user)]
   const isStudent                    = user && user.role === 'user'
-  const currentCourse = ''
+  const currentCourse                = model?.course && model.course[0]
 
   useEffect(() => {
     dispatch(fetchTopBootcamps())
@@ -38,9 +38,13 @@ const DashboardPage = () => {
 
       {model.stat && (
         <Grid2 container spacing={2}>
+        {currentCourse && (
+          <Grid2 key={currentCourse.id} size={{ xs: 12, sm: 6, md: 3 }}>
+            {isStudent && <DashboardLearningProgressCard course={currentCourse} />}
+          </Grid2>
+          )}
         {model.stat.map((stat) => (
           <Grid2 key={stat.id} size={{ xs: 12, sm: 6, md: 3 }}>
-            {/* {isStudent && <DashboardLearningProgressCard course={course}/>} */}
            <DashboardStatCard {...stat} />
           </Grid2>
         ))}
@@ -73,13 +77,12 @@ const DashboardPage = () => {
       />
       <DashboardFeaturedBootcamps
         title={model.featuredTitle}
-        description={model.featuredDescription}
         bootcamps={bootcamps}
         status={status}
         onViewAll={() => navigate(PATH.BOOTCAMP.ROOT)}
       />
       <DashboardFeedbackPanel bootcamps={bootcamps} isAuthenticated={isAuthenticated} />
-      <DashboardRecommendations title={model.recommendationTitle} message={model.recommendationMessage} recommendations={model.recommendation} />
+      <DashboardRecommendations title={model.recommendationTitle} recommendations={model.recommendation} />
     </Stack>
   )
 }
