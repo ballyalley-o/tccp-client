@@ -1,20 +1,32 @@
-import { PATH } from 'route/path'
-import { Button, Link } from '@mui/material'
+import { useNavigate }                from 'react-router-dom'
+import { PATH }                       from 'route/path'
+import { Link }                       from '@mui/material'
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material'
-import { transl } from 'lib/tool'
+import { transl }                     from 'lib/tool'
+import { Flex100Button }              from 'design/styled'
 
 const BackButton = () => {
+  const navigate = useNavigate()
+
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1)
+    } else {
+      navigate(PATH.BOOTCAMP.ROOT)
+    }
+  }
+
+
   return (
-    <Button
-        component={Link}
-        href={PATH.BOOTCAMP.ROOT}
-        rel='noreferrer'
-        startIcon={<ArrowBackIcon />}
-        variant={'text'}
-        sx={{ display: 'flex', width: '100px' }}
-      >
-        {transl('go_back')}
-      </Button>
+    <Flex100Button
+      component={Link}
+      onClick={handleBack}
+      rel={'noreferrer'}
+      startIcon={<ArrowBackIcon />}
+      variant={'text'}
+    >
+      {transl('go_back')}
+    </Flex100Button>
   )
 }
 
