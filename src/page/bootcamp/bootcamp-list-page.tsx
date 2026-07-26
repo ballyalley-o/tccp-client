@@ -11,10 +11,10 @@ import { StickyStack } from 'design/styled'
 import { transl } from 'lib/tool'
 
 const BootcampListPage = () => {
-  const dispatch                 = useAppDispatch()
-  const { items, status, error } = useAppSelector((state) => state.bootcamps)
   const [search, setSearch]      = useState('')
   const [sort, setSort]          = useState('-rating')
+  const { items, status, error } = useAppSelector((state) => state.bootcamps)
+  const dispatch                 = useAppDispatch()
 
   useEffect(() => {
     dispatch(fetchBootcamps({ sort }))
