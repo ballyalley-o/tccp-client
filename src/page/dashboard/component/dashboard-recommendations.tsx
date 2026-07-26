@@ -1,14 +1,14 @@
+import type { DashboardRecommendation } from 'page/dashboard/dashboard'
 import { Box, Button, Card, CardContent, Stack, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import type { DashboardRecommendation } from 'page/dashboard/dashboard'
+import { transl, type LocaleKey } from 'lib/tool'
 
 interface DashboardRecommendationsProps {
-  title          : string
-  message        : string
+  title          : LocaleKey
   recommendations: DashboardRecommendation[]
 }
 
-const DashboardRecommendations = ({ title, message, recommendations }: DashboardRecommendationsProps) => {
+const DashboardRecommendations = ({ title, recommendations }: DashboardRecommendationsProps) => {
   const navigate = useNavigate()
 
   return (
@@ -16,26 +16,23 @@ const DashboardRecommendations = ({ title, message, recommendations }: Dashboard
       <CardContent>
         <Stack spacing={2}>
           <Box>
-            <Typography variant='h3'>{title}</Typography>
-            <Typography variant='body2' color='text.secondary' sx={{ mt: 0.5 }}>
-              {message}
-            </Typography>
+            <Typography variant={'h3'}>{transl(title)}</Typography>
           </Box>
 
           <Stack spacing={1.5}>
             {recommendations.map((recommendation) => (
-              <Card key={recommendation.id} variant='outlined'>
+              <Card key={recommendation.id} variant={'outlined'}>
                 <CardContent>
-                  <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={2}>
+                  <Stack direction='row' justifyContent={'space-between'} alignItems={'center'} spacing={2}>
                     <Box sx={{ minWidth: 0 }}>
-                      <Typography variant='subtitle2' sx={{ fontWeight: 600 }}>
+                      <Typography variant={'subtitle2'} sx={{ fontWeight: 600 }}>
                         {recommendation.title}
                       </Typography>
-                      <Typography variant='caption' color='text.secondary'>
-                        {recommendation.meta}
+                      <Typography variant={'caption'} color={'text.secondary'}>
+                        {transl(recommendation.meta)}
                       </Typography>
                     </Box>
-                    <Button variant='outlined' size='small' onClick={() => navigate(recommendation.path)}>
+                    <Button variant={'outlined'} size={'small'} onClick={() => navigate(recommendation.path)}>
                       {recommendation.action}
                     </Button>
                   </Stack>
