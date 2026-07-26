@@ -241,7 +241,16 @@ export const ja = {
     "featured_course_description_trainer": "学習者がカタログ全体で何を選択しているかを確認します。",
     "recommendation_title_user": "あなたへのおすすめ",
     "recommendation_message_user": "あなたの興味と学習目標に基づいて。",
-    "recommendation_description_trainer": ""
+    "recommendation_description_trainer": "",
+    "featured_bootcamps": "注目のブートキャンプ",
+    "featured_bootcamps_description": "",
+    "recent_feedback": "最近のフィードバック",
+    "recent_feedbacks": "最近のフィードバック",
+    "your_current_bootcamp": "現在のブートキャンプ",
+    "your_bootcamps": "あなたのブートキャンプ",
+    "opportunities": "機会",
+    "recommendations_title_user": "あなたへのおすすめ",
+    "operational_focus": "運用上の焦点"
   },
   "active": "アクティブ",
   "at_risk": "危険にさらされています",
@@ -286,5 +295,7 @@ export const ja = {
   "no_feedback_bootcamp": "このブートキャンプに対するフィードバックはまだありません。",
   "feedback": "フィードバック",
   "feedbacks": "フィードバック",
-  "rating": "評価"
+  "rating": "評価",
+  "in_progress": "進行中",
+  "featured_bootcamps": "注目のブートキャンプ"
 } as const

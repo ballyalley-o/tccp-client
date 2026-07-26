@@ -277,7 +277,16 @@ export const es = {
     "featured_course_description_trainer": "Vea lo que los estudiantes eligen en todo el catálogo.",
     "recommendation_title_user": "Recomendación para usted",
     "recommendation_message_user": "Según tus intereses y objetivos de aprendizaje.",
-    "recommendation_description_trainer": ""
+    "recommendation_description_trainer": "",
+    "featured_bootcamps": "Campamentos de entrenamiento destacados",
+    "featured_bootcamps_description": "",
+    "recent_feedback": "Comentarios recientes",
+    "recent_feedbacks": "Comentarios recientes",
+    "your_current_bootcamp": "Tu campamento de entrenamiento actual",
+    "your_bootcamps": "Tus campamentos de entrenamiento",
+    "opportunities": "Oportunidades",
+    "recommendations_title_user": "Recomendaciones para ti",
+    "operational_focus": "Enfoque operativo"
   },
   "active": "Activa",
   "at_risk": "En riesgo",
@@ -322,5 +331,7 @@ export const es = {
   "no_feedback_bootcamp": "Aún no hay comentarios sobre este bootcamp.",
   "feedback": "Comentario",
   "feedbacks": "Comentarios",
-  "rating": "Clasificación"
+  "rating": "Clasificación",
+  "in_progress": "En curso",
+  "featured_bootcamps": "Campamentos de entrenamiento destacados"
 } as const

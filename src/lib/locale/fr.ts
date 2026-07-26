@@ -277,7 +277,16 @@ export const fr = {
     "featured_course_description_trainer": "Découvrez ce que les apprenants choisissent dans le catalogue.",
     "recommendation_title_user": "Recommandation pour vous",
     "recommendation_message_user": "En fonction de vos intérêts et de vos objectifs d'apprentissage.",
-    "recommendation_description_trainer": ""
+    "recommendation_description_trainer": "",
+    "featured_bootcamps": "Bootcamps en vedette",
+    "featured_bootcamps_description": "",
+    "recent_feedback": "Commentaires récents",
+    "recent_feedbacks": "Commentaires récents",
+    "your_current_bootcamp": "Votre bootcamp actuel",
+    "your_bootcamps": "Vos bootcamps",
+    "opportunities": "Opportunités",
+    "recommendations_title_user": "Recommandations pour vous",
+    "operational_focus": "Orientation opérationnelle"
   },
   "active": "Active",
   "at_risk": "À risque",
@@ -322,5 +331,7 @@ export const fr = {
   "no_feedback_bootcamp": "Aucun retour pour l'instant pour ce bootcamp.",
   "feedback": "Retour",
   "feedbacks": "Commentaires",
-  "rating": "Notation"
+  "rating": "Notation",
+  "in_progress": "En cours",
+  "featured_bootcamps": "Bootcamps en vedette"
 } as const
