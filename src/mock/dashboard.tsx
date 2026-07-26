@@ -47,7 +47,6 @@ export const MOCK_DATA: DashboardDataModelType = {
         featuredTitle        : 'dashboard.featured_bootcamps',
         featuredDescription  : 'dashboard.featured_description',
         recommendationTitle  : 'dashboard.recommendation_title',
-        recommendationMessage: 'dashboard.recommendation_message',
         recommendation: _SHARED_RECOMMENDATION,
         action        : [
             { id: 'browse-bootcamps', icon: <SchoolIcon />, label: 'dashboard.browse_bootcamps', path: PATH.BOOTCAMP.ROOT, variant: 'contained' },
@@ -67,10 +66,6 @@ export const MOCK_DATA: DashboardDataModelType = {
             { label: 'API', value: 28 },
             { label: 'Cloud', value: 18 },
             { label: transl('career'), value: 12 }
-        ],
-        course: [
-            { id: 'react-patterns', title: 'Advanced React Patterns', meta: 'TechBoot Academy', status: 'In Progress', progress: 65 },
-            { id: 'api-foundations', title: 'API Foundations', meta: 'CodeCoach Labs', status: 'In Progress', progress: 89 },
         ]
     },
     user: {
@@ -82,7 +77,6 @@ export const MOCK_DATA: DashboardDataModelType = {
         featuredTitle        : 'dashboard.featured_bootcamps',
         featuredDescription  : 'dashboard.featured_description',
         recommendationTitle  : 'dashboard.recommendation_title',
-        recommendationMessage: 'dashboard.recommendation_message',
         stat: [
             // how will the backend send this icon jsx ?
             //   { id: 'progress', icon: <AssignmentIndSharp />, label: 'dashboard.learning_progress', value: '45%', tone: 'primary', subtitle: 'dashboard.courses_active' },
@@ -111,8 +105,8 @@ export const MOCK_DATA: DashboardDataModelType = {
             { label: transl('career'), value: 12 }
         ],
         course: [
-            { id: 'react-patterns', title: 'Advanced React Patterns', meta: 'TechBoot Academy', status: 'In Progress', progress: 65 },
-            { id: 'api-foundations', title: 'API Foundations', meta: 'CodeCoach Labs', status: 'In Progress', progress: 89 },
+            { id: 'react-patterns', title: 'Advanced React Patterns', meta: 'TechBoot Academy', status: 'in_progress', progress: 65, tone: 'success', subtitle: 'dashboard.keep_it_up'  },
+            { id: 'api-foundations', title: 'API Foundations', meta: 'CodeCoach Labs', status: 'in_progress', progress: 89, tone: 'success',  subtitle: 'dashboard.days_row' },
         ]
     },
     trainer: {
@@ -122,9 +116,7 @@ export const MOCK_DATA: DashboardDataModelType = {
         currentCourseTitle   : 'dashboard.your_current_courses',
         currentCourseCta     : 'continue',
         featuredTitle        : 'dashboard.featured_bootcamps',
-        featuredDescription  : 'dashboard.featured_description',
         recommendationTitle  : 'dashboard.recommendation_title',
-        recommendationMessage: 'dashboard.recommendation_message',
         stat: [
             { id: 'active-courses', icon: <SchoolIcon />, label: 'dashboard.active_courses', value: '4', tone: 'primary', subtitle: 'dashboard.published_now' },
             { id: 'students', icon: <PersonIcon />, label: 'dashboard.total_students', value: '124', tone: 'success', subtitle: 'dashboard.across_all_courses' },
@@ -135,10 +127,6 @@ export const MOCK_DATA: DashboardDataModelType = {
             { id: 'create-course', icon: <BookmarkAddSharp />, label: 'create_course', path: PATH.AUTH.MANAGE, variant: 'contained' },
             { id: 'students', icon: <PersonIcon />, label: 'view_students', path: PATH.AUTH.MANAGE, variant: 'outlined' },
             { id: 'analytics', icon: <InsightsIcon />, label: 'analytics', path: PATH.AUTH.MANAGE, variant: 'outlined' },
-        ],
-        course: [
-            { id: 'react-patterns', title: 'Advanced React Patterns', meta: '32 students enrolled', status: 'Active', progress: 65 },
-            { id: 'cloud-delivery', title: 'Cloud Delivery Systems', meta: '28 students enrolled', status: 'Active', progress: 89 },
         ],
         activity: [
             { label: 'days.mon', value: 68 },
@@ -167,10 +155,7 @@ export const MOCK_DATA: DashboardDataModelType = {
         welcomeMessage       : 'dashboard.welcome_message_user',
         currentCourseTitle   : 'dashboard.your_current_courses',
         currentCourseCta     : 'continue',
-        featuredTitle        : 'dashboard.featured_bootcamps',
-        featuredDescription  : 'dashboard.featured_description',
         recommendationTitle  : 'dashboard.recommendation_title',
-        recommendationMessage: 'dashboard.recommendation_message',
         stat: [
             { id: 'active-courses', icon: <SchoolIcon />, label: 'dashboard.active_courses', value: '4', tone: 'primary', subtitle: 'dashboard.published_now' },
             { id: 'students', icon: <PersonIcon />, label: 'dashboard.total_students', value: '124', tone: 'success', subtitle: 'dashboard.across_all_courses' },
@@ -181,10 +166,6 @@ export const MOCK_DATA: DashboardDataModelType = {
               { id: 'manage', icon: <ManageIcon />, label: 'manage_platform', path: PATH.AUTH.MANAGE, variant: 'contained' },
               { id: 'bootcamps', icon: <SchoolIcon />, label: 'browse_bootcamps', path: PATH.BOOTCAMP.ROOT, variant: 'outlined' },
               { id: 'account', icon: <PersonIcon />, label: 'account', path: PATH.AUTH.ACCOUNT.ROOT, variant: 'outlined' },
-        ],
-        course: [
-            { id: 'react-patterns', title: 'Advanced React Patterns', meta: '32 students enrolled', status: 'Active', progress: 65 },
-            { id: 'cloud-delivery', title: 'Cloud Delivery Systems', meta: '28 students enrolled', status: 'Active', progress: 89 },
         ],
         activity: [
             { label: 'days.mon', value: 72 },
