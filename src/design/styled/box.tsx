@@ -182,3 +182,14 @@ export const FeedbackBubbleBox = styled(Box, { shouldForwardProp: (prop) => prop
     borderRightColor: theme.palette.background.paper,
   },
 }))
+
+export const DashboardIconBox = styled(Box, { shouldForwardProp: (prop) => prop !== 'color', })<{ color: string }>(({ theme, color }) => ({
+    alignItems     : 'center',
+    backgroundColor: color,
+    color          : theme.palette.primary.contrastText,
+    display        : 'flex',
+    height         : 44,
+    justifyContent : 'center',
+    borderRadius   : 1,
+    width          : 44,
+}))
