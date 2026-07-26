@@ -25,8 +25,10 @@ export interface DashboardCourse {
   id      : string
   title   : string
   meta    : string
-  status  : string
+  status  : AppEnrollmentType
+  tone    : AppThemeType
   progress: number
+  subtitle: LocaleKey
 }
 
 export interface DashboardRecommendation {
@@ -48,21 +50,21 @@ export interface DashboardChartPointString {
 }
 
 export interface DashboardModel {
-  audience             : DashboardAudience
-  welcomeTitleFallback : LocaleKey
-  welcomeMessage       : LocaleKey
-  currentCourseTitle   : LocaleKey
-  currentCourseCta     : LocaleKey
-  featuredTitle        : string
-  featuredDescription  : string
-  recommendationTitle  : string
-  recommendationMessage: string
+  audience              : DashboardAudience
+  welcomeTitleFallback  : LocaleKey
+  welcomeMessage        : LocaleKey
+  currentCourseTitle    : LocaleKey
+  currentCourseCta      : LocaleKey
+  featuredTitle        ?: LocaleKey
+  featuredDescription  ?: string
+  recommendationTitle   : LocaleKey
+  recommendationMessage?: string
   stat                 ?: DashboardStat[]
-  action               : DashboardAction[]
-  course               : DashboardCourse[]
-  activity             : DashboardChartPoint[]
-  distribution         : DashboardChartPointString[]
-  recommendation       : DashboardRecommendation[]
+  action                : DashboardAction[]
+  course               ?: DashboardCourse[]
+  activity              : DashboardChartPoint[]
+  distribution          : DashboardChartPointString[]
+  recommendation        : DashboardRecommendation[]
 }
 
 export type DashboardDataModelType = Record<DashboardAudience, DashboardModel>
