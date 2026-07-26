@@ -48,21 +48,21 @@ export interface DashboardChartPointString {
 }
 
 export interface DashboardModel {
-  audience              : DashboardAudience
-  welcomeTitleFallback  : LocaleKey
-  welcomeMessage        : LocaleKey
-  currentCourseTitle    : LocaleKey
-  currentCourseCta      : LocaleKey
-  featuredTitle         : string
-  featuredDescription   : string
-  recommendationTitle   : string
-  recommendationMessage : string
+  audience             : DashboardAudience
+  welcomeTitleFallback : LocaleKey
+  welcomeMessage       : LocaleKey
+  currentCourseTitle   : LocaleKey
+  currentCourseCta     : LocaleKey
+  featuredTitle        : string
+  featuredDescription  : string
+  recommendationTitle  : string
+  recommendationMessage: string
   stat                 ?: DashboardStat[]
-  action                : DashboardAction[]
-  course                : DashboardCourse[]
-  activity              : DashboardChartPoint[]
-  distribution          : DashboardChartPointString[]
-  recommendation        : DashboardRecommendation[]
+  action               : DashboardAction[]
+  course               : DashboardCourse[]
+  activity             : DashboardChartPoint[]
+  distribution         : DashboardChartPointString[]
+  recommendation       : DashboardRecommendation[]
 }
 
 export type DashboardDataModelType = Record<DashboardAudience, DashboardModel>
