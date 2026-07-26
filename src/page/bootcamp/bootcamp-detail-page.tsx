@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { clearSelectedBootcamp, fetchBootcampBySlug } from 'app/store/slice'
-import { Grid2, Stack, Typography } from '@mui/material'
+import { Grid2, Stack } from '@mui/material'
 import { StatusView } from 'component/shared/loader'
 import { BackButton } from 'component/shared/button'
 
