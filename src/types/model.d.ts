@@ -92,8 +92,11 @@ export interface ApiSingle<T> {
 }
 
 export interface ApiError {
-  message: string
-  status : number
+  message    : string
+  status     : number
+  errorCode ?: string
+  messageKey?: string
+  params    ?: Record<string, string | number | boolean>
 }
 
 export interface BootcampDraft {
