@@ -1,10 +1,10 @@
 import { Box, Card, CardContent, Stack, Typography, useTheme } from '@mui/material'
-import type { DashboardChartPoint } from 'page/dashboard/config/dashboard.config'
+import type { DashboardChartPointString } from 'page/dashboard/dashboard'
 
 interface DashboardDistributionCardProps {
   title   : string
   subtitle: string
-  points  : DashboardChartPoint[]
+  points  : DashboardChartPointString[]
 }
 
 const DashboardDistributionCard = ({ title, subtitle, points }: DashboardDistributionCardProps) => {
