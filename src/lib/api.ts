@@ -5,9 +5,9 @@ import { ACTIVE_LOCALE_KEY } from 'config/locale.config'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1'
 
 const securityHeaders = {
-  'Content-Type': 'application/json',
-  Accept        : 'application/json',
-  'x-locale'    : ACTIVE_LOCALE_KEY,
+  'Content-Type'   : 'application/json',
+  Accept           : 'application/json',
+  'x-locale'       : ACTIVE_LOCALE_KEY,
   'Accept-Language': ACTIVE_LOCALE_KEY
 }
 
