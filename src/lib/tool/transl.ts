@@ -1,13 +1,8 @@
-import { GLOBAL } from 'config/global.config'
-import { locales } from 'config/locale.config'
+import { transl as sharedTransl, type LocaleLang, type LocaleParams, type NestedKeys } from '@i18n'
+import { ACTIVE_LOCALE_KEY } from 'config/locale.config'
 
-type NestedKeys<T> = {
-  [K in keyof T & string]: T[K] extends string ? K : T[K] extends Record<string, unknown> ? `${K}.${NestedKeys<T[K]>}` : never
-}[keyof T & string]
-
-type LocaleLang = keyof typeof locales
-export type LocaleKey = NestedKeys<AppLocale>
-const _DEFAULT_LOCALE = GLOBAL.LOCALE
+type ClientLocale = AppLocale['client']
+export type LocaleKey = NestedKeys<ClientLocale>
 /**
  * Retrieves a localized message based on the provided key and optional parameters.
  *
@@ -24,24 +19,5 @@ const _DEFAULT_LOCALE = GLOBAL.LOCALE
  * @returns The localized message with placeholders replaced, or the original key if
  *          the message is not found or is not a string.
  */
-export const transl = (key: LocaleKey, params?: Record<string, string | number | boolean>, locale: LocaleLang = _DEFAULT_LOCALE): string => {
-  const getMessage = (obj: unknown, path: string) =>
-    path.split('.').reduce((o: unknown, i: string) => (o && typeof o === 'object' && i in o ? (o as Record<string, unknown>)[i] : null), obj)
-
-  const localeMessage   = getMessage(locales[locale], key)
-  const fallbackMessage = getMessage(locales.en, key)
-
-  const message = localeMessage || fallbackMessage
-
-  if (typeof message !== 'string') return key
-
-  let result = message as string
-
-  if (params) {
-    Object.keys(params).forEach((param) => {
-      result = result.replace(new RegExp(`{${param}}`, 'g'), String(params[param]))
-    })
-  }
-
-  return result
-}
+export const transl = (key: LocaleKey, params?: LocaleParams, locale: LocaleLang = ACTIVE_LOCALE_KEY): string =>
+  sharedTransl(`client.${key}` as `client.${LocaleKey}`, params, locale)
