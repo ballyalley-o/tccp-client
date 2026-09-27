@@ -1,11 +1,14 @@
 import type { ApiError } from 'types/model'
 import { transl } from 'lib/tool'
+import { ACTIVE_LOCALE_KEY } from 'config/locale.config'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1'
 
 const securityHeaders = {
   'Content-Type': 'application/json',
-  Accept        : 'application/json'
+  Accept        : 'application/json',
+  'x-locale'    : ACTIVE_LOCALE_KEY,
+  'Accept-Language': ACTIVE_LOCALE_KEY
 }
 
 export async function apiRequest<T>(
@@ -27,8 +30,11 @@ export async function apiRequest<T>(
 
   if (!response.ok) {
     const error: ApiError = {
-      status: response.status,
-      message: payload.message || payload.error?.message || transl('error.generic')
+      status    : response.status,
+      errorCode : payload.errorCode,
+      messageKey: payload.messageKey,
+      params    : payload.params,
+      message   : payload.message || payload.error?.message || transl('error.generic')
     }
     throw error
   }
