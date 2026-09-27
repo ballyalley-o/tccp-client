@@ -1,8 +1,5 @@
 import { GLOBAL } from './global.config'
-import { en, fr, es, ja } from 'lib/locale'
+import { DEFAULT_LOCALE, isSupportedLocale, locales } from '@i18n'
 
-export const locales = { en, fr, es, ja } as const
-type   AppLocaleType = keyof typeof locales
-
-const  activeLocale: AppLocaleType = (GLOBAL.LOCALE as AppLocaleType) || 'en'
-export const ACTIVE_LOCALE         = locales[activeLocale]
+export const ACTIVE_LOCALE_KEY = isSupportedLocale(GLOBAL.LOCALE) ? GLOBAL.LOCALE : DEFAULT_LOCALE
+export const ACTIVE_LOCALE     = locales[ACTIVE_LOCALE_KEY]
