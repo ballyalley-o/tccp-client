@@ -6,6 +6,10 @@
     "module"            : "esnext",
     "types"             : ["vite/client"],
     "baseUrl"           : "src",
+    "paths"             : {
+      "@i18n"  : ["shared/i18n/src/index"],
+      "@i18n/*": ["shared/i18n/src/*"]
+    },
     "rootDir"           : "./src",
     "outDir"            : "./dist",
     "ignoreDeprecations": "6.0",
@@ -25,5 +29,6 @@
     "erasableSyntaxOnly"        : false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/shared/i18n/tool"]
 }
