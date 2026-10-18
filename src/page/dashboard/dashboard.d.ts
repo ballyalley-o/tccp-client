@@ -1,8 +1,7 @@
 import { ReactNode } from "react"
 import type { LocaleKey } from "lib/tool"
-import { User } from "types"
 
-export type DashboardAudience = User['role'] | 'guest'
+export type DashboardAudience = 'admin' | 'trainer' | 'user' | 'guest'
 
 export interface DashboardStat {
   id      : string
@@ -62,7 +61,7 @@ export interface DashboardModel {
   stat                 ?: DashboardStat[]
   action                : DashboardAction[]
   course               ?: DashboardCourse[]
-  activity              : DashboardChartPoint[]
+  activity              : DashboardChartPointString[]
   distribution          : DashboardChartPointString[]
   recommendation        : DashboardRecommendation[]
 }
