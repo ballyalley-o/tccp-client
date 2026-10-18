@@ -3,10 +3,10 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { PATH } from 'route/path'
 
 const AuthGuard = () => {
-  const { isAuthenticated, status } = useAppSelector((state) => state.auth)
-  const location                    = useLocation()
+  const { isAuthenticated, sessionChecked } = useAppSelector((state) => state.auth)
+  const location                            = useLocation()
 
-    if (status === 'loading') {
+    if (!sessionChecked) {
         return null
     }
 
