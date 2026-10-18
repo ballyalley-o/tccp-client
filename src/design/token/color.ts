@@ -27,6 +27,8 @@ export const color = {
     admin  : '#030303',
     trainer: '#38BDF8',
     user   : '#F9E400',
+    student: '#F9E400',
+    guest  : '#94A3B8',
   },
   action: {
     hover_primary_dark: '#1E242F',
