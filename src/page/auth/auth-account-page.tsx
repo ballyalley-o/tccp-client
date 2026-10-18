@@ -1,20 +1,21 @@
-import { Link as RouterLink } from 'react-router-dom'
-import { FIELD } from 'config/field.config'
-import { useAppDispatch, useAppSelector } from 'app/hook'
-import { fetchAccount } from 'app/store/slice'
-import { PATH } from 'route/path'
+import { Link as RouterLink }                                    from 'react-router-dom'
+import { FIELD }                                                 from 'config/field.config'
+import { useAppDispatch, useAppSelector }                        from 'app/hook'
+import { fetchAccount }                                          from 'app/store/slice'
+import { PATH }                                                  from 'route/path'
 import { Button, Card, CardContent, Divider, Stack, Typography } from '@mui/material'
-import RefreshIcon from '@mui/icons-material/Refresh'
-import SettingsIcon from '@mui/icons-material/Settings'
-import ShieldIcon from '@mui/icons-material/Shield'
-import { AppUserAvatar } from 'component/app'
-import { RoleChip } from 'component/shared'
-import { transl } from 'lib/tool'
+import RefreshIcon                                               from '@mui/icons-material/Refresh'
+import SettingsIcon                                              from '@mui/icons-material/Settings'
+import ShieldIcon                                                from '@mui/icons-material/Shield'
+import { AppUserAvatar }                                         from 'component/app'
+import { RoleChip }                                              from 'component/shared'
+import { getUserRole }                                           from 'lib/tool/user-role'
+import { transl }                                                from 'lib/tool'
 
 const AuthAccountPage = () => {
   const dispatch         = useAppDispatch()
   const { user, status } = useAppSelector((state) => state.auth)
-  const canManage        = user?.role === 'admin' || user?.role === 'trainer'
+  const canManage        = getUserRole(user) === 'admin' || getUserRole(user) === 'trainer'
   const displayName      = user ? [user.firstname, user.lastname].filter(Boolean).join(' ') || user.username : ''
 
   return (
@@ -38,7 +39,7 @@ const AuthAccountPage = () => {
                   <Typography variant={'h2'}>{displayName}</Typography>
                   <Typography color={'text.secondary'}>{user?.email}</Typography>
                 </Stack>
-                <RoleChip userRole={user?.role} />
+                <RoleChip userRole={getUserRole(user)} />
               </Stack>
             </Stack>
 

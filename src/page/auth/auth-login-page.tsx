@@ -1,15 +1,16 @@
-import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { login } from 'app/store/slice'
-import { useAppDispatch, useAppSelector } from 'app/hook'
-import { PATH } from 'route/path'
+import { useEffect }                                                from 'react'
+import { Link as RouterLink, useLocation, useNavigate }             from 'react-router-dom'
+import { useForm }                                                  from 'react-hook-form'
+import { zodResolver }                                              from '@hookform/resolvers/zod'
+import { clearAuthError, login }                                    from 'app/store/slice'
+import { useAppDispatch, useAppSelector }                           from 'app/hook'
+import { PATH }                                                     from 'route/path'
 import { loginSchema, loginUserDefaultValue, type LoginFormValues } from 'lib/form'
-import { Alert, Button, Card, CardContent, Divider, Stack } from '@mui/material'
-import LoginSharpIcon from '@mui/icons-material/LoginSharp'
-import { FormPasswordField, FormTextField } from 'component/form'
-import { AuthPanel, FormTitle, SecondaryButton } from 'design/styled'
-import { formatText, transl } from 'lib/tool'
+import { Alert, Button, Card, CardContent, Divider, Stack }         from '@mui/material'
+import LoginSharpIcon                                               from '@mui/icons-material/LoginSharp'
+import { FormPasswordField, FormTextField }                         from 'component/form'
+import { AuthPanel, FormTitle, SecondaryButton }                    from 'design/styled'
+import { formatText, transl }                                       from 'lib/tool'
 
 interface LocationState {
   from?: { pathname?: string }
@@ -24,6 +25,10 @@ const LogInPage = () => {
     defaultValues: loginUserDefaultValue,
     resolver     : zodResolver(loginSchema),
   })
+
+  useEffect(() => {
+    dispatch(clearAuthError())
+  }, [dispatch])
 
   const handleSubmit = form.handleSubmit(async (values) => {
     const result = await dispatch(login(values))
