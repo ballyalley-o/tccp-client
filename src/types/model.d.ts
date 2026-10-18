@@ -1,4 +1,15 @@
-export type UserRole = 'admin' | 'trainer' | 'user'
+export type UserRole = 'admin' | 'trainer' | 'student' | 'user' | 'guest'
+
+export interface AuthRole {
+  _id     : string
+  name    : string
+  label  ?: string
+  metadata?: {
+    public?: boolean
+    [key: string]: unknown
+  }
+  actions : string[]
+}
 
 export interface User {
   id          ?: string
@@ -7,7 +18,7 @@ export interface User {
   lastname    ?: string
   username     : string
   email        : string
-  role         : UserRole
+  role         : UserRole | AuthRole | string | null
   avatar      ?: string
   location    ?: string
   organization?: string
@@ -91,7 +102,7 @@ export interface ApiSingle<T> {
   data   ?: T
 }
 
-export interface ApiError {
+export interface ApiError extends Error {
   message    : string
   status     : number
   errorCode ?: string
