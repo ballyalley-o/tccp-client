@@ -7,6 +7,7 @@ import { transl } from 'lib/tool'
 const initialState: AuthState = {
   user           : null,
   isAuthenticated: false,
+  sessionChecked : false,
   token          : null,
   status         : 'loading',
   error          : null
@@ -27,7 +28,7 @@ export const register = createAsyncThunk('auth/register', async (credentials: Re
     password : credentials.password,
     role     : credentials.role,
     ...(credentials.lastname?.trim() ? { lastname: credentials.lastname.trim() } : {}),
-    ...(credentials.role === 'admin' && credentials.organization?.trim() ? { organization: credentials.organization.trim() } : {}),
+    ...(credentials.organization?.trim() ? { organization: credentials.organization.trim() } : {}),
   }
 
   return apiRequest<ApiSingle<User>>('/auth/register', {
@@ -78,6 +79,7 @@ const authSlice = createSlice({
       state.user            = null
       state.token           = null
       state.isAuthenticated = false
+      state.sessionChecked  = true
       state.status          = 'idle'
       state.error           = null
     }
@@ -92,10 +94,12 @@ const authSlice = createSlice({
         state.status          = 'succeeded'
         state.token           = action.payload.token ?? null
         state.isAuthenticated = action.payload.success
+        state.sessionChecked  = true
         state.user            = action.payload.user ?? null
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed'
+        state.sessionChecked = true
         state.error  = action.error.message ?? transl('error.unable_log_in')
       })
       .addCase(register.pending, (state) => {
@@ -107,9 +111,11 @@ const authSlice = createSlice({
         state.token           = action.payload.token ?? null
         state.user            = action.payload.user ?? null
         state.isAuthenticated = action.payload.success
+        state.sessionChecked  = true
       })
       .addCase(register.rejected, (state, action) => {
         state.status = 'failed'
+        state.sessionChecked = true
         state.error  = action.error.message ?? transl('error.unable_create_account')
       })
       .addCase(fetchAccount.pending, (state) => {
@@ -121,12 +127,14 @@ const authSlice = createSlice({
         state.status           = 'succeeded'
         state.user             = user
         state.isAuthenticated  = Boolean(user)
+        state.sessionChecked   = true
         state.token            = action.payload.token ?? state.token
       })
       .addCase(fetchAccount.rejected, (state) => {
         state.status          = 'idle'
         state.user            = null
         state.isAuthenticated = false
+        state.sessionChecked  = true
         state.token           = null
       })
       .addCase(updateAccount.pending, (state) => {
@@ -144,6 +152,7 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.user            = null
         state.isAuthenticated = false
+        state.sessionChecked  = true
         state.token           = null
         state.status          = 'idle'
       })
