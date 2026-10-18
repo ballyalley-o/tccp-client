@@ -1,6 +1,7 @@
 import { Avatar, type AvatarProps } from '@mui/material'
-import { designTokens } from 'design/token'
-import type { User } from 'types/model'
+import type { User }                from 'types/model'
+import { getUserRole }              from 'lib/tool/user-role'
+import { designTokens }             from 'design/token'
 
 type AppAvatarUsertype =  Pick<User, '_id' | 'firstname' | 'lastname' | 'email' | 'role' | 'avatar' | 'username'>
 
@@ -10,7 +11,7 @@ type AppUserAvatarProps = Omit<AvatarProps, 'alt' | 'src'> & {
 }
 
 const palette                         = designTokens.color.avatar
-const roleAccent: Record<User['role'], string> = designTokens.color.role
+const roleAccent: Record<import('types').UserRole, string> = designTokens.color.role
 
 const hashSeed = (value: string) => {
   return [...value].reduce((total, char) => {
@@ -35,9 +36,9 @@ const svgDataUri = (svg: string) => {
 }
 
 const createGeneratedAvatar = (user: AppAvatarUsertype) => {
-  const seed     = hashSeed(`${user.email}-${user.username}-${user.role}`)
+  const seed     = hashSeed(`${user.email}-${user.username}-${getUserRole(user)}`)
   const color    = palette[seed % palette.length]
-  const accent   = roleAccent[user.role] || color.accent
+  const accent   = roleAccent[getUserRole(user)] || color.accent
 
   const cells = Array.from({ length: 50 }, (_, i) => ((seed >> (i % 24)) & 1) === 1)
 
