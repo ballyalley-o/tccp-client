@@ -3,9 +3,9 @@ import { Navigate, Outlet } from 'react-router-dom'
 import { PATH } from 'route/path'
 
 const GuestGuard = () => {
-    const { isAuthenticated, status } = useAppSelector((state) => state.auth)
+    const { isAuthenticated, sessionChecked } = useAppSelector((state) => state.auth)
 
-    if (status === 'loading') {
+    if (!sessionChecked) {
         return null
     }
 
