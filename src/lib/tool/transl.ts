@@ -1,8 +1,9 @@
-import { transl as sharedTransl, type LocaleLang, type LocaleParams, type NestedKeys } from '@i18n'
-import { ACTIVE_LOCALE_KEY } from 'config/locale.config'
+import { transl as sharedTransl } from '@i18n'
+import { ACTIVE_LOCALE_KEY }      from 'config/locale.config'
 
-type ClientLocale = AppLocale['client']
-export type LocaleKey = NestedKeys<ClientLocale>
+type   SharedLocaleKey = Parameters<typeof sharedTransl>[0]
+type   ClientLocale    = AppLocale['client']
+export type LocaleKey  = NestedKeys<ClientLocale>
 /**
  * Retrieves a localized message based on the provided key and optional parameters.
  *
@@ -20,4 +21,4 @@ export type LocaleKey = NestedKeys<ClientLocale>
  *          the message is not found or is not a string.
  */
 export const transl = (key: LocaleKey, params?: LocaleParams, locale: LocaleLang = ACTIVE_LOCALE_KEY): string =>
-  sharedTransl(`client.${key}` as `client.${LocaleKey}`, params, locale)
+  sharedTransl(`client.${key}` as SharedLocaleKey, params, locale)
