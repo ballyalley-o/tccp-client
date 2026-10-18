@@ -16,16 +16,8 @@ export const registerSchema = loginSchema.extend({
   lastname    : optionalNameSchema,
   username    : z.string().trim().min(3, transl('validation.default.min_length', { field: 'username', value: '?', min: 3})),
   password    : z.string().min(6, 'Password must be at least 6 characters'),
-  role        : z.enum(['user', 'trainer', 'admin']),
+  role        : z.string().min(1, transl('validation.default.required', { field: 'role' })),
   organization: z.string().trim(),
-}).superRefine((value, ctx) => {
-  if (value.role === 'admin' && !value.organization.trim()) {
-    ctx.addIssue({
-      code   : 'custom',
-      path   : ['organization'],
-      message: transl('validation.default.required', { field: 'organization' })
-    })
-  }
 })
 
 export type LoginFormValues    = z.infer<typeof loginSchema>
