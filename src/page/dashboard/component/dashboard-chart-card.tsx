@@ -1,12 +1,12 @@
+import type { DashboardChartPointString } from '../dashboard'
 import { Card, CardContent, Stack, Typography } from '@mui/material'
-import { transl, type LocaleKey } from 'lib/tool'
+import { transl, type LocaleKey }               from 'lib/tool'
 
-import type { DashboardChartPoint } from '../dashboard'
 
 interface DashboardChartCardProps {
   title   : LocaleKey
   subtitle: LocaleKey
-  points  : DashboardChartPoint[]
+  points  : DashboardChartPointString[]
 }
 
 const DashboardChartCard = ({ title, subtitle, points }: DashboardChartCardProps) => {
@@ -27,7 +27,7 @@ const DashboardChartCard = ({ title, subtitle, points }: DashboardChartCardProps
             {points.map((point) => (
               <Stack key={point.label} spacing={1} alignItems={'center'} sx={{ flex: 1, minWidth: 0 }}>
                 <Typography variant='caption' sx={{ fontWeight: 700 }}>
-                  {point.value}%
+                  {point.value}
                 </Typography>
                 <Stack
                   justifyContent={'flex-end'}
@@ -42,13 +42,13 @@ const DashboardChartCard = ({ title, subtitle, points }: DashboardChartCardProps
                   <Stack
                     sx={{
                       bgcolor   : 'primary.main',
-                      height    : `${Math.max((point.value / max) * 100, 8)}%`,
+                      height    : `${(point.value / max) * 100}%`,
                       transition: 'height 180ms ease',
                     }}
                   />
                 </Stack>
                 <Typography variant={'caption'} color={'text.secondary'} noWrap>
-                  {transl(point.label)}
+                  {point.label}
                 </Typography>
               </Stack>
             ))}

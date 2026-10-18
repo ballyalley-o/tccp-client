@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material'
-import { transl } from 'lib/tool'
-import type { DashboardModel } from 'page/dashboard/dashboard'
-import type { User } from 'types'
+import { transl }                 from 'lib/tool'
+import type { DashboardModel }    from 'page/dashboard/dashboard'
+import type { User }              from 'types'
 
 interface DashboardWelcomeProps {
   model: DashboardModel
@@ -14,6 +14,9 @@ const DashboardWelcome = ({ model, user }: DashboardWelcomeProps) => {
     ? transl('message.welcome')
     : transl('dashboard.welcome_back')
 
+  // const roleId   = user?.role
+  // const userRole = AuthUser
+
   return (
     <Box>
       <Stack spacing={1}>
@@ -21,7 +24,7 @@ const DashboardWelcome = ({ model, user }: DashboardWelcomeProps) => {
           {welcome || model.welcomeTitleFallback}, {name}!
         </Typography>
         <Typography variant={'body1'} color={'text.secondary'}>
-          {model.welcomeMessage}
+          {transl('dashboard.welcome_message_user')}
         </Typography>
       </Stack>
     </Box>
