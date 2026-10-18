@@ -29,13 +29,13 @@ options: RequestInit & { token?: string | null } = {}
   const payload = await response.json().catch(() => ({}))
 
   if (!response.ok) {
-    const error: ApiError = {
+    const message = payload.message || payload.error?.message || transl('error.generic')
+    const error: ApiError = Object.assign(new Error(message), {
       status    : response.status,
       errorCode : payload.errorCode,
       messageKey: payload.messageKey,
       params    : payload.params,
-      message   : payload.message || payload.error?.message || transl('error.generic')
-    }
+    })
     throw error
   }
 
