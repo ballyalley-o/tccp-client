@@ -39,16 +39,16 @@ const _SHARED_RECOMMENDATION: DashboardRecommendation[] =  [
 
 export const MOCK_DATA: DashboardDataModelType = {
     guest: {
-        audience             : 'guest',
-        welcomeTitleFallback : 'dashboard.welcome_back',
-        welcomeMessage       : 'dashboard.welcome_message_user',
-        currentCourseTitle   : 'dashboard.your_current_courses',
-        currentCourseCta     : 'continue',
-        featuredTitle        : 'dashboard.featured_bootcamps',
-        featuredDescription  : 'dashboard.featured_description',
-        recommendationTitle  : 'dashboard.recommendation_title',
-        recommendation: _SHARED_RECOMMENDATION,
-        action        : [
+        audience            : 'guest',
+        welcomeTitleFallback: 'dashboard.welcome_back',
+        welcomeMessage      : 'dashboard.welcome_message_user',
+        currentCourseTitle  : 'dashboard.your_current_courses',
+        currentCourseCta    : 'continue',
+        featuredTitle       : 'dashboard.featured_bootcamps',
+        featuredDescription : 'dashboard.featured_description',
+        recommendationTitle : 'dashboard.recommendation_title',
+        recommendation      : _SHARED_RECOMMENDATION,
+        action              : [
             { id: 'browse-bootcamps', icon: <SchoolIcon />, label: 'dashboard.browse_bootcamps', path: PATH.BOOTCAMP.ROOT, variant: 'contained' },
             { id: 'browse-courses', icon: <BookmarkIcon />, label: 'dashboard.browse_courses', path: PATH.COURSE.ROOT, variant: 'outlined' },
             { id: 'profile', icon: <PersonIcon />, label: 'dashboard.view_profile', path: PATH.AUTH.ACCOUNT.ROOT, variant: 'outlined' },
