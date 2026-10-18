@@ -1,10 +1,7 @@
-import type { AppLocale as SharedAppLocale } from '@i18n'
 import type { LocaleKey } from 'lib/tool'
 
 declare global {
   declare module '*.css'
-  declare type AppLocale = SharedAppLocale
-
   declare type AppValueScaleType = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
   declare type AppSkillType = 'beginner' | 'intermediate' | 'advanced'
