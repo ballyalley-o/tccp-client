@@ -1,7 +1,8 @@
-import type { Bootcamp, User } from 'types'
-import { Box, Button, Link } from '@mui/material'
+import type { Bootcamp, User }                                         from 'types'
+import { Box, Button, Link }                                           from '@mui/material'
 import { Language as LanguageIcon, ImportContactsSharp as EnrollIcon } from '@mui/icons-material'
-import { transl } from 'lib/tool'
+import { getUserRole }                                                 from 'lib/tool/user-role'
+import { transl }                                                      from 'lib/tool'
 
 interface BootcampCtaGroupBoxProps {
     selected : Bootcamp
@@ -9,7 +10,7 @@ interface BootcampCtaGroupBoxProps {
 }
 
 const BootcampCtaGroupBox = ({ selected, user }: BootcampCtaGroupBoxProps) => {
-    const isTrainer = user && user?.role === 'trainer'
+    const isTrainer = user && getUserRole(user) === 'trainer'
     return (
    <Box display={'flex'} justifyContent={'flex-end'} gap={2}>
     {selected.website && (

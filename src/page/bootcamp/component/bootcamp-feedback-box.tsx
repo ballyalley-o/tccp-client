@@ -2,6 +2,7 @@ import type { Feedback }          from 'types'
 import { Stack, Box, Typography } from '@mui/material'
 import { AppUserAvatar }          from 'component/app'
 import { FeedbackBubbleBox }      from 'design/styled'
+import { getUserRole }            from 'lib/tool/user-role'
 
 interface BootcampFeedbackBoxProps {
     feedback: Feedback
@@ -11,7 +12,7 @@ interface BootcampFeedbackBoxProps {
 
 const getFeedbackRole = (feedback: Feedback) => {
   if (!feedback.user || typeof feedback.user === 'string') return 'user'
-  return feedback.user.role
+  return getUserRole(feedback.user)
 }
 
 const BootcampFeedbackBox = ({ feedback, author, isAuthor }: BootcampFeedbackBoxProps) => {
