@@ -4,6 +4,7 @@ declare interface AuthState {
   user           : User | null
   token          : string | null
   isAuthenticated: boolean
+  sessionChecked : boolean
   status         : AppStateStatusType
   error          : string | null
 }
@@ -17,7 +18,7 @@ declare interface RegisterCredential extends LoginCredential {
   firstname    : string
   lastname    ?: string
   username     : string
-  role         : User['role']
+  role         : string
   organization?: string
 }
 
