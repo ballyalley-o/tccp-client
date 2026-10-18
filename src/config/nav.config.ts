@@ -35,7 +35,7 @@ export const NAV: NavType = {
             value: 'dashboard',
             href : PATH.DASHBOARD,
             icon : DashboardIcon,
-            role: ['user', 'trainer', 'admin']
+            role: ['student', 'user', 'trainer', 'admin']
         },
         {
             id   : 'bootcamp',
@@ -43,7 +43,7 @@ export const NAV: NavType = {
             value: 'bootcamp',
             href : PATH.BOOTCAMP.ROOT,
             icon : BootcampIcon,
-            role: ['user', 'trainer', 'admin']
+            role: ['student', 'user', 'trainer', 'admin']
         },
         {
             id   : 'admin',
@@ -78,7 +78,7 @@ export const NAV: NavType = {
             value: 'account',
             href : PATH.AUTH.ACCOUNT.ROOT,
             icon : AccountIcon,
-            role : ['user', 'trainer', 'admin']
+            role : ['student', 'user', 'trainer', 'admin']
         },
         {
             id   : 'manage',
@@ -94,7 +94,7 @@ export const NAV: NavType = {
             icon : SettingsAccessibilitySharp,
             value: 'setting',
             href : PATH.AUTH.SETTING,
-            role : ['user', 'trainer', 'admin']
+            role : ['student', 'user', 'trainer', 'admin']
         },
         {
             id   : 'log-out',
@@ -102,7 +102,7 @@ export const NAV: NavType = {
             value: 'log-out',
             icon : LogoutSharp,
             href : PATH.AUTH.LOG_OUT,
-            role : ['user', 'trainer', 'admin']
+            role : ['student', 'user', 'trainer', 'admin']
         }
     ],
     FOOTER: [
