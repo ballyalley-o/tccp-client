@@ -1,17 +1,17 @@
-import type { User, UserRole } from 'types'
+import type { User } from 'types'
 
 export const loginUserDefaultValue = {
     email   : '',
     password: '',
 }
-export const registerUserDefaultValue =  (role: UserRole) => {
+export const registerUserDefaultValue =  () => {
    return {
         firstname   : '',
         lastname    : '',
         username    : '',
         email       : '',
         password    : '',
-        role,
+        role        : '',
         organization: '',
    }
 }
