@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+import { PATH } from 'route/path'
 import { Box, Button, Chip, Divider, Grid2, LinearProgress, Stack, Typography } from '@mui/material'
 import { NavigateNext as NextIcon } from '@mui/icons-material'
 import { FillCard, FillCardContent } from 'design/styled'
@@ -49,7 +51,7 @@ const DashboardCourseSection = ({ title, ctaLabel, courses, onViewAll }: Dashboa
                 </Stack>
 
                 <Divider />
-                <Button variant={'outlined'} size={'small'}>
+                <Button component={Link} to={PATH.COURSE.ROOT + '/' + course.id} variant={'outlined'} size={'small'}>
                   {ctaLabel}
                 </Button>
               </FillCardContent>
