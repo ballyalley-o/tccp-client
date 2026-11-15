@@ -44,5 +44,6 @@ export const PATH = {
   },
   COURSE: {
     ROOT: pathBuilder(_COURSE),
+    DETAIL: pathBuilder(_COURSE, ':courseId'),
   },
 }
