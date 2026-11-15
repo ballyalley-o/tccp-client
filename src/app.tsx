@@ -6,6 +6,7 @@ import router from 'route'
 import { CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from 'design/theme'
+import { AppConnectionBanner } from 'component/app'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -17,6 +18,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <AppConnectionBanner />
       <RouterProvider router={router} />
     </ThemeProvider>
   )

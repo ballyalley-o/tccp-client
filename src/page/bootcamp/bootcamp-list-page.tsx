@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { FILTER } from 'config'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { fetchBootcamps } from 'app/store/slice'
-import { Box, Grid2, InputAdornment, MenuItem, Stack, TextField, Typography } from '@mui/material'
+import { Alert, Box, Button, Grid2, InputAdornment, MenuItem, Stack, TextField, Typography } from '@mui/material'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import SearchIcon from '@mui/icons-material/Search'
 import { BootcampCard } from 'component/shared/card'
@@ -77,8 +77,14 @@ const BootcampListPage = () => {
         </Stack>
       </StickyStack>
 
+      {error && items.length > 0 ? (
+        <Alert severity={'warning'} action={<Button color={'inherit'} onClick={() => dispatch(fetchBootcamps({ sort }))}>{transl('retry')}</Button>}>
+          {error}
+        </Alert>
+      ) : null}
+
       {status === 'loading' || status === 'failed' ? (
-        <StatusView status={status} error={error} />
+        <StatusView status={status} error={error} onRetry={() => dispatch(fetchBootcamps({ sort }))} />
       ) : (
         <Grid2 container spacing={2}>
           {filtered.map((bootcamp) => (

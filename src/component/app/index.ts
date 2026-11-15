@@ -1,4 +1,5 @@
 export { default as AppAccountMenu } from './app-account-menu'
+export { default as AppConnectionBanner } from './app-connection-banner'
 export { default as AppLogo } from './app-logo'
 export * from './app-logo'
 export { default as AppFooter } from './app-footer'

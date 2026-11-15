@@ -105,6 +105,7 @@ export interface ApiSingle<T> {
 export interface ApiError extends Error {
   message    : string
   status     : number
+  kind       : 'aborted' | 'http' | 'offline' | 'timeout' | 'unavailable'
   errorCode ?: string
   messageKey?: string
   params    ?: Record<string, string | number | boolean>

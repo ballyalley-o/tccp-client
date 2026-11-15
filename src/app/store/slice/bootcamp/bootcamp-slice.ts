@@ -55,7 +55,7 @@ const bootcampsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchBootcamps.pending, (state) => {
-        state.status = 'loading'
+        state.status = state.items.length > 0 ? 'succeeded' : 'loading'
         state.error = null
       })
       .addCase(fetchBootcamps.fulfilled, (state, action) => {
@@ -64,14 +64,14 @@ const bootcampsSlice = createSlice({
         state.hasNextPage = Boolean(action.payload.pagination?.next)
       })
       .addCase(fetchBootcamps.rejected, (state, action) => {
-        state.status = 'failed'
+        state.status = state.items.length > 0 ? 'succeeded' : 'failed'
         state.error = action.error.message ?? 'Unable to load bootcamps'
       })
       .addCase(fetchTopBootcamps.fulfilled, (state, action) => {
         state.items = action.payload.data
       })
       .addCase(fetchBootcampBySlug.pending, (state) => {
-        state.detailStatus = 'loading'
+        state.detailStatus = state.selected ? 'succeeded' : 'loading'
         state.error = null
       })
       .addCase(fetchBootcampBySlug.fulfilled, (state, action) => {
@@ -79,7 +79,7 @@ const bootcampsSlice = createSlice({
         state.selected = action.payload.data ?? null
       })
       .addCase(fetchBootcampBySlug.rejected, (state, action) => {
-        state.detailStatus = 'failed'
+        state.detailStatus = state.selected ? 'succeeded' : 'failed'
         state.error = action.error.message ?? 'Unable to load bootcamp'
       })
       .addCase(createBootcamp.fulfilled, (state, action) => {

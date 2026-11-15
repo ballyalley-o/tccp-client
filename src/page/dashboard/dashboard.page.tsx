@@ -43,7 +43,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     const controller = new AbortController()
-    setResult(null)
+    setResult((current) => current?.key === requestKey ? current : null)
     apiRequest<DashboardResponse>(`/dashboard${asQueryString({ locale: ACTIVE_LOCALE_KEY })}`, {
       token,
       signal: controller.signal,
@@ -51,18 +51,25 @@ const DashboardPage = () => {
       if (!response.success) throw new Error(transl('error.generic'))
       if (!controller.signal.aborted) setResult({ key: requestKey, model: toDashboardModel(response.data) })
     }).catch((error: unknown) => {
-      if (!controller.signal.aborted) setResult({ key: requestKey, error: error instanceof Error ? error.message : transl('error.generic') })
+      if (!controller.signal.aborted) {
+        setResult((current) => ({
+          key  : requestKey,
+          model: current?.key === requestKey ? current.model : undefined,
+          error: error instanceof Error ? error.message : transl('error.generic')
+        }))
+      }
     })
     return () => controller.abort()
   }, [audience, token, requestKey, attempt])
 
-  if (result?.key === requestKey && result.error) {
+  if (result?.key === requestKey && result.error && !model) {
     return <Alert severity="error" action={<Button color="inherit" onClick={() => setAttempt((value) => value + 1)}>Retry</Button>}>{result.error}</Alert>
   }
   if (!model) return <Stack alignItems="center" sx={{ py: 8 }}><CircularProgress /></Stack>
 
   return (
     <Stack spacing={4}>
+      {result?.error ? <Alert severity={'warning'}>{result.error}</Alert> : null}
       <DashboardWelcome model={model} user={user} />
 
       {model?.stat && (

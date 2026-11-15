@@ -46,7 +46,7 @@ const feedbackSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchFeedbacks.pending, (state) => {
-        state.status = 'loading'
+        state.status = state.items.length > 0 ? 'succeeded' : 'loading'
         state.error  = null
       })
       .addCase(fetchFeedbacks.fulfilled, (state, action) => {
@@ -54,7 +54,7 @@ const feedbackSlice = createSlice({
         state.items  = action.payload.data
       })
       .addCase(fetchFeedbacks.rejected, (state, action) => {
-        state.status = 'failed'
+        state.status = state.items.length > 0 ? 'succeeded' : 'failed'
         state.error  = action.error.message ?? 'Unable to load feedback'
       })
       .addCase(createFeedback.pending, (state) => {

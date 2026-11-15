@@ -2,9 +2,10 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'app/hook'
 import { clearSelectedBootcamp, fetchBootcampBySlug } from 'app/store/slice'
-import { Grid2, Stack } from '@mui/material'
+import { Alert, Button, Grid2, Stack } from '@mui/material'
 import { StatusView } from 'component/shared/loader'
 import { BackButton } from 'component/shared/button'
+import { transl } from 'lib/tool'
 
 import { BootcampCourseCard, BootcampFeedbackCard, BootcampSelectedCoursesCard, BootcampMainCard, BootcampProgramFitStack } from './component'
 
@@ -24,11 +25,16 @@ const BootcampDetailPage = () => {
   }, [dispatch, bootcampSlug])
 
   if (detailStatus === 'loading' || detailStatus === 'failed' || !selected) {
-    return <StatusView status={detailStatus} error={error} />
+    return <StatusView status={detailStatus} error={error} onRetry={bootcampSlug ? () => dispatch(fetchBootcampBySlug(bootcampSlug)) : undefined} />
   }
 
   return (
     <Stack spacing={3}>
+      {error ? (
+        <Alert severity={'warning'} action={<Button color={'inherit'} onClick={() => bootcampSlug && dispatch(fetchBootcampBySlug(bootcampSlug))}>{transl('retry')}</Button>}>
+          {error}
+        </Alert>
+      ) : null}
       <BackButton />
       <BootcampProgramFitStack selected={selected} />
       <Grid2 container spacing={2}>
