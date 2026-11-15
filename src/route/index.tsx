@@ -3,7 +3,7 @@ import { FallbackErrorPage } from "page/fallback"
 
 import { dashboardRoute, bootcampRoute, authRoute } from 'route/module'
 import { AuthLayout, DashboardLayout, RootLayout } from "route/layout"
-import { AuthAccountPage, AuthAccountUpdatePage, ManagePage } from 'route/element'
+import { AuthAccountPage, AuthAccountUpdatePage, ManagePage, CourseWorkspacePage } from 'route/element'
 import { AuthGuard, GuestGuard } from "route/guard"
 import { AppProtectedRoute } from 'component/app'
 import { PATH } from 'route/path'
@@ -15,6 +15,8 @@ const router = createBrowserRouter([
         children    : [
            ...dashboardRoute,
            ...bootcampRoute,
+           { path: PATH.COURSE.ROOT, element: <CourseWorkspacePage /> },
+           { path: PATH.COURSE.DETAIL, element: <CourseWorkspacePage /> },
         ]
     },
     {
