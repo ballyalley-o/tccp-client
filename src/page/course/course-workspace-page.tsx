@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useAppSelector } from 'app/hook'
 import { apiRequest, asQueryString } from 'lib/api'
 import { PATH } from 'route/path'
-import type { ApiCollection, ApiSingle, Course } from 'types/model'
+import type { ApiCollection, Course } from 'types/model'
 import { Alert, Accordion, AccordionDetails, AccordionSummary, Box, Button, Card, CardContent, Chip, CircularProgress, Divider, Grid2, LinearProgress, MenuItem, Stack, TextField, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
