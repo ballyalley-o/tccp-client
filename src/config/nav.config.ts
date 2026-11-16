@@ -5,6 +5,7 @@ import { urlBuilder, type LocaleKey }                            from 'lib/tool'
 import { ShieldMoonSharp, SettingsAccessibilitySharp, LogoutSharp, type SvgIconComponent } from '@mui/icons-material'
 import AccountIcon                                                                         from '@mui/icons-material/AccountCircleSharp'
 import BootcampIcon                                                                        from '@mui/icons-material/SchoolSharp'
+import CourseIcon from '@mui/icons-material/MenuBookSharp'
 import DashboardIcon                                                                       from '@mui/icons-material/Dashboard'
 import AdminPanelIcon                                                                      from '@mui/icons-material/AdminPanelSettingsSharp'
 import UsersIcon                                                                           from '@mui/icons-material/PeopleSharp'
@@ -43,6 +44,14 @@ export const NAV: NavType = {
             value: 'bootcamp',
             href : PATH.BOOTCAMP.ROOT,
             icon : BootcampIcon,
+            role: ['student', 'user', 'trainer', 'admin']
+        },
+        {
+            id   : 'course',
+            label: 'courses',
+            value: 'course',
+            href : PATH.COURSE.ROOT,
+            icon : CourseIcon,
             role: ['student', 'user', 'trainer', 'admin']
         },
         {
