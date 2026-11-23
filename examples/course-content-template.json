@@ -1,0 +1,71 @@
+{
+  "modules": [
+    {
+      "title": "Introduction and learning objectives",
+      "description": "Replace this template with the course-specific introduction and objectives.",
+      "order": 1,
+      "lectures": [
+        {
+          "title": "Welcome and course overview",
+          "description": "Introduction to the course",
+          "content": "Add the trainer's course overview and learning objectives here.",
+          "durationMinutes": 15,
+          "resources": []
+        }
+      ],
+      "quizzes": [
+        {
+          "title": "Module 1 knowledge check",
+          "description": "Sample question. Replace before publishing to students.",
+          "passingScore": 70,
+          "questions": [
+            {
+              "prompt": "Which statement best describes the purpose of this introductory module?",
+              "type": "multiple_choice",
+              "options": [
+                "Introduce the course objectives",
+                "Issue a course completion certificate",
+                "Replace all later lessons",
+                "Record final assessment results"
+              ],
+              "answer": 0,
+              "points": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Core concepts and practice",
+      "description": "Add the course's core material, exercises, and resources.",
+      "order": 2,
+      "lectures": [
+        {
+          "title": "Core lesson",
+          "content": "Replace with the course-specific teaching material.",
+          "durationMinutes": 30
+        }
+      ],
+      "quizzes": [
+        {
+          "title": "Core concepts check",
+          "passingScore": 70,
+          "questions": [
+            {
+              "prompt": "What should learners do after reviewing the lesson material?",
+              "type": "multiple_choice",
+              "options": [
+                "Complete the practice activities",
+                "Skip directly to course completion",
+                "Delete their enrollment",
+                "Ignore the lesson resources"
+              ],
+              "answer": 0,
+              "points": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
