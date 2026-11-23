@@ -36,7 +36,7 @@ const coursesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCourses.pending, (state) => {
-        state.status = 'loading'
+        state.status = state.items.length > 0 ? 'succeeded' : 'loading'
         state.error = null
       })
       .addCase(fetchCourses.fulfilled, (state, action) => {
@@ -44,7 +44,7 @@ const coursesSlice = createSlice({
         state.items = action.payload.data
       })
       .addCase(fetchCourses.rejected, (state, action) => {
-        state.status = 'failed'
+        state.status = state.items.length > 0 ? 'succeeded' : 'failed'
         state.error = action.error.message ?? 'Unable to load courses'
       })
       .addCase(createCourse.fulfilled, (state, action) => {
