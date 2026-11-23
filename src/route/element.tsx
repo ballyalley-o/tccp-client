@@ -13,3 +13,5 @@ export const AuthAccountPage       = Loadable(lazy(() => import('page/auth/auth-
 export const ManagePage            = Loadable(lazy(() => import('page/manage/manage-page')))
 
 export const CourseWorkspacePage = Loadable(lazy(() => import('page/course/course-workspace-page')))
+
+export const BootcampCourseCms = Loadable(lazy(() => import('page/manage/bootcamp-course-cms')))
