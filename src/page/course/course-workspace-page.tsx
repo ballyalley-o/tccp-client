@@ -72,9 +72,14 @@ export default function CourseWorkspacePage() {
 
   const enroll = async () => {
     if (!selected || !startDate) return
+    const bootcampId = refId(selected.bootcamp)
+    if (!/^[0-9a-fA-F]{24}$/.test(bootcampId)) {
+      setError('This course has no valid bootcamp association. Please ask an administrator to assign it to a bootcamp.')
+      return
+    }
     setBusy(true); setError(''); setNotice('')
     try {
-      await apiRequest('/enrollment', { method: 'POST', token, body: JSON.stringify({ course: selected._id, bootcamp: refId(selected.bootcamp), startDate }) })
+      await apiRequest('/enrollment', { method: 'POST', token, body: JSON.stringify({ course: selected._id, bootcamp: bootcampId, startDate }) })
       setNotice('Enrollment created successfully.')
       await load()
     } catch (e) { setError(message(e)) }
