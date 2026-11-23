@@ -42,7 +42,7 @@ export default function BootcampCourseCms() {
     if (!selectedBootcamp || !draft) return
     setBusy(true); setError(''); setNotice('')
     try {
-      await apiRequest('/bootcamp/' + encodeURIComponent(selectedBootcamp.slug), { method: 'PUT', body: JSON.stringify(draft) })
+      await apiRequest('/bootcamp/' + selectedBootcamp._id, { method: 'PUT', body: JSON.stringify(draft) })
       setNotice('Bootcamp details saved.')
       await load()
     } catch (err) { setError(err instanceof Error ? err.message : 'Unable to update bootcamp') }
