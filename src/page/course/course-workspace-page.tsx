@@ -7,6 +7,9 @@ import type { ApiCollection, Course } from 'types/model'
 import { Alert, Accordion, AccordionDetails, AccordionSummary, Box, Button, Card, CardContent, Chip, CircularProgress, Divider, Grid2, LinearProgress, MenuItem, Stack, TextField, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import CourseContentImporter from './course-content-importer'
+import CourseBootcampManager from './course-bootcamp-manager'
+import { InputAdornment } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
 type Ref = string | { _id: string; title?: string; name?: string }
 type Enrollment = { _id: string; course: Ref; bootcamp: Ref; status: string; progress: number; startDate: string }
@@ -26,6 +29,8 @@ export default function CourseWorkspacePage() {
   const role = typeof user?.role === 'string' ? user.role : user?.role?.name
   const canManage = role === 'trainer' || role === 'admin'
   const [courses, setCourses] = useState<Course[]>([])
+  const [search, setSearch] = useState('')
+  const [skillFilter, setSkillFilter] = useState('all')
   const [enrollments, setEnrollments] = useState<Enrollment[]>([])
   const [modules, setModules] = useState<Module[]>([])
   const [lectures, setLectures] = useState<Lecture[]>([])
@@ -172,8 +177,44 @@ export default function CourseWorkspacePage() {
     <Box><Typography variant="h4">{selected ? selected.title : 'Courses'}</Typography><Typography color="text.secondary">{selected ? selected.description : 'Browse courses and continue your learning.'}</Typography></Box>
     {error && <Alert severity="error" onClose={() => setError('')}>{error}</Alert>}
     {notice && <Alert severity="success" onClose={() => setNotice('')}>{notice}</Alert>}
-    {!courseId && <Grid2 container spacing={2}>{courses.map(course => <Grid2 key={course._id} size={{ xs: 12, md: 6 }}><Card><CardContent><Stack spacing={2}><Typography variant="h6">{course.title}</Typography><Typography>{course.description}</Typography><Stack direction="row" spacing={1}><Chip label={course.duration} /><Chip label={course.minimumSkill} /></Stack><Button component={Link} to={PATH.COURSE.ROOT + '/' + course._id} variant="contained">View course</Button></Stack></CardContent></Card></Grid2>)}</Grid2>}
-    {!courseId && courses.length === 0 && <Alert severity="info">No courses are available yet.</Alert>}
+    {!courseId && <>
+      <Box sx={{ borderRadius: 3, bgcolor: 'primary.main', color: 'primary.contrastText', px: { xs: 3, md: 6 }, py: { xs: 5, md: 7 } }}>
+        <Typography variant="overline" sx={{ opacity: .8 }}>Explore your next opportunity</Typography>
+        <Typography variant="h3" fontWeight={800} sx={{ maxWidth: 680, my: 1 }}>Learn practical skills with our courses</Typography>
+        <Typography sx={{ maxWidth: 640, opacity: .9 }}>Browse available courses, discover their bootcamps, and find the right place to start.</Typography>
+        <Chip sx={{ mt: 3, bgcolor: 'background.paper' }} label={courses.length + ' available courses'} />
+      </Box>
+      <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
+        <TextField fullWidth label="Search courses" placeholder="Search by title, topic or bootcamp" value={search} onChange={e => setSearch(e.target.value)} slotProps={{ input: { startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment> } }} />
+        <TextField select label="Skill level" value={skillFilter} onChange={e => setSkillFilter(e.target.value)} sx={{ minWidth: 190 }}>
+          <MenuItem value="all">All levels</MenuItem>
+          {Array.from(new Set(courses.map(c => String(c.minimumSkill || '')).filter(Boolean))).map(level => <MenuItem key={level} value={level}>{level}</MenuItem>)}
+        </TextField>
+      </Stack>
+      {role === 'admin' && <CourseBootcampManager courses={courses} token={token} onUpdated={load} />}
+      <Grid2 container spacing={3}>{courses.filter(course => {
+        const bootcampName = typeof course.bootcamp === 'string' ? '' : course.bootcamp?.name || ''
+        const match = (course.title + ' ' + course.description + ' ' + bootcampName).toLowerCase().includes(search.toLowerCase())
+        return match && (skillFilter === 'all' || String(course.minimumSkill) === skillFilter)
+      }).map(course => <Grid2 key={course._id} size={{ xs: 12, sm: 6, lg: 4 }}>
+        <Card variant="outlined" sx={{ height: '100%', borderRadius: 3, display: 'flex', flexDirection: 'column', transition: 'box-shadow .2s', '&:hover': { boxShadow: 5 } }}>
+          <Box sx={{ height: 8, bgcolor: 'primary.main' }} />
+          <CardContent sx={{ p: 3, flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <Stack direction="row" spacing={1} sx={{ mb: 2 }}><Chip size="small" label={String(course.minimumSkill || 'All levels')} /><Chip size="small" variant="outlined" label={String(course.duration || 'Self-paced')} /></Stack>
+            <Typography variant="h6" fontWeight={700} gutterBottom>{course.title}</Typography>
+            <Typography color="text.secondary" sx={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', mb: 2 }}>{course.description || 'Explore the course content and learning outcomes.'}</Typography>
+            <Typography variant="body2" sx={{ mb: 2 }}><strong>Bootcamp:</strong> {typeof course.bootcamp === 'string' ? 'Not assigned' : course.bootcamp?.name || 'Not assigned'}</Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <Stack direction="row" justifyContent="space-between" alignItems="center">
+              <Typography fontWeight={700}>{Number(course.tuition) > 0 ? '$' + Number(course.tuition).toLocaleString() : 'Free / contact us'}</Typography>
+              <Button component={Link} to={PATH.COURSE.ROOT + '/' + course._id} variant="contained">Explore course</Button>
+            </Stack>
+          </CardContent>
+        </Card>
+      </Grid2>)}</Grid2>
+      {courses.length === 0 && <Alert severity="info">No courses are available yet.</Alert>}
+      {courses.length > 0 && !courses.some(c => (c.title + ' ' + c.description + ' ' + (typeof c.bootcamp === 'string' ? '' : c.bootcamp?.name || '')).toLowerCase().includes(search.toLowerCase()) && (skillFilter === 'all' || String(c.minimumSkill) === skillFilter)) && <Alert severity="info">No courses match your filters. Try another search.</Alert>}
+    </>}
     {courseId && !selected && <Alert severity="warning">Course not found. <Link to={PATH.COURSE.ROOT}>Back to courses</Link></Alert>}
     {selected && <>
       <Button component={Link} to={PATH.COURSE.ROOT} sx={{ alignSelf: 'start' }}>All courses</Button>
