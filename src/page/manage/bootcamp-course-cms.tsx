@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from 'app/hook'
 import { Alert, Box, Button, Card, CardContent, Chip, CircularProgress, Divider, Grid2, MenuItem, Stack, TextField, Typography } from '@mui/material'
 import { apiRequest } from 'lib/api'
 import type { ApiCollection, Bootcamp, Course } from 'types/model'
@@ -11,6 +12,7 @@ type Draft = { name: string; description: string; website: string; phone: string
 const draftOf = (b: Bootcamp): Draft => ({ name: b.name || '', description: b.description || '', website: b.website || '', phone: b.phone || '', email: b.email || '', duration: b.duration || '' })
 
 export default function BootcampCourseCms() {
+  const token = useAppSelector(state => state.auth.token)
   const [bootcamps, setBootcamps] = useState<Bootcamp[]>([])
   const [courses, setCourses] = useState<Course[]>([])
   const [bootcampId, setBootcampId] = useState('')
@@ -42,7 +44,7 @@ export default function BootcampCourseCms() {
     if (!selectedBootcamp || !draft) return
     setBusy(true); setError(''); setNotice('')
     try {
-      await apiRequest('/bootcamp/' + selectedBootcamp._id, { method: 'PUT', body: JSON.stringify(draft) })
+      await apiRequest('/bootcamp/' + selectedBootcamp._id, { method: 'PUT', token, body: JSON.stringify(draft) })
       setNotice('Bootcamp details saved.')
       await load()
     } catch (err) { setError(err instanceof Error ? err.message : 'Unable to update bootcamp') }
@@ -53,7 +55,7 @@ export default function BootcampCourseCms() {
     if (!validId(bootcampId)) return
     setBusy(true); setError(''); setNotice('')
     try {
-      await apiRequest('/course/' + course._id, { method: 'PUT', body: JSON.stringify({ bootcamp: bootcampId }) })
+      await apiRequest('/course/' + course._id, { method: 'PUT', token, body: JSON.stringify({ bootcamp: bootcampId }) })
       setNotice('Assigned ' + course.title + ' to ' + selectedBootcamp?.name)
       setSelectedCourse('')
       await load()
