@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter, Navigate } from "react-router-dom"
 import { FallbackErrorPage } from "page/fallback"
 
 import { dashboardRoute, bootcampRoute, authRoute } from 'route/module'
@@ -50,6 +50,7 @@ const router = createBrowserRouter([
                     {
                         element: <AppProtectedRoute roles={['admin']} />,
                         children: [
+                            { path: PATH.ADMIN.ROOT, element: <Navigate to={PATH.ADMIN.BOOTCAMP} replace /> },
                             { path: PATH.ADMIN.BOOTCAMP, element: <BootcampCourseCms /> }
                         ]
                     },
