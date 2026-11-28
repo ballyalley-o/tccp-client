@@ -1,0 +1,127 @@
+{
+  "modules": [
+    {
+      "title": "Course Orientation",
+      "description": "Understand the course structure and set a learning goal.",
+      "order": 1,
+      "lectures": [
+        {
+          "title": "Welcome and learning objectives",
+          "description": "Starter lesson",
+          "content": "Review the course overview. Write one measurable learning goal and schedule time for practice.",
+          "durationMinutes": 10
+        }
+      ],
+      "quizzes": [
+        {
+          "title": "Course Orientation Quiz",
+          "passingScore": 70,
+          "questions": [
+            {
+              "prompt": "What is a useful first step in a course?",
+              "options": [
+                "Skip the overview",
+                "Review objectives",
+                "Ignore goals"
+              ],
+              "answer": 1,
+              "points": 1
+            },
+            {
+              "prompt": "What is a helpful response to feedback?",
+              "options": [
+                "Use it to improve",
+                "Ignore it",
+                "Stop practicing"
+              ],
+              "answer": 0,
+              "points": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Learning Fundamentals",
+      "description": "Build study habits and practice problem solving.",
+      "order": 2,
+      "lectures": [
+        {
+          "title": "Active learning and problem solving",
+          "description": "Starter lesson",
+          "content": "Summarise ideas in your own words. Break large problems into small steps, test solutions, and use feedback.",
+          "durationMinutes": 10
+        }
+      ],
+      "quizzes": [
+        {
+          "title": "Learning Fundamentals Quiz",
+          "passingScore": 70,
+          "questions": [
+            {
+              "prompt": "Which activity is active learning?",
+              "options": [
+                "Avoid practice",
+                "Explain a concept in your own words",
+                "Ignore feedback"
+              ],
+              "answer": 1,
+              "points": 1
+            },
+            {
+              "prompt": "What is a helpful response to feedback?",
+              "options": [
+                "Use it to improve",
+                "Ignore it",
+                "Stop practicing"
+              ],
+              "answer": 0,
+              "points": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Practice and Review",
+      "description": "Apply knowledge and reflect on your progress.",
+      "order": 3,
+      "lectures": [
+        {
+          "title": "Apply and reflect",
+          "description": "Starter lesson",
+          "content": "Complete a small practical exercise. Document what worked, what you learned, and your next milestone.",
+          "durationMinutes": 10
+        }
+      ],
+      "quizzes": [
+        {
+          "title": "Practice and Review Quiz",
+          "passingScore": 70,
+          "questions": [
+            {
+              "prompt": "Why complete a practical exercise?",
+              "options": [
+                "To avoid mistakes",
+                "To skip lessons",
+                "To apply what you learned"
+              ],
+              "answer": 2,
+              "points": 1
+            },
+            {
+              "prompt": "What is a helpful response to feedback?",
+              "options": [
+                "Use it to improve",
+                "Ignore it",
+                "Stop practicing"
+              ],
+              "answer": 0,
+              "points": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
