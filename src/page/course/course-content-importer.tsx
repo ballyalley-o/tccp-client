@@ -53,6 +53,16 @@ export default function CourseContentImporter({ courseId, token, onImported }: {
     event.target.value = ''
   }
 
+  const loadStarter = async () => {
+    setData(null); setError(''); setProgress('')
+    try {
+      const response = await fetch('/starter-course-content.json')
+      if (!response.ok) throw new Error('Starter package could not be loaded.')
+      setData(validate(await response.json()))
+      setProgress('Starter package loaded. Review the counts, then choose Create imported content.')
+    } catch (err) { setError(err instanceof Error ? err.message : 'Could not load starter content.') }
+  }
+
   const upload = async () => {
     if (!data) return
     setBusy(true); setError(''); setProgress('')
@@ -95,6 +105,7 @@ export default function CourseContentImporter({ courseId, token, onImported }: {
   return <Card variant="outlined"><CardContent><Stack spacing={2}>
     <Typography variant="h6">Import trainer modules and quizzes</Typography>
     <Typography color="text.secondary">Choose a JSON course package. It can include modules, lectures and multiple-choice quizzes. Content is created in this course using your trainer permissions.</Typography>
+    <Button variant="outlined" disabled={busy} onClick={loadStarter}>Load starter modules and quizzes</Button>
     <Button component="label" variant="outlined" disabled={busy}>Choose JSON file<input hidden type="file" accept=".json,application/json" onChange={selectFile} /></Button>
     {data && <Alert severity="info">Ready to import {data.modules.length} modules, {data.modules.reduce((n, m) => n + (m.lectures?.length || 0), 0)} lectures and {data.modules.reduce((n, m) => n + (m.quizzes?.length || 0), 0)} quizzes.</Alert>}
     {error && <Alert severity="error">{error}</Alert>}
